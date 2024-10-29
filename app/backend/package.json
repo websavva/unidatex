@@ -24,6 +24,8 @@
     "@nestjs/common": "^10.3.2",
     "@nestjs/core": "^10.4.4",
     "@nestjs/platform-express": "^10.4.4",
+    "@nestjs/serve-static": "^4.0.2",
+    "@unidatex/static": "workspace:*",
     "reflect-metadata": "^0.2.1",
     "rxjs": "^7.8.1"
   },

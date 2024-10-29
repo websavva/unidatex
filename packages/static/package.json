@@ -1,0 +1,17 @@
+{
+  "name": "@unidatex/static",
+  "version": "0.0.0",
+  "description": "Static files for the app",
+  "engines": {
+    "node": "22.x",
+    "pnpm": "9.12.3"
+  },
+  "packageManager": "pnpm@9.12.3",
+  "exports": {
+    ".": {
+      "require": "./index.cjs",
+      "import": "./index.mjs",
+      "types": "./types.d.ts"
+    }
+  }
+}
