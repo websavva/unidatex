@@ -1,24 +1,34 @@
-import { Controller, Get, Inject } from '@nestjs/common';
-import { ConfigType } from '@nestjs/config';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 import { AppService } from './app.service';
-import { loadDatabaseConfig } from './config/database.config';
+import { User } from './entities/user.entity';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    @Inject(loadDatabaseConfig.KEY)
-    private dbConfig: ConfigType<typeof loadDatabaseConfig>,
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
   ) {}
 
-  @Get()
+  @Get('/')
   getHello(): string {
     return this.appService.getHello();
   }
 
-  @Get('/env')
-  getEnv() {
-    return this.dbConfig;
+  @Get('/users')
+  getAllUsers() {
+    return this.usersRepository.find();
+  }
+
+  @Post('/users')
+  createUser(@Body() newUserDto: { name: string }) {
+    const newUser = new User();
+
+    newUser.name = newUserDto.name;
+
+    return this.usersRepository.save(newUser);
   }
 }
