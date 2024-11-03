@@ -22,6 +22,7 @@
   "packageManager": "pnpm@9.12.3",
   "dependencies": {
     "@nestjs/common": "^10.3.2",
+    "@nestjs/config": "^3.3.0",
     "@nestjs/core": "^10.4.4",
     "@nestjs/platform-express": "^10.4.4",
     "@nestjs/serve-static": "^4.0.2",
