@@ -32,6 +32,9 @@ importers:
       '@nestjs/typeorm':
         specifier: ^10.0.2
         version: 10.0.2(@nestjs/common@10.4.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.6)(reflect-metadata@0.2.2)(rxjs@7.8.1)(typeorm@0.3.20(pg@8.13.1)(ts-node@10.9.2(@swc/core@1.7.40)(@types/node@20.17.3)(typescript@5.6.3)))
+      '@unidatex/dto':
+        specifier: workspace:*
+        version: link:../../packages/dto
       '@unidatex/static':
         specifier: workspace:*
         version: link:../../packages/static
@@ -117,6 +120,12 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.6.3
+
+  packages/dto:
+    dependencies:
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
 
   packages/static: {}
 
@@ -3480,6 +3489,9 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
 snapshots:
 
@@ -7271,3 +7283,5 @@ snapshots:
   yn@3.1.1: {}
 
   yocto-queue@0.1.0: {}
+
+  zod@3.23.8: {}

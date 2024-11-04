@@ -1,0 +1,24 @@
+{
+  "name": "@unidatex/dto",
+  "version": "0.0.0",
+  "description": "Data Transfer Objects for the app",
+  "engines": {
+    "node": "22.x",
+    "pnpm": "9.12.3"
+  },
+  "packageManager": "pnpm@9.12.3",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": [
+      "./src/*",
+      "./src/*.ts"
+    ]
+  },
+  "main": "src/index.ts",
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}
