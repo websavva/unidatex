@@ -1,6 +1,6 @@
 import { registerAs } from '@nestjs/config';
 
-export const loadDatabaseConfig = registerAs('database', () => ({
+export const postgresConfigLoader = registerAs('postgres', () => ({
   HOST: process.env.POSTGRES_HOST!,
   PORT: +process.env.POSTGRES_PORT!,
   USER: process.env.POSTGRES_USER!,

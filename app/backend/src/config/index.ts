@@ -1,5 +1,7 @@
-import { loadDatabaseConfig } from './database.config';
+import { postgresConfigLoader } from './postgres.config';
+import { redisConfigLoader } from './redis.config';
 
-export * from './database.config';
+export * from './postgres.config';
+export * from './redis.config';
 
-export const configLoaders = [loadDatabaseConfig];
+export const configLoaders = [postgresConfigLoader, redisConfigLoader];
