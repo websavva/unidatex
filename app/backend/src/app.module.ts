@@ -4,19 +4,17 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { staticDirFullPath } from '@unidatex/static';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { allEntities, User } from '#shared/entities';
-import { CacheModule } from '#shared/modules/cache.module';
+import { allEntities } from '#shared/entities';
 import {
   ConfigModule,
   postgresConfigLoader,
   ConfigType,
 } from '#shared/modules/config/config.module';
 
+import { V1Module } from './v1/v1.module';
+
 @Module({
   imports: [
-    ConfigModule,
     ServeStaticModule.forRoot({
       rootPath: staticDirFullPath,
     }),
@@ -46,11 +44,8 @@ import {
 
       inject: [postgresConfigLoader.KEY],
     }),
-    CacheModule,
 
-    TypeOrmModule.forFeature([User]),
+    V1Module,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
