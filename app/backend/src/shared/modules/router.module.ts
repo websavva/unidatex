@@ -1,5 +1,9 @@
-import { Type } from '@nestjs/common';
-import { RouteTree } from '@nestjs/core';
+import { Type, Module, DynamicModule } from '@nestjs/common';
+import {
+  RouterModule as CoreRouterModule,
+  RouteTree,
+  Routes,
+} from '@nestjs/core';
 
 export const extractModulesFromRoutes = (
   routes: Array<RouteTree | Type<any>>,
@@ -20,3 +24,16 @@ export const extractModulesFromRoutes = (
 
   return modules;
 };
+
+@Module({})
+export class RouterModule {
+  public static register(routes: Routes): DynamicModule {
+    return {
+      module: RouterModule,
+      imports: [
+        ...extractModulesFromRoutes(routes),
+        CoreRouterModule.register(routes),
+      ],
+    };
+  }
+}
