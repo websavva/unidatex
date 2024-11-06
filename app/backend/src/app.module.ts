@@ -1,27 +1,22 @@
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { ConfigModule, ConfigType } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CacheModule, CacheStore } from '@nestjs/cache-manager';
-import { redisStore } from 'cache-manager-redis-yet';
 
 import { staticDirFullPath } from '@unidatex/static';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { allEntities, User } from '#shared/entities';
+import { CacheModule } from '#shared/modules/cache.module';
 import {
-  configLoaders,
+  ConfigModule,
   postgresConfigLoader,
-  redisConfigLoader,
-} from './config';
-import { allEntities } from './entities';
+  ConfigType,
+} from '#shared/modules/config/config.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      load: configLoaders,
-    }),
+    ConfigModule,
     ServeStaticModule.forRoot({
       rootPath: staticDirFullPath,
     }),
@@ -51,33 +46,9 @@ import { allEntities } from './entities';
 
       inject: [postgresConfigLoader.KEY],
     }),
+    CacheModule,
 
-    TypeOrmModule.forFeature(allEntities),
-
-    CacheModule.registerAsync({
-      imports: [ConfigModule],
-
-      useFactory: async (redisConfig: ConfigType<typeof redisConfigLoader>) => {
-        const { PASSWORD, PORT, HOST } = redisConfig;
-
-        const store = (await redisStore({
-          socket: {
-            host: HOST,
-            port: PORT,
-          },
-
-          password: PASSWORD,
-        })) as unknown as CacheStore;
-
-        return {
-          store,
-        };
-      },
-
-      inject: [redisConfigLoader.KEY],
-
-      isGlobal: true,
-    }),
+    TypeOrmModule.forFeature([User]),
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -4,8 +4,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
 
+import { User } from '#shared/entities/user.entity';
+
 import { AppService } from './app.service';
-import { User } from './entities/user.entity';
 
 @Controller()
 export class AppController {
