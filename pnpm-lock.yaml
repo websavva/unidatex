@@ -59,6 +59,12 @@ importers:
       typeorm:
         specifier: ^0.3.20
         version: 0.3.20(pg@8.13.1)(redis@4.7.0)(ts-node@10.9.2(@swc/core@1.7.40)(@types/node@20.17.3)(typescript@5.6.3))
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+      zod-error:
+        specifier: ^1.5.0
+        version: 1.5.0
     devDependencies:
       '@nestjs/cli':
         specifier: ^10.4.5
@@ -3568,6 +3574,9 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zod-error@1.5.0:
+    resolution: {integrity: sha512-zzopKZ/skI9iXpqCEPj+iLCKl9b88E43ehcU+sbRoHuwGd9F1IDVGQ70TyO6kmfiRL1g4IXkjsXK+g1gLYl4WQ==}
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
@@ -7435,5 +7444,9 @@ snapshots:
   yn@3.1.1: {}
 
   yocto-queue@0.1.0: {}
+
+  zod-error@1.5.0:
+    dependencies:
+      zod: 3.23.8
 
   zod@3.23.8: {}
