@@ -67,6 +67,12 @@ export class AuthService {
     );
   }
 
+  deleteSignUpRequest(email: string) {
+    const key = this.getSignUpRequestKey(email);
+
+    return this.cacheManager.del(key);
+  }
+
   async createUserFromSingUpDto(signUpDto: AuthSignUpDto) {
     const {
       password,
@@ -127,6 +133,8 @@ export class AuthService {
 
     if (!userToBeConfirmed)
       throw new BadRequestException('No sign-up request was found');
+
+    await this.deleteSignUpRequest(email);
 
     return this.usersService.usersRepository.save(userToBeConfirmed);
   }
