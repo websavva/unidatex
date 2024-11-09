@@ -1,4 +1,11 @@
-import { Controller, Post, UsePipes, Body, Query } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  UsePipes,
+  Body,
+  Query,
+  UseFilters,
+} from '@nestjs/common';
 
 import {
   AuthSignUpDtoSchema,
@@ -8,10 +15,12 @@ import {
 } from '@unidatex/dto';
 
 import { ZodValidationPipe } from '#shared/pipes/zod-validation.pipe';
+import { JwtExceptionFilter } from '#shared/exception-filters/jwt.exception-filter';
 
 import { AuthService } from '../service/auth.service';
 
 @Controller()
+@UseFilters(JwtExceptionFilter)
 export class AuthController {
   constructor(private authService: AuthService) {}
 
