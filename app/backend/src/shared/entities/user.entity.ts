@@ -12,4 +12,10 @@ export class User {
     unique: true,
   })
   email: string;
+
+  @Column({
+    type: 'varchar',
+    nullable: false,
+  })
+  passwordHash: string;
 }
