@@ -7,7 +7,7 @@ import { User } from '#shared/entities';
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(User) private usersRepository: Repository<User>,
+    @InjectRepository(User) public usersRepository: Repository<User>,
   ) {}
 
   findUserByEmail(email: string) {

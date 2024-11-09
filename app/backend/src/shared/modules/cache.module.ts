@@ -40,3 +40,5 @@ import {
   exports: [CoreCacheModule],
 })
 export class CacheModule {}
+
+export { CACHE_MANAGER, Cache as CacheManager } from '@nestjs/cache-manager';

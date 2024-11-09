@@ -6,4 +6,4 @@ export const password = z
   .max(30)
   .regex(/\d/g, 'At least one digit')
   .regex(/[A-Za-z]/g, 'At least one letter')
-  .regex(/@$!%*?&/g, 'At least one special symbol (@$!%*?&)');
+  .regex(/[@$!%*?&]/g, 'At least one special symbol (@$!%*?&)');
