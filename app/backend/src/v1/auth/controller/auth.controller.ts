@@ -12,6 +12,8 @@ import {
   AuthSignUpDto,
   AuthSignUpConfirmDto,
   AuthSignUpConfirmDtoSchema,
+  AuthLoginDtoSchema,
+  AuthLoginDto,
 } from '@unidatex/dto';
 
 import { ZodValidationPipe } from '#shared/pipes/zod-validation.pipe';
@@ -36,5 +38,11 @@ export class AuthController {
     { token }: AuthSignUpConfirmDto,
   ) {
     return this.authService.confirmSignUp(token);
+  }
+
+  @UsePipes(new ZodValidationPipe(AuthLoginDtoSchema))
+  @Post('/login')
+  public logIn(@Body() loginDto: AuthLoginDto) {
+    return this.authService.logIn(loginDto);
   }
 }

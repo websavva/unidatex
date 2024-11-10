@@ -13,7 +13,7 @@ export class CryptoService {
     return bcrypt.hash(password, 8);
   }
 
-  comparePassword(plainPassword: string, passwordHash: string) {
+  comparePasswords(plainPassword: string, passwordHash: string) {
     return bcrypt.compare(plainPassword, passwordHash);
   }
 }

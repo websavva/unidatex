@@ -1,6 +1,11 @@
-import { Injectable, BadRequestException, Inject } from '@nestjs/common';
+import {
+  Injectable,
+  BadRequestException,
+  Inject,
+  NotFoundException,
+} from '@nestjs/common';
 
-import { AuthSignUpDto } from '@unidatex/dto';
+import { AuthLoginDto, AuthSignUpDto } from '@unidatex/dto';
 
 import { JwtService } from '#shared/services/jwt.service';
 import { UsersService } from '#shared/modules/users/users.module';
@@ -12,11 +17,7 @@ import {
 import { CryptoService } from '#shared/services/crypto.service';
 import { User } from '#shared/entities';
 
-export interface AuthPayload {
-  email: string;
-}
-
-export type AuthTokenType = keyof ConfigType<typeof jwtConfigLoader>;
+import { AuthPayload, AuthTokenType } from '../types';
 
 @Injectable()
 export class AuthService {
@@ -137,5 +138,45 @@ export class AuthService {
     await this.deleteSignUpRequest(email);
 
     return this.usersService.usersRepository.save(userToBeConfirmed);
+  }
+
+  async validateAccessToken(accessToken: string) {
+    const { email } = await this.verifyAuthPayload(accessToken, 'access');
+
+    return this.usersService.findUserByEmail(email, true);
+  }
+
+  async logIn(authLoginDto: AuthLoginDto) {
+    const user = await this.usersService.findUserByEmail(
+      authLoginDto.email,
+      false,
+    );
+
+    if (!user)
+      throw new NotFoundException(
+        `User with the given email "${authLoginDto.email}" was not found`,
+      );
+
+    const isPasswordCorrect = await this.cryptoService
+      .comparePasswords(authLoginDto.password, user.passwordHash)
+      .catch(() => {
+        return false;
+      });
+
+    if (!isPasswordCorrect)
+      throw new BadRequestException('Invalid credentials');
+
+    const accessToken = await this.signAuthPayload(
+      {
+        email: authLoginDto.email,
+      },
+      'access',
+    );
+
+    return {
+      accessToken,
+
+      user,
+    };
   }
 }
