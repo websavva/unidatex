@@ -18,16 +18,15 @@ export class JwtService {
     });
   }
 
-  verify<P extends Record<string, any> = Record<string, any>>(
-    token: string,
-    secret: string,
-    options: VerifyOptions = {},
-  ) {
-    return new Promise<P>((resolve, reject) => {
+  verify<
+    P extends Record<string, any> = Record<string, any>,
+    ExtendedPayload = P & { iat: number; exp: number },
+  >(token: string, secret: string, options: VerifyOptions = {}) {
+    return new Promise<ExtendedPayload>((resolve, reject) => {
       jwt.verify(token, secret, options, (err, payload) => {
         if (err) return reject(err);
 
-        resolve(payload as P);
+        resolve(payload as ExtendedPayload);
       });
     });
   }
