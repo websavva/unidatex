@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
 
       request['user'] = user;
     } catch {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('Invalid access token is provided');
     }
     return true;
   }

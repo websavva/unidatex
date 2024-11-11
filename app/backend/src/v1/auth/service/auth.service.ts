@@ -3,6 +3,8 @@ import {
   BadRequestException,
   Inject,
   NotFoundException,
+  HttpStatus,
+  HttpException,
 } from '@nestjs/common';
 
 import {
@@ -16,7 +18,7 @@ import { JwtService } from '#shared/services/jwt.service';
 import { UsersService } from '#shared/modules/users/users.module';
 import { CACHE_MANAGER, CacheManager } from '#shared/modules/cache.module';
 import {
-  jwtConfigLoader,
+  authSecurityConfigLoader,
   ConfigType,
 } from '#shared/modules/config/config.module';
 import { CryptoService } from '#shared/services/crypto.service';
@@ -31,8 +33,8 @@ import {
 @Injectable()
 export class AuthService {
   constructor(
-    @Inject(jwtConfigLoader.KEY)
-    private jwtConfig: ConfigType<typeof jwtConfigLoader>,
+    @Inject(authSecurityConfigLoader.KEY)
+    private authSecurityConfig: ConfigType<typeof authSecurityConfigLoader>,
     @Inject(CACHE_MANAGER) private cacheManager: CacheManager,
     private jwtService: JwtService,
     private usersService: UsersService,
@@ -45,7 +47,7 @@ export class AuthService {
   ) {
     const {
       [type]: { secret, expiresInSeconds: expiresIn },
-    } = this.jwtConfig;
+    } = this.authSecurityConfig;
 
     return this.jwtService.sign(payload, secret, {
       expiresIn,
@@ -58,7 +60,7 @@ export class AuthService {
   ) {
     const {
       [type]: { secret },
-    } = this.jwtConfig;
+    } = this.authSecurityConfig;
 
     return this.jwtService.verify<P>(authToken, secret);
   }
@@ -79,7 +81,7 @@ export class AuthService {
     return this.cacheManager.set(
       key,
       newUser,
-      this.jwtConfig.signUp.expiresInSeconds * 1e3,
+      this.authSecurityConfig.signUp.expiresInSeconds * 1e3,
     );
   }
 
@@ -105,7 +107,7 @@ export class AuthService {
     return this.cacheManager.set(
       key,
       requestId,
-      this.jwtConfig.passwordReset.expiresInSeconds * 1e3,
+      this.authSecurityConfig.passwordReset.expiresInSeconds * 1e3,
     );
   }
 
@@ -182,9 +184,21 @@ export class AuthService {
   }
 
   async validateAccessToken(accessToken: string) {
-    const { email } = await this.verifyAuthPayload(accessToken, 'access');
+    const { email, iat: tokenIssuedAtUnixTimestamp } =
+      await this.verifyAuthPayload(accessToken, 'access');
 
-    return this.usersService.findUserByEmail(email, true);
+    const user = await this.usersService.findUserByEmail(email, true);
+
+    const { passwordUpdatedAt } = user;
+
+    if (!passwordUpdatedAt) return user;
+
+    const tokenIssuedAt = new Date(tokenIssuedAtUnixTimestamp * 1e3);
+
+    if (+tokenIssuedAt <= +passwordUpdatedAt)
+      throw new Error('Token was issued before the last password was updated');
+
+    return user;
   }
 
   async logIn(authLoginDto: AuthLoginDto) {
@@ -193,10 +207,7 @@ export class AuthService {
       false,
     );
 
-    if (!user)
-      throw new NotFoundException(
-        `User with the given email "${authLoginDto.email}" was not found`,
-      );
+    if (!user) throw new BadRequestException('Invalid credentials');
 
     const isPasswordCorrect = await this.cryptoService
       .comparePasswords(authLoginDto.password, user.passwordHash)
@@ -220,11 +231,33 @@ export class AuthService {
       user,
     };
   }
+  private async ensureUserIsAllowedToResetPassword(email: string) {
+    const user = await this.usersService.findUserByEmail(email);
+
+    if (!user) throw new NotFoundException('User is not found');
+
+    const { passwordUpdatedAt } = user;
+
+    if (!passwordUpdatedAt) return true;
+
+    const secondsPassedAfterLastPasswordUpdate =
+      (Date.now() - +passwordUpdatedAt) / 1e3;
+
+    if (
+      secondsPassedAfterLastPasswordUpdate <=
+      this.authSecurityConfig.passwordReset.intervalInSeconds
+    )
+      throw new HttpException(
+        'You have recently requested a password reset. Please wait before trying again.',
+        HttpStatus.TOO_MANY_REQUESTS,
+      );
+
+    return true;
+  }
 
   async requestPasswordReset(passwordResetDto: AuthPasswordResetDto) {
-    // checking if the given user exists
-    if (!(await this.usersService.findUserByEmail(passwordResetDto.email)))
-      throw new NotFoundException('User is not found');
+    // checking if the given user exists and interval has passed
+    await this.ensureUserIsAllowedToResetPassword(passwordResetDto.email);
 
     // TODO: checking when the last update of password took place
 
@@ -271,9 +304,10 @@ export class AuthService {
     if (passwordResetRequestId !== activePasswordResetRequestId)
       throw new BadRequestException('Invalid password reset request');
 
-    const user = await this.usersService.findUserByEmail(email);
+    // checking if the given user exists and interval has passed
+    await this.ensureUserIsAllowedToResetPassword(email);
 
-    if (!user) throw new NotFoundException('User is not found');
+    const user = await this.usersService.findUserByEmail(email, true);
 
     const newPasswordHash =
       await this.cryptoService.hashifyPassword(newPassword);
