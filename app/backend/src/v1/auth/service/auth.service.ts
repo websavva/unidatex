@@ -5,7 +5,12 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import { AuthLoginDto, AuthSignUpDto } from '@unidatex/dto';
+import {
+  AuthLoginDto,
+  AuthSignUpDto,
+  AuthPasswordResetDto,
+  AuthPasswordResetConfirmDto,
+} from '@unidatex/dto';
 
 import { JwtService } from '#shared/services/jwt.service';
 import { UsersService } from '#shared/modules/users/users.module';
@@ -17,7 +22,11 @@ import {
 import { CryptoService } from '#shared/services/crypto.service';
 import { User } from '#shared/entities';
 
-import { AuthPayload, AuthTokenType } from '../types';
+import {
+  CommonAuthPayload,
+  AuthTokenType,
+  PasswordResetRequestAuthPayload,
+} from '../types';
 
 @Injectable()
 export class AuthService {
@@ -30,7 +39,10 @@ export class AuthService {
     private cryptoService: CryptoService,
   ) {}
 
-  signAuthPayload(payload: AuthPayload, type: AuthTokenType) {
+  signAuthPayload<P extends Record<string, any> = CommonAuthPayload>(
+    payload: P,
+    type: AuthTokenType,
+  ) {
     const {
       [type]: { secret, expiresInSeconds: expiresIn },
     } = this.jwtConfig;
@@ -40,12 +52,15 @@ export class AuthService {
     });
   }
 
-  verifyAuthPayload(authToken: string, type: AuthTokenType) {
+  verifyAuthPayload<P extends Record<string, any> = CommonAuthPayload>(
+    authToken: string,
+    type: AuthTokenType,
+  ) {
     const {
       [type]: { secret },
     } = this.jwtConfig;
 
-    return this.jwtService.verify<AuthPayload>(authToken, secret);
+    return this.jwtService.verify<P>(authToken, secret);
   }
 
   getSignUpRequestKey(email: string) {
@@ -70,6 +85,32 @@ export class AuthService {
 
   deleteSignUpRequest(email: string) {
     const key = this.getSignUpRequestKey(email);
+
+    return this.cacheManager.del(key);
+  }
+
+  getPasswordResetRequestKey(email: string) {
+    return `sign-up-request-${email}`;
+  }
+
+  getPasswordResetRequest(email: string) {
+    const key = this.getPasswordResetRequestKey(email);
+
+    return this.cacheManager.get<string>(key);
+  }
+
+  savePasswordResetRequest(email: string, requestId: string) {
+    const key = this.getSignUpRequestKey(email);
+
+    return this.cacheManager.set(
+      key,
+      requestId,
+      this.jwtConfig.passwordReset.expiresInSeconds * 1e3,
+    );
+  }
+
+  deletePasswordResetRequest(email: string) {
+    const key = this.getPasswordResetRequestKey(email);
 
     return this.cacheManager.del(key);
   }
@@ -176,6 +217,75 @@ export class AuthService {
     return {
       accessToken,
 
+      user,
+    };
+  }
+
+  async requestPasswordReset(passwordResetDto: AuthPasswordResetDto) {
+    // checking if the given user exists
+    if (!(await this.usersService.findUserByEmail(passwordResetDto.email)))
+      throw new NotFoundException('User is not found');
+
+    // TODO: checking when the last update of password took place
+
+    const passwordResetRequestId = this.cryptoService.generateRandomHash(16);
+
+    // TODO sending email with the corresponding token
+    const passwordResetToken =
+      await this.signAuthPayload<PasswordResetRequestAuthPayload>(
+        {
+          email: passwordResetDto.email,
+          requestId: passwordResetRequestId,
+        },
+        'passwordReset',
+      );
+
+    await this.savePasswordResetRequest(
+      passwordResetDto.email,
+      passwordResetRequestId,
+    );
+
+    return {
+      passwordResetRequestId,
+      passwordResetToken,
+    };
+  }
+
+  async confirmPasswordReset({
+    newPassword,
+    token,
+  }: AuthPasswordResetConfirmDto) {
+    const { email, requestId: passwordResetRequestId } =
+      await this.verifyAuthPayload<PasswordResetRequestAuthPayload>(
+        token,
+        'passwordReset',
+      );
+
+    // verifying the request id
+    const activePasswordResetRequestId =
+      await this.getPasswordResetRequest(email);
+
+    if (!activePasswordResetRequestId)
+      throw new NotFoundException('No password reset request was found');
+
+    if (passwordResetRequestId !== activePasswordResetRequestId)
+      throw new BadRequestException('Invalid password reset request');
+
+    const user = await this.usersService.findUserByEmail(email);
+
+    if (!user) throw new NotFoundException('User is not found');
+
+    const newPasswordHash =
+      await this.cryptoService.hashifyPassword(newPassword);
+
+    user.passwordHash = newPasswordHash;
+    user.passwordUpdatedAt = new Date();
+
+    await this.usersService.usersRepository.save(user);
+
+    await this.deletePasswordResetRequest(email);
+
+    return {
       user,
     };
   }

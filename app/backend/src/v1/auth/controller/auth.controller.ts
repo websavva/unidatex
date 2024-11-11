@@ -14,6 +14,10 @@ import {
   AuthSignUpConfirmDtoSchema,
   AuthLoginDtoSchema,
   AuthLoginDto,
+  AuthPasswordResetDtoSchema,
+  AuthPasswordResetDto,
+  AuthPasswordResetConfirmDtoSchema,
+  AuthPasswordResetConfirmDto,
 } from '@unidatex/dto';
 
 import { ZodValidationPipe } from '#shared/pipes/zod-validation.pipe';
@@ -44,5 +48,20 @@ export class AuthController {
   @Post('/login')
   public logIn(@Body() loginDto: AuthLoginDto) {
     return this.authService.logIn(loginDto);
+  }
+
+  @UsePipes(new ZodValidationPipe(AuthPasswordResetDtoSchema))
+  @Post('/password-reset')
+  public requestPasswordReset(@Body() passwordResetDto: AuthPasswordResetDto) {
+    return this.authService.requestPasswordReset(passwordResetDto);
+  }
+
+  @UsePipes(new ZodValidationPipe(AuthPasswordResetConfirmDtoSchema))
+  @Post('/password-reset/confirm')
+  public confirmPasswordReset(
+    @Body()
+    passwordResetConfirmDto: AuthPasswordResetConfirmDto,
+  ) {
+    return this.authService.confirmPasswordReset(passwordResetConfirmDto);
   }
 }

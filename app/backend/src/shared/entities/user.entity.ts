@@ -18,4 +18,10 @@ export class User {
     nullable: false,
   })
   passwordHash: string;
+
+  @Column({
+    type: 'timestamp with time zone',
+    nullable: true,
+  })
+  passwordUpdatedAt: Date | null;
 }

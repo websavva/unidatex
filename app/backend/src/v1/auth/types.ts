@@ -5,6 +5,10 @@ import {
 
 export type AuthTokenType = keyof ConfigType<typeof jwtConfigLoader>;
 
-export interface AuthPayload {
+export interface CommonAuthPayload {
   email: string;
+}
+
+export interface PasswordResetRequestAuthPayload extends CommonAuthPayload {
+  requestId: string;
 }
