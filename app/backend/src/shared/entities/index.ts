@@ -1,5 +1,5 @@
-import { User } from './user.entity';
+import { UserEntity } from './user.entity';
 
 export * from './user.entity';
 
-export const allEntities = [User];
+export const allEntities = [UserEntity];

@@ -23,7 +23,7 @@ import {
   ConfigType,
 } from '#shared/modules/config/config.module';
 import { CryptoService } from '#shared/services/crypto.service';
-import { User } from '#shared/entities';
+import { UserEntity } from '#shared/entities';
 
 import { AuthPayloadWithRequestId, AuthPayload, AuthTokenType } from '../types';
 
@@ -66,10 +66,10 @@ export class AuthService {
   getSignUpRequest(email: string) {
     const key = this.getSignUpRequestKey(email);
 
-    return this.cacheManager.get<{ user: User; requestId: string }>(key);
+    return this.cacheManager.get<{ user: UserEntity; requestId: string }>(key);
   }
 
-  saveSignUpRequest(newUser: User, requestId: string) {
+  saveSignUpRequest(newUser: UserEntity, requestId: string) {
     const key = this.getSignUpRequestKey(newUser.email);
 
     return this.cacheManager.set(
@@ -137,7 +137,7 @@ export class AuthService {
     // assertion of uniqueness of sign-up confirmation request
     if (await this.cacheManager.get(signUpReguestKey)) {
       throw new BadRequestException(
-        `User with email "${signUpDto.email}" is created, but has not been verified yet`,
+        `UserEntity with email "${signUpDto.email}" is created, but has not been verified yet`,
       );
     }
 
@@ -233,7 +233,7 @@ export class AuthService {
   private async ensureUserIsAllowedToResetPassword(email: string) {
     const user = await this.usersService.findUserByEmail(email);
 
-    if (!user) throw new NotFoundException('User is not found');
+    if (!user) throw new NotFoundException('UserEntity is not found');
 
     const { passwordUpdatedAt } = user;
 

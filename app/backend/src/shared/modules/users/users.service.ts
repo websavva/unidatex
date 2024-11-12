@@ -2,16 +2,16 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { User } from '#shared/entities';
+import { UserEntity } from '#shared/entities';
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(User) public usersRepository: Repository<User>,
+    @InjectRepository(UserEntity) public usersRepository: Repository<UserEntity>,
   ) {}
 
-  findUserByEmail(email: string, strict?: false): Promise<User | null>;
-  findUserByEmail(email: string, strict?: true): Promise<User>;
+  findUserByEmail(email: string, strict?: false): Promise<UserEntity | null>;
+  findUserByEmail(email: string, strict?: true): Promise<UserEntity>;
   async findUserByEmail(email: string, strict: boolean = false) {
     const where = {
       email,
