@@ -6,6 +6,7 @@ import {
   HttpStatus,
   HttpException,
 } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Request } from 'express';
 
 import {
@@ -16,7 +17,7 @@ import {
 } from '@unidatex/dto';
 
 import { JwtService } from '#shared/services/jwt.service';
-import { UsersService } from '#shared/modules/users/users.module';
+import { UsersRepository } from '#shared/repositories/users.repository';
 import { CACHE_MANAGER, CacheManager } from '#shared/modules/cache.module';
 import {
   authSecurityConfigLoader,
@@ -34,7 +35,8 @@ export class AuthService {
     private authSecurityConfig: ConfigType<typeof authSecurityConfigLoader>,
     @Inject(CACHE_MANAGER) private cacheManager: CacheManager,
     private jwtService: JwtService,
-    private usersService: UsersService,
+    @InjectRepository(UsersRepository)
+    private usersRepository: UsersRepository,
     private cryptoService: CryptoService,
   ) {}
 
@@ -120,7 +122,7 @@ export class AuthService {
 
     const passwordHash = await this.cryptoService.hashifyPassword(password);
 
-    return this.usersService.usersRepository.create({
+    return this.usersRepository.create({
       ...baseFields,
       passwordHash,
     });
@@ -128,7 +130,7 @@ export class AuthService {
 
   async signUp(signUpDto: AuthSignUpDto) {
     // assertion of user's non-existence
-    if (await this.usersService.findUserByEmail(signUpDto.email)) {
+    if (await this.usersRepository.findUserByEmail(signUpDto.email)) {
       throw new BadRequestException('Invalid user data');
     }
 
@@ -179,14 +181,14 @@ export class AuthService {
 
     await this.deleteSignUpRequest(email);
 
-    return this.usersService.usersRepository.save(signUpRequest.user);
+    return this.usersRepository.save(signUpRequest.user);
   }
 
   async validateAccessToken(accessToken: string) {
     const { email, iat: tokenIssuedAtUnixTimestamp } =
       await this.verifyAuthPayload(accessToken, 'access');
 
-    const user = await this.usersService.findUserByEmail(email, true);
+    const user = await this.usersRepository.findUserByEmail(email, true);
 
     const { passwordUpdatedAt } = user;
 
@@ -201,7 +203,7 @@ export class AuthService {
   }
 
   async logIn(authLoginDto: AuthLoginDto) {
-    const user = await this.usersService.findUserByEmail(
+    const user = await this.usersRepository.findUserByEmail(
       authLoginDto.email,
       false,
     );
@@ -231,7 +233,7 @@ export class AuthService {
     };
   }
   private async ensureUserIsAllowedToResetPassword(email: string) {
-    const user = await this.usersService.findUserByEmail(email);
+    const user = await this.usersRepository.findUserByEmail(email);
 
     if (!user) throw new NotFoundException('UserEntity is not found');
 
@@ -306,7 +308,7 @@ export class AuthService {
     // checking if the given user exists and interval has passed
     await this.ensureUserIsAllowedToResetPassword(email);
 
-    const user = await this.usersService.findUserByEmail(email, true);
+    const user = await this.usersRepository.findUserByEmail(email, true);
 
     const newPasswordHash =
       await this.cryptoService.hashifyPassword(newPassword);
@@ -314,7 +316,7 @@ export class AuthService {
     user.passwordHash = newPasswordHash;
     user.passwordUpdatedAt = new Date();
 
-    await this.usersService.usersRepository.save(user);
+    await this.usersRepository.save(user);
 
     await this.deletePasswordResetRequest(email);
 
