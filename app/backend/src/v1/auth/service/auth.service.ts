@@ -24,11 +24,7 @@ import {
 import { CryptoService } from '#shared/services/crypto.service';
 import { User } from '#shared/entities';
 
-import {
-  CommonAuthPayload,
-  AuthTokenType,
-  PasswordResetRequestAuthPayload,
-} from '../types';
+import { AuthPayloadWithRequestId, AuthPayload, AuthTokenType } from '../types';
 
 @Injectable()
 export class AuthService {
@@ -41,10 +37,7 @@ export class AuthService {
     private cryptoService: CryptoService,
   ) {}
 
-  signAuthPayload<P extends Record<string, any> = CommonAuthPayload>(
-    payload: P,
-    type: AuthTokenType,
-  ) {
+  signAuthPayload<P extends AuthPayload>(payload: P, type: AuthTokenType) {
     const {
       [type]: { secret, expiresInSeconds: expiresIn },
     } = this.authSecurityConfig;
@@ -54,7 +47,7 @@ export class AuthService {
     });
   }
 
-  verifyAuthPayload<P extends Record<string, any> = CommonAuthPayload>(
+  verifyAuthPayload<P extends AuthPayload = AuthPayload>(
     authToken: string,
     type: AuthTokenType,
   ) {
@@ -72,15 +65,15 @@ export class AuthService {
   getSignUpRequest(email: string) {
     const key = this.getSignUpRequestKey(email);
 
-    return this.cacheManager.get<User>(key);
+    return this.cacheManager.get<{ user: User; requestId: string }>(key);
   }
 
-  saveSignUpRequest(newUser: User) {
+  saveSignUpRequest(newUser: User, requestId: string) {
     const key = this.getSignUpRequestKey(newUser.email);
 
     return this.cacheManager.set(
       key,
-      newUser,
+      { user: newUser, requestId },
       this.authSecurityConfig.signUp.expiresInSeconds * 1e3,
     );
   }
@@ -92,7 +85,7 @@ export class AuthService {
   }
 
   getPasswordResetRequestKey(email: string) {
-    return `sign-up-request-${email}`;
+    return `password-reset-request-${email}`;
   }
 
   getPasswordResetRequest(email: string) {
@@ -149,38 +142,43 @@ export class AuthService {
 
     const newUser = await this.createUserFromSingUpDto(signUpDto);
 
+    const signUpRequestId = this.cryptoService.generateRandomHash(16);
+
+    const AuthPayloadWithRequestId: AuthPayloadWithRequestId = {
+      email: newUser.email,
+      requestId: signUpRequestId,
+    };
+
     const signUpRequestToken = await this.signAuthPayload(
-      {
-        email: newUser.email,
-      },
+      AuthPayloadWithRequestId,
       'signUp',
     );
+
     // TODO: sending sign up confirmation email
-    const signUpRequestConfirmationUrl = new URL(
-      'auth/sign-up/confirm',
-      'http://localhost:3000',
-    );
 
-    signUpRequestConfirmationUrl.searchParams.set('token', signUpRequestToken);
-
-    await this.saveSignUpRequest(newUser);
+    await this.saveSignUpRequest(newUser, signUpRequestId);
 
     return {
-      signUpRequestConfirmationUrl,
+      requestId: signUpRequestId,
+      signUpRequestToken,
     };
   }
 
   async confirmSignUp(token: string) {
-    const { email } = await this.verifyAuthPayload(token, 'signUp');
+    const { email, requestId } =
+      await this.verifyAuthPayload<AuthPayloadWithRequestId>(token, 'signUp');
 
-    const userToBeConfirmed = await this.getSignUpRequest(email);
+    const signUpRequest = await this.getSignUpRequest(email);
 
-    if (!userToBeConfirmed)
+    if (!signUpRequest)
       throw new BadRequestException('No sign-up request was found');
+
+    if (signUpRequest.requestId !== requestId)
+      throw new BadRequestException('Invalid sign up request ID');
 
     await this.deleteSignUpRequest(email);
 
-    return this.usersService.usersRepository.save(userToBeConfirmed);
+    return this.usersService.usersRepository.save(signUpRequest.user);
   }
 
   async validateAccessToken(accessToken: string) {
@@ -265,7 +263,7 @@ export class AuthService {
 
     // TODO sending email with the corresponding token
     const passwordResetToken =
-      await this.signAuthPayload<PasswordResetRequestAuthPayload>(
+      await this.signAuthPayload<AuthPayloadWithRequestId>(
         {
           email: passwordResetDto.email,
           requestId: passwordResetRequestId,
@@ -289,7 +287,7 @@ export class AuthService {
     token,
   }: AuthPasswordResetConfirmDto) {
     const { email, requestId: passwordResetRequestId } =
-      await this.verifyAuthPayload<PasswordResetRequestAuthPayload>(
+      await this.verifyAuthPayload<AuthPayloadWithRequestId>(
         token,
         'passwordReset',
       );

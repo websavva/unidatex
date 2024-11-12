@@ -5,10 +5,10 @@ import {
 
 export type AuthTokenType = keyof ConfigType<typeof authSecurityConfigLoader>;
 
-export interface CommonAuthPayload {
+export interface AuthPayload {
   email: string;
 }
 
-export interface PasswordResetRequestAuthPayload extends CommonAuthPayload {
+export interface AuthPayloadWithRequestId extends AuthPayload {
   requestId: string;
 }
