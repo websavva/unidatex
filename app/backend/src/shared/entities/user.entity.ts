@@ -8,7 +8,7 @@ export class UserEntity {
   @Column({
     type: 'varchar',
     length: 200,
-    default: '',
+    nullable: false,
     unique: true,
   })
   email: string;
