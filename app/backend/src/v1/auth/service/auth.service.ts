@@ -6,7 +6,6 @@ import {
   HttpStatus,
   HttpException,
 } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Request } from 'express';
 
 import {
@@ -17,10 +16,14 @@ import {
 } from '@unidatex/dto';
 
 import { JwtService } from '#shared/services/jwt.service';
-import { UsersRepository } from '#shared/repositories/users.repository';
+import {
+  UsersRepository,
+  USERS_REPOSITORY_INJECTION_KEY,
+} from '#shared/repositories/users.repository';
 import { CACHE_MANAGER, CacheManager } from '#shared/modules/cache.module';
 import {
   authSecurityConfigLoader,
+  environmentConfigLoader,
   ConfigType,
 } from '#shared/modules/config/config.module';
 import { CryptoService } from '#shared/services/crypto.service';
@@ -33,9 +36,11 @@ export class AuthService {
   constructor(
     @Inject(authSecurityConfigLoader.KEY)
     private authSecurityConfig: ConfigType<typeof authSecurityConfigLoader>,
+    @Inject(environmentConfigLoader.KEY)
+    private environmentConfig: ConfigType<typeof environmentConfigLoader>,
     @Inject(CACHE_MANAGER) private cacheManager: CacheManager,
     private jwtService: JwtService,
-    @InjectRepository(UsersRepository)
+    @Inject(USERS_REPOSITORY_INJECTION_KEY)
     private usersRepository: UsersRepository,
     private cryptoService: CryptoService,
   ) {}
@@ -161,10 +166,14 @@ export class AuthService {
 
     await this.saveSignUpRequest(newUser, signUpRequestId);
 
-    return {
-      requestId: signUpRequestId,
-      signUpRequestToken,
-    };
+    return this.hideFieldsForProduction(
+      {
+        message:
+          'Account has been created. Please confirm your account to be able to sign in',
+        token: signUpRequestToken,
+      },
+      'token',
+    );
   }
 
   async confirmSignUp(token: string) {
@@ -181,7 +190,15 @@ export class AuthService {
 
     await this.deleteSignUpRequest(email);
 
-    return this.usersRepository.save(signUpRequest.user);
+    const signedUpUser = await this.usersRepository.save(signUpRequest.user);
+
+    return this.hideFieldsForProduction(
+      {
+        message: 'Account has been verified',
+        user: signedUpUser,
+      },
+      'user',
+    );
   }
 
   async validateAccessToken(accessToken: string) {
@@ -190,7 +207,7 @@ export class AuthService {
 
     const user = await this.usersRepository.findUserByEmail(email, true);
 
-    const { passwordUpdatedAt } = user;
+    const { passwordUpdatedAt } = user!;
 
     if (!passwordUpdatedAt) return user;
 
@@ -200,6 +217,24 @@ export class AuthService {
       throw new Error('Token was issued before the last password was updated');
 
     return user;
+  }
+
+  hideFieldsForProduction<
+    R extends Record<string, any>,
+    F extends keyof R,
+    S = R & Partial<Pick<R, F>>,
+  >(responseBody: R, fields: F | Array<F>) {
+    const { isProd } = this.environmentConfig;
+
+    const formattedFields = Array.isArray(fields) ? fields : [fields];
+
+    return Object.fromEntries(
+      Object.entries(responseBody).map(([fieldName, fieldValue]) => {
+        const shouldBeHidden = formattedFields.includes(fieldName as F);
+
+        return [fieldName, isProd && shouldBeHidden ? undefined : fieldValue];
+      }),
+    ) as S;
   }
 
   async logIn(authLoginDto: AuthLoginDto) {
@@ -232,6 +267,7 @@ export class AuthService {
       user,
     };
   }
+
   private async ensureUserIsAllowedToResetPassword(email: string) {
     const user = await this.usersRepository.findUserByEmail(email);
 
@@ -279,10 +315,13 @@ export class AuthService {
       passwordResetRequestId,
     );
 
-    return {
-      passwordResetRequestId,
-      passwordResetToken,
-    };
+    return this.hideFieldsForProduction(
+      {
+        message: 'Password reset instruction has been sent to email address',
+        token: passwordResetToken,
+      },
+      'token',
+    );
   }
 
   async confirmPasswordReset({
@@ -313,16 +352,20 @@ export class AuthService {
     const newPasswordHash =
       await this.cryptoService.hashifyPassword(newPassword);
 
-    user.passwordHash = newPasswordHash;
-    user.passwordUpdatedAt = new Date();
+    user!.passwordHash = newPasswordHash;
+    user!.passwordUpdatedAt = new Date();
 
-    await this.usersRepository.save(user);
+    await this.usersRepository.save(user!);
 
     await this.deletePasswordResetRequest(email);
 
-    return {
-      user,
-    };
+    return this.hideFieldsForProduction(
+      {
+        user,
+        message: 'Password has been reset successfully',
+      },
+      'user',
+    );
   }
 
   extractAccessTokenFromHeader(request: Request): string | undefined {

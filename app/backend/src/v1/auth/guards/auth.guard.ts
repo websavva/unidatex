@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
     try {
       const user = await this.authService.validateAccessToken(accessToken);
 
-      request['user'] = user;
+      request['user'] = user!;
     } catch {
       throw new UnauthorizedException('Invalid access token is provided');
     }

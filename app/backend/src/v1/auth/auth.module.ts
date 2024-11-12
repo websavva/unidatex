@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+// import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { CacheModule } from '#shared/modules/cache.module';
 import { CryptoService } from '#shared/services/crypto.service';
 import { JwtService } from '#shared/services/jwt.service';
 import { ConfigModule } from '#shared/modules/config/config.module';
-import { UsersRepository } from '#shared/repositories/users.repository';
+import { UsersRepositoryProvider } from '#shared/repositories/users.repository';
 
 import { AuthController } from './controller/auth.controller';
 import { AuthService } from './service/auth.service';
@@ -14,10 +14,10 @@ import { AuthService } from './service/auth.service';
   imports: [
     ConfigModule,
     CacheModule,
-    TypeOrmModule.forFeature([UsersRepository]),
+    // TypeOrmModule.forFeature([UsersRepository]),
   ],
   controllers: [AuthController],
-  providers: [CryptoService, JwtService, AuthService],
+  providers: [CryptoService, JwtService, AuthService, UsersRepositoryProvider],
   exports: [AuthService],
 })
 export class AuthModule {}
