@@ -6,6 +6,7 @@ import {
   HttpStatus,
   HttpException,
 } from '@nestjs/common';
+import { Request } from 'express';
 
 import {
   AuthLoginDto,
@@ -320,5 +321,10 @@ export class AuthService {
     return {
       user,
     };
+  }
+
+  extractAccessTokenFromHeader(request: Request): string | undefined {
+    const [type, token] = request.headers.authorization?.split(' ') ?? [];
+    return type === 'Bearer' ? token : undefined;
   }
 }

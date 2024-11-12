@@ -4,7 +4,6 @@ import {
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
-import { Request } from 'express';
 
 import { AuthService } from '../service/auth.service';
 
@@ -14,7 +13,7 @@ export class AuthGuard implements CanActivate {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
-    const accessToken = this.extractAccessTokenFromHeader(request);
+    const accessToken = this.authService.extractAccessTokenFromHeader(request);
 
     if (!accessToken) {
       throw new UnauthorizedException();
@@ -28,10 +27,5 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Invalid access token is provided');
     }
     return true;
-  }
-
-  private extractAccessTokenFromHeader(request: Request): string | undefined {
-    const [type, token] = request.headers.authorization?.split(' ') ?? [];
-    return type === 'Bearer' ? token : undefined;
   }
 }
