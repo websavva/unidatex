@@ -21,6 +21,7 @@ import {
   USERS_REPOSITORY_INJECTION_KEY,
 } from '#shared/repositories/users.repository';
 import { CACHE_MANAGER, CacheManager } from '#shared/modules/cache.module';
+import { MailService } from '#shared/modules/mail/mail.service';
 import {
   authSecurityConfigLoader,
   environmentConfigLoader,
@@ -43,6 +44,7 @@ export class AuthService {
     @Inject(USERS_REPOSITORY_INJECTION_KEY)
     private usersRepository: UsersRepository,
     private cryptoService: CryptoService,
+    private mailService: MailService,
   ) {}
 
   signAuthPayload<P extends AuthPayload>(payload: P, type: AuthTokenType) {
@@ -162,7 +164,15 @@ export class AuthService {
       'signUp',
     );
 
+    const signUpConfirmationUrl = `http://localhost:3000/v1/auth/sign-up/confirm?token=${signUpRequestToken}`;
+
     // TODO: sending sign up confirmation email
+    await this.mailService.sendEmail({
+      to: newUser.email,
+      subject: 'Confirm your account',
+      text: signUpConfirmationUrl,
+      html: signUpConfirmationUrl,
+    });
 
     await this.saveSignUpRequest(newUser, signUpRequestId);
 
