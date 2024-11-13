@@ -9,10 +9,10 @@ export const UsersRepositoryProvider = defineExtendedRepositoryProvider(
   'UsersRepository',
   UserEntity,
   {
-    async findUserByEmail(
-      email: string,
-      strict: boolean = false,
-    ): Promise<UserEntity | null> {
+    async findUserByEmail<
+      Strict extends boolean = false,
+      R = Strict extends false ? UserEntity | null : UserEntity,
+    >(email: string, strict?: Strict): Promise<R> {
       const where = {
         email,
       };

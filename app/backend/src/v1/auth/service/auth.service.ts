@@ -207,7 +207,7 @@ export class AuthService {
 
     const user = await this.usersRepository.findUserByEmail(email, true);
 
-    const { passwordUpdatedAt } = user!;
+    const { passwordUpdatedAt } = user;
 
     if (!passwordUpdatedAt) return user;
 
