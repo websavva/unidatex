@@ -60,9 +60,9 @@
 import type { CSSProperties } from 'vue';
 import { Html, Head, Preview, Font, Body, Section, Img, Row, Text, Hr, Link } from '@vue-email/components'
 
-import Container from './Container.vue';
+import { Container } from './Container';
 
-import { fontFamily } from '../styles';
+import { fontFamily } from '@/styles';
 
 defineProps({
   previewText: String,

@@ -19,7 +19,7 @@ export default defineConfig(({ command }) => {
     plugins.push(
       dts({
         tsconfigPath: './tsconfig.app.json',
-        include: ['./src/templates'],
+        include: ['./src'],
         insertTypesEntry: true,
       }),
     );
@@ -29,9 +29,15 @@ export default defineConfig(({ command }) => {
 
     publicDir: isBuild ? 'public' : staticDirFullPath,
 
+    resolve: {
+      alias: {
+        '@': join(currentDirname, 'src'),
+      },
+    },
+
     build: {
       lib: {
-        entry: join(currentDirname, 'src/templates/index.ts'),
+        entry: join(currentDirname, 'src/index.ts'),
         name: 'EmailTemplates',
         fileName: 'index',
       },

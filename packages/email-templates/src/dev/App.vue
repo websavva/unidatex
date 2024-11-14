@@ -4,5 +4,5 @@
 
 
 <script setup lang="ts">
-import SignUpConfirmationTemplate from './templates/SignUpConfirmation.vue';
+import SignUpConfirmationTemplate from '@/templates/SignUpConfirmation.vue';
 </script>
