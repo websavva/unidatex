@@ -1,5 +1,7 @@
-import { fileURLToPath } from 'node:url'
-import { join } from 'path'
+import { fileURLToPath } from 'node:url';
+import { join, dirname } from 'path';
 
-export const staticDirFullPath = join(fileURLToPath(import.meta.url), 'src')
-
+export const staticDirFullPath = join(
+  dirname(fileURLToPath(import.meta.url)),
+  'src',
+);
