@@ -35,6 +35,8 @@ export default defineConfig(({ command }) => {
       },
     },
 
+    envPrefix: 'UNDX_',
+
     build: {
       lib: {
         entry: join(currentDirname, 'src/index.ts'),
@@ -44,6 +46,10 @@ export default defineConfig(({ command }) => {
       rollupOptions: {
         external: ['@vue-email/render', '@vue-email/component', 'vue'],
       },
+    },
+
+    server: {
+      port: 3000,
     },
   };
 });

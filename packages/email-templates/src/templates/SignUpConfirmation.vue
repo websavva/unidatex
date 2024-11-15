@@ -1,46 +1,75 @@
 <template>
   <Layout preview-text="Sing Up Confirmation">
+    <template #heading>
+      Account confirmation
+    </template>
+
     <Row>
-      <Heading>Here's what Savva wrote</Heading>
-
-      <Pane
-        >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam
-        corrupti minima nemo id accusantium! Quae cum consequuntur eligendi
-        veritatis error voluptatibus, officiis nam doloribus suscipit reiciendis
-        necessitatibus, cumque adipisci quam?
-      </Pane>
-
-      <Paragraph>
-        Now that the review period is over, we’ve posted Savva’s review to your
-        Airbnb profile.
+      <Paragraph :style="{
+          marginTop: 0,
+        }"
+      >
+        Hi {{ username  }},
       </Paragraph>
 
       <Paragraph>
-        {{ text }}
+        Thank you for signing up for UniDateX, where connections and love await!
+        Please confirm your email address to activate your account and start exploring.
       </Paragraph>
 
-      <Paragraph :style="{ paddingBottom: '16px' }">
-        While it’s too late to write a review of your own, you can send your
-        feedback to Savva using your Airbnb message thread.
+      <Paragraph :style="{
+        marginTop: '30px'
+      }">
+        Click the button below to confirm your account:
       </Paragraph>
 
-      <Button href="https://airbnb.com/"> Send My Feedback </Button>
+      <Button :href="confirmationUrl">
+        Confirm account
+      </Button>
+
+      <Paragraph :style="{
+        margin: '40px 0 8px 0',
+      }">
+        Or, copy and paste the following link into your browser:
+      </Paragraph>
+
+      <Paragraph :style="{
+        color: '#898989',
+        margin: 0,
+      }">
+        {{ confirmationUrl }}
+      </Paragraph>
     </Row>
   </Layout>
 </template>
 
 <script lang="ts">
 import type { ExtractPropTypes } from 'vue'
+
 import { Layout, Button, Pane, Paragraph, Heading, Row } from '@/components';
+import { createUrl } from '@/utils/create-link';
 
 const props = {
-  text: {
-    type: String
-  }};
+  email: {
+    type: String,
+    required: true,
+  },
 
+  username: {
+    type: String,
+    required: true,
+  },
+
+  confirmationToken: {
+    type: String,
+    required: true,
+  },
+} as const
 
 const defaultProps: ExtractPropTypes<typeof props> = {
-  text: 'DefaultText'
+  email: 'john125@gmail.com',
+  username: 'John',
+  confirmationToken: '76fa143aebc14890'
 };
 
 export default {
@@ -56,5 +85,15 @@ export default {
   props,
 
   defaultProps,
+
+  computed: {
+    confirmationUrl() {
+      return createUrl('/sign-up/confirm', {
+        query: {
+          token: this.confirmationToken
+        }
+      })
+    }
+  }
 }
 </script>

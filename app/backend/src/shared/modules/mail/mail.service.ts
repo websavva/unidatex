@@ -1,5 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { SendMailOptions } from 'nodemailer';
+import {
+  renderEmailTemplate,
+  EmailTemplateName,
+  EmailTemplateProps,
+} from '@unidatex/email-templates';
 
 import {
   ConfigType,
@@ -8,8 +13,10 @@ import {
 
 import { TRANSPORTER_INJECTION_KEY, Transporter } from './transporter.provider';
 
-interface SendEmailOptions
-  extends Required<Pick<SendMailOptions, 'to' | 'subject' | 'text' | 'html'>> {}
+export interface SendEmailOptions<T extends EmailTemplateName>
+  extends Required<Pick<SendMailOptions, 'to' | 'subject'>> {
+  props: EmailTemplateProps[T];
+}
 
 @Injectable()
 export class MailService {
@@ -19,13 +26,21 @@ export class MailService {
     private smptOptions: ConfigType<typeof smtpConfigLoader>,
   ) {}
 
-  public sendEmail(options: SendEmailOptions) {
+  public async sendEmail<T extends EmailTemplateName>(
+    name: T,
+    { to, subject, props }: SendEmailOptions<T>,
+  ) {
+    const { html, text } = await renderEmailTemplate(name, props);
+
     const { from, sender } = this.smptOptions;
 
     return this.transporter.sendMail({
       from,
       sender,
-      ...options,
+      to,
+      subject,
+      html,
+      text,
     });
   }
 }

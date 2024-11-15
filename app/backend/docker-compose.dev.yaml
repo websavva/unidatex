@@ -30,9 +30,8 @@ services:
       REDIS_PORT: ${REDIS_PORT}
 
   smtp-server:
-    image: 'datydock/mailslurper'
+    image: 'maildev/maildev'
 
     ports:
-      - 8080:8080
-      - 8085:8085
-      - 2500:2500
+      - 1080:1080
+      - 1025:1025

@@ -159,19 +159,19 @@ export class AuthService {
       requestId: signUpRequestId,
     };
 
-    const signUpRequestToken = await this.signAuthPayload(
+    const signUpConfirmationToken = await this.signAuthPayload(
       AuthPayloadWithRequestId,
       'signUp',
     );
 
-    const signUpConfirmationUrl = `http://localhost:3000/v1/auth/sign-up/confirm?token=${signUpRequestToken}`;
-
-    // TODO: sending sign up confirmation email
-    await this.mailService.sendEmail({
+    await this.mailService.sendEmail('SignUpConfirmationTemplate', {
       to: newUser.email,
-      subject: 'Confirm your account',
-      text: signUpConfirmationUrl,
-      html: signUpConfirmationUrl,
+      subject: 'Account Confirmation',
+      props: {
+        email: newUser.email,
+        username: newUser.email.split('@')[0],
+        confirmationToken: signUpConfirmationToken,
+      },
     });
 
     await this.saveSignUpRequest(newUser, signUpRequestId);
@@ -180,7 +180,7 @@ export class AuthService {
       {
         message:
           'Account has been created. Please confirm your account to be able to sign in',
-        token: signUpRequestToken,
+        token: signUpConfirmationToken,
       },
       'token',
     );

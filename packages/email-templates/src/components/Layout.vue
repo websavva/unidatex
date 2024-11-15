@@ -25,13 +25,27 @@
       <Container>
         <Section>
           <Img
-            src="/logo.svg"
+            :src="logoUrl"
             alt="Logo"
-            :style="{ margin: 'auto' }"
+            :style="{
+              height: '40px',
+              marginBottom: '40px'
+            }"
           />
         </Section>
 
         <Section :style="{ paddingBottom: '20px' }">
+          <Heading>
+            <slot name="heading" />
+          </Heading>
+
+          <Hr
+            :style="{
+              ...hrStyle,
+              margin: '16px 0 16px 0'
+            }"
+          />
+
           <slot />
         </Section>
 
@@ -39,12 +53,10 @@
           <Row>
             <Hr :style="hrStyle" />
 
-            <Text :style="footerStyle">
-              UniDateX, {{ currentYear }}
-            </Text>
+            <Text :style="footerStyle"> UniDateX, {{ currentYear }} </Text>
 
             <Link
-              href="https://airbnb.com"
+              :href="browseLinkUrl"
               :style="browseLinkStyle"
             >
               Browse to the website.
@@ -61,8 +73,10 @@ import type { CSSProperties } from 'vue';
 import { Html, Head, Preview, Font, Body, Section, Img, Row, Text, Hr, Link } from '@vue-email/components'
 
 import { Container } from './Container';
+import { Heading } from './Heading';
 
 import { fontFamily } from '@/styles';
+import { createUrl } from '@/utils/create-link';
 
 defineProps({
   previewText: String,
@@ -72,15 +86,15 @@ const currentYear = new Date().getFullYear();
 
 const bodyStyle: CSSProperties = {
   backgroundColor: "#ffffff",
-  fontFamily
+  fontFamily,
 };
 
 const hrStyle: CSSProperties = {
-  borderColor: "#cccccc",
+  borderColor: "#d1d1d1",
   margin: "20px 0",
 };
 
-const browseLinkStyle:CSSProperties = {
+const browseLinkStyle: CSSProperties = {
   fontSize: "14px",
   color: "#9ca299",
   textDecoration: "underline",
@@ -91,4 +105,8 @@ const footerStyle: CSSProperties = {
   fontSize: "14px",
   marginBottom: "10px",
 };
+
+const logoUrl = createUrl('/logo.svg');
+
+const browseLinkUrl = import.meta.env.UNDX_BASE_URL;
 </script>
