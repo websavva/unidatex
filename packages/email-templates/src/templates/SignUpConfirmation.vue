@@ -7,6 +7,7 @@
     <Row>
       <Paragraph :style="{
           marginTop: 0,
+          workBreak: 'break-word'
         }"
       >
         Hi {{ username  }},
@@ -36,6 +37,7 @@
       <Paragraph :style="{
         color: '#898989',
         margin: 0,
+        workBreak: 'break-word'
       }">
         {{ confirmationUrl }}
       </Paragraph>
