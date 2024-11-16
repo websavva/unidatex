@@ -46,6 +46,14 @@
             }"
           />
 
+          <Paragraph :style="{
+              marginTop: 0,
+              workBreak: 'break-word'
+            }"
+          >
+            Hi {{ username  }},
+          </Paragraph>
+
           <slot />
         </Section>
 
@@ -74,12 +82,21 @@ import { Html, Head, Preview, Font, Body, Section, Img, Row, Text, Hr, Link } fr
 
 import { Container } from './Container';
 import { Heading } from './Heading';
+import { Paragraph } from './Paragraph.ts';
 
 import { fontFamily } from '@/styles';
 import { createUrl } from '@/utils/create-link';
 
 defineProps({
-  previewText: String,
+  previewText: {
+    type: String,
+    required: true,
+  },
+
+  username: {
+    type: String,
+    required: true,
+  }
 });
 
 const currentYear = new Date().getFullYear();
