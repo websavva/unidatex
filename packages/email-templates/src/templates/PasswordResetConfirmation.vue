@@ -1,17 +1,16 @@
 <template>
   <Layout
-    preview-text="Sing Up Confirmation"
+    preview-text="Password Reset Confirmation"
     :username="username"
   >
     <template #heading>
-      Account confirmation
+      Password reset
     </template>
 
     <Row>
       <Paragraph>
-        Thank you for signing up for {{ publicEnv.companyName }}, where
-        connections and love await! Please confirm your email address to
-        activate your account and start exploring.
+        We received a request to reset your password for your account at {{ publicEnv.companyName }}.
+        If you made this request, follow the instructions below to set a new password.
       </Paragraph>
 
       <Paragraph
@@ -19,11 +18,11 @@
         marginTop: '30px'
       }"
       >
-        Click the button below to confirm your account:
+        Click the button below to reset your password:
       </Paragraph>
 
       <Button :href="confirmationUrl">
-        Confirm account
+        Reset password
       </Button>
 
       <Paragraph
@@ -71,7 +70,7 @@ defineOptions({
   }
 } satisfies { defaultProps: typeof props })
 
-const confirmationUrl = createUrl('/sign-up/confirm', {
+const confirmationUrl = createUrl('/password-reset/confirm', {
   query: {
     token: props.confirmationToken
   }

@@ -164,11 +164,10 @@ export class AuthService {
       'signUp',
     );
 
-    await this.mailService.sendEmail('SignUpConfirmationTemplate', {
+    await this.mailService.sendEmail('SignUpConfirmation', {
       to: newUser.email,
       subject: 'Account Confirmation',
       props: {
-        email: newUser.email,
         username: newUser.email.split('@')[0],
         confirmationToken: signUpConfirmationToken,
       },

@@ -1,9 +1,11 @@
-import SignUpConfirmationTemplate from './SignUpConfirmation.vue';
+import SignUpConfirmation from './SignUpConfirmation.vue';
+import PasswordResetConfirmation from './PasswordResetConfirmation.vue';
 
 import type { ExtractComponentProps } from '../types';
 
 export const EMAIL_TEMPLATES = {
-  SignUpConfirmationTemplate,
+  SignUpConfirmation,
+  PasswordResetConfirmation,
 };
 
 export type EmailTemplateName = keyof typeof EMAIL_TEMPLATES;

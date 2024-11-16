@@ -15,9 +15,7 @@ export const routes: RouteRecordRaw[] = [
     component: {
       render() {
         const templatePageLinks = Object.keys(EMAIL_TEMPLATES).map(
-          (rawTemplateName) => {
-            const templateName = rawTemplateName.replace(/Template$/, '');
-
+          (templateName) => {
             const slug = kebabCase(templateName);
 
             return h(
@@ -46,7 +44,7 @@ export const routes: RouteRecordRaw[] = [
           params: { templateName },
         } = this.$route;
 
-        const formattedTemplateName = upperFirst(camelCase(`${templateName}-template`));
+        const formattedTemplateName = upperFirst(camelCase(templateName));
 
         const EmailTemplateComponent =
           EMAIL_TEMPLATES[formattedTemplateName as EmailTemplateName];
