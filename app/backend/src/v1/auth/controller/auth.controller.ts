@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Post,
-  UsePipes,
-  Body,
-  Query,
-  UseFilters,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Post, Body, UseFilters, UseGuards } from '@nestjs/common';
 
 import {
   AuthSignUpDtoSchema,
@@ -33,40 +25,43 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @UseGuards(GuestGuard)
-  @UsePipes(new ZodValidationPipe(AuthSignUpDtoSchema))
   @Post('/sign-up')
-  public signUp(@Body() signUpDto: AuthSignUpDto) {
+  public signUp(
+    @Body(new ZodValidationPipe(AuthSignUpDtoSchema)) signUpDto: AuthSignUpDto,
+  ) {
     return this.authService.signUp(signUpDto);
   }
 
   @UseGuards(GuestGuard)
   @Post('/sign-up/confirm')
   public confirmSignUp(
-    @Query(new ZodValidationPipe(AuthSignUpConfirmDtoSchema))
+    @Body(new ZodValidationPipe(AuthSignUpConfirmDtoSchema))
     { token }: AuthSignUpConfirmDto,
   ) {
     return this.authService.confirmSignUp(token);
   }
 
   @UseGuards(GuestGuard)
-  @UsePipes(new ZodValidationPipe(AuthLoginDtoSchema))
   @Post('/login')
-  public logIn(@Body() loginDto: AuthLoginDto) {
+  public logIn(
+    @Body(new ZodValidationPipe(AuthLoginDtoSchema)) loginDto: AuthLoginDto,
+  ) {
     return this.authService.logIn(loginDto);
   }
 
   @UseGuards(GuestGuard)
-  @UsePipes(new ZodValidationPipe(AuthPasswordResetDtoSchema))
   @Post('/password-reset')
-  public requestPasswordReset(@Body() passwordResetDto: AuthPasswordResetDto) {
+  public requestPasswordReset(
+    @Body(new ZodValidationPipe(AuthPasswordResetDtoSchema))
+    passwordResetDto: AuthPasswordResetDto,
+  ) {
     return this.authService.requestPasswordReset(passwordResetDto);
   }
 
   @UseGuards(GuestGuard)
-  @UsePipes(new ZodValidationPipe(AuthPasswordResetConfirmDtoSchema))
   @Post('/password-reset/confirm')
   public confirmPasswordReset(
-    @Body()
+    @Body(new ZodValidationPipe(AuthPasswordResetConfirmDtoSchema))
     passwordResetConfirmDto: AuthPasswordResetConfirmDto,
   ) {
     return this.authService.confirmPasswordReset(passwordResetConfirmDto);
