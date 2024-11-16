@@ -1,0 +1,31 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends":[
+    "//"
+  ],
+  "tasks": {
+    "build": {
+      "env": [
+        "UNDX_*"
+      ],
+      "inputs": [
+        ".env",
+        "package.json",
+        "next-cli-json",
+        "tsconfig.json",
+        "tsconfig.build.json",
+        "webpack.config.js",
+        "src/**/*.ts",
+        "!src/**/*.spec.ts"
+      ],
+      "outputs": ["dist"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false,
+      "dependsOn": [
+        "^build"
+      ]
+    }
+  }
+}

@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "WebSavva",
   "license": "ISC",
+  "scripts": {
+    "turbo": "turbo"
+  },
   "devDependencies": {
     "turbo": "^2.2.3"
   }
