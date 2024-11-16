@@ -305,12 +305,10 @@ export class AuthService {
     // checking if the given user exists and interval has passed
     await this.ensureUserIsAllowedToResetPassword(passwordResetDto.email);
 
-    // TODO: checking when the last update of password took place
-
     const passwordResetRequestId = this.cryptoService.generateRandomHash(16);
 
     // TODO sending email with the corresponding token
-    const passwordResetToken =
+    const passwordResetConfirmationToken =
       await this.signAuthPayload<AuthPayloadWithRequestId>(
         {
           email: passwordResetDto.email,
@@ -318,6 +316,20 @@ export class AuthService {
         },
         'passwordReset',
       );
+
+    const user = await this.usersRepository.findUserByEmail(
+      passwordResetDto.email,
+      true,
+    );
+
+    await this.mailService.sendEmail('PasswordResetConfirmation', {
+      to: user.email,
+      subject: 'Password Reset Confirmation',
+      props: {
+        username: user.email.split('@')[0],
+        confirmationToken: passwordResetConfirmationToken,
+      },
+    });
 
     await this.savePasswordResetRequest(
       passwordResetDto.email,
@@ -327,7 +339,7 @@ export class AuthService {
     return this.hideFieldsForProduction(
       {
         message: 'Password reset instruction has been sent to email address',
-        token: passwordResetToken,
+        token: passwordResetConfirmationToken,
       },
       'token',
     );
