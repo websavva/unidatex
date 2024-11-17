@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { USER_EMAIL_MAX_LENGTH } from '@unidatex/constants';
 
 @Entity()
 export class UserEntity {
@@ -7,7 +8,7 @@ export class UserEntity {
 
   @Column({
     type: 'varchar',
-    length: 200,
+    length: USER_EMAIL_MAX_LENGTH,
     nullable: false,
     unique: true,
   })

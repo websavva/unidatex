@@ -1,9 +1,10 @@
 import { z } from 'zod';
+import { USER_EMAIL_MAX_LENGTH } from '@unidatex/constants';
 
 import { password } from '../validators';
 
 export const AuthSignUpDtoSchema = z.object({
-  email: z.string().email(),
+  email: z.string().email().max(USER_EMAIL_MAX_LENGTH),
   password,
 });
 

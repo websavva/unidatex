@@ -11,9 +11,6 @@
         "tsup.config.ts",
         "src/**/*.ts"
       ],
-      "dependsOn": [
-        "^build"
-      ],
       "outputs": ["dist"]
     },
     "dev": {

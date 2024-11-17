@@ -1,7 +1,7 @@
 {
-  "name": "@unidatex/dto",
+  "name": "@unidatex/constants",
   "version": "0.0.0",
-  "description": "Data Transfer Objects for the app",
+  "description": "Constants for the app",
   "private": true,
   "engines": {
     "node": "22.x",
@@ -23,10 +23,6 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch"
-  },
-  "dependencies": {
-    "@unidatex/constants": "workspace:*",
-    "zod": "^3.23.8"
   },
   "devDependencies": {
     "tsup": "^8.3.5"

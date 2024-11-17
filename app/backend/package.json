@@ -28,6 +28,7 @@
     "@nestjs/platform-express": "^10.4.4",
     "@nestjs/serve-static": "^4.0.2",
     "@nestjs/typeorm": "^10.0.2",
+    "@unidatex/constants": "workspace:*",
     "@unidatex/dto": "workspace:*",
     "@unidatex/email-templates": "workspace:*",
     "@unidatex/static": "workspace:*",

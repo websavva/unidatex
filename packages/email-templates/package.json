@@ -1,5 +1,6 @@
 {
   "name": "@unidatex/email-templates",
+  "description": "Email templates for the app",
   "private": true,
   "version": "0.0.0",
   "type": "module",

@@ -35,6 +35,9 @@ importers:
       '@nestjs/typeorm':
         specifier: ^10.0.2
         version: 10.0.2(@nestjs/common@10.4.6(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.6)(reflect-metadata@0.2.2)(rxjs@7.8.1)(typeorm@0.3.20(pg@8.13.1)(redis@4.7.0)(ts-node@10.9.2(@swc/core@1.7.40)(@types/node@20.17.3)(typescript@5.6.3)))
+      '@unidatex/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
       '@unidatex/dto':
         specifier: workspace:*
         version: link:../../packages/dto
@@ -157,8 +160,17 @@ importers:
         specifier: ^5.3.3
         version: 5.6.3
 
+  packages/constants:
+    devDependencies:
+      tsup:
+        specifier: ^8.3.5
+        version: 8.3.5(@microsoft/api-extractor@7.47.11(@types/node@20.17.3))(@swc/core@1.7.40)(postcss@8.4.49)(typescript@5.6.3)
+
   packages/dto:
     dependencies:
+      '@unidatex/constants':
+        specifier: workspace:*
+        version: link:../constants
       zod:
         specifier: ^3.23.8
         version: 3.23.8
