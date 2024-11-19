@@ -1,0 +1,15 @@
+export enum Religion {
+  Catholic = 'catholic',
+  Orthodox = 'orthodox',
+  Protestant = 'protestant',
+  Christian = 'christian',
+  Buddhist = 'buddhist',
+  Muslim = 'muslim',
+  Hindu = 'hindu',
+  Jewish = 'jewish',
+  Taoist = 'taoist',
+  Shintoist = 'shintoist',
+  Atheist = 'atheist',
+  Agnostic = 'agnostic',
+  Other = 'other',
+}

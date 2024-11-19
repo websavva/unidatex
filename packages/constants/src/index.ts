@@ -9,4 +9,4 @@ export * from './uncertain-binary-answer'
 export * from './occupation';
 export * from './education-level';
 export * from './ethnicity'
-
+export * from './religion';
