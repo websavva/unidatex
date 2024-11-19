@@ -10,3 +10,4 @@ export * from './occupation';
 export * from './education-level';
 export * from './ethnicity'
 export * from './religion';
+export * from './eating-habits';
