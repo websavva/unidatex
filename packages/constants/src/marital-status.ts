@@ -1,9 +1,9 @@
 export enum MaritalStatus {
-  Single = 'Single',
-  Relationship = 'In a relationship',
-  Married = 'Married',
-  Divorced = 'Divorced',
-  Separated = 'Separated',
-  Widowed = 'Widowed',
-  Complicated = 'It’s complicated',
+  Single = 'single',
+  Relationship = 'relationship',
+  Married = 'married',
+  Divorced = 'divorced',
+  Separated = 'separated',
+  Widowed = 'widowed',
+  Complicated = 'complicated',
 }
