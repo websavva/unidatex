@@ -11,3 +11,4 @@ export * from './education-level';
 export * from './ethnicity'
 export * from './religion';
 export * from './eating-habits';
+export * from './living';
