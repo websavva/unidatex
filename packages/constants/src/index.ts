@@ -12,3 +12,5 @@ export * from './ethnicity'
 export * from './religion';
 export * from './eating-habits';
 export * from './living';
+export * from './drinking-habits';
+export * from './smoking-habits';
