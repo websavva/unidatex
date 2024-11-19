@@ -45,7 +45,7 @@ export class UserEntity {
   @Column({
     type: 'enum',
     enum: Gender,
-    default: Gender.MALE,
+    default: Gender.Male,
   })
   gender: Gender;
 

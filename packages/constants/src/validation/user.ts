@@ -14,3 +14,13 @@ export const UserAgeRange: ValidationRange = {
   min: 18,
   max: 100,
 };
+
+export const UserHeightRange: ValidationRange = {
+  min: 120,
+  max: 220,
+};
+
+export const UserWeightRange: ValidationRange = {
+  min: 25,
+  max: 250,
+}
