@@ -5,7 +5,7 @@ export enum Occupation {
   Artist = 'artist',
   Assistant = 'assistant',
   Beauty = 'beauty',
-  BusinessOwner = 'business)owner',
+  BusinessOwner = 'business_owner',
   CEO = 'ceo',
   CustomerService = 'customer_service',
   Employee = 'employee',
