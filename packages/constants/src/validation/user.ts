@@ -1,26 +1,17 @@
-import type { ValidationRange } from './types';
+import { createFullValidationRange, createMaxValidationRange } from './utils';
 
-export const UserEmailLengthRange: ValidationRange = {
-  min: 1,
-  max: 200,
-};
+export const UserEmailLengthRange = createFullValidationRange(1, 200);
 
-export const UserNameLengthRange: ValidationRange = {
-  min: 1,
-  max: 30,
-};
+export const UserNameLengthRange = createFullValidationRange(1, 30);
 
-export const UserAgeRange: ValidationRange = {
-  min: 18,
-  max: 100,
-};
+export const UserAgeRange = createFullValidationRange(18, 200);
 
-export const UserHeightRange: ValidationRange = {
-  min: 120,
-  max: 220,
-};
+export const UserHeightRange = createFullValidationRange(120, 220);
 
-export const UserWeightRange: ValidationRange = {
-  min: 25,
-  max: 250,
-}
+export const UserWeightRange = createFullValidationRange(25, 250);
+
+export const UserLanguagesRange = createFullValidationRange(1, 3);
+
+export const UserDescriptionMaxRange = createMaxValidationRange(3e3);
+
+export const UserIntroMaxRange = createMaxValidationRange(30);
