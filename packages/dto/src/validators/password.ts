@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const password = z
+export const password = () => z
   .string()
   .min(1)
   .max(30)

@@ -11,8 +11,8 @@ export type AuthPasswordResetDto = z.infer<typeof AuthPasswordResetDtoSchema>;
 export const AuthPasswordResetConfirmDtoSchema = z
   .object({
     token: z.string(),
-    newPassword: password,
-    confirmNewPassword: password,
+    newPassword: password(),
+    confirmNewPassword: password(),
   })
   .superRefine(({ newPassword, confirmNewPassword }, ctx) => {
     if (newPassword !== confirmNewPassword) {

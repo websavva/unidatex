@@ -16,7 +16,7 @@ export const AuthSignUpDtoSchema = z.object({
     .min(UserEmailLengthRange.min)
     .max(UserEmailLengthRange.max),
   name: z.string().min(UserNameLengthRange.min).max(UserEmailLengthRange.max),
-  password,
+  password: password(),
 
   gender: z.nativeEnum(Gender),
   targetedGender: z.nativeEnum(Gender).nullable(),

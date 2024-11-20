@@ -2,7 +2,7 @@ import { createFullValidationRange, createMaxValidationRange } from './utils';
 
 export const UserEmailLengthRange = createFullValidationRange(1, 200);
 
-export const UserNameLengthRange = createFullValidationRange(1, 30);
+export const UserNameLengthRange = createFullValidationRange(1, 12);
 
 export const UserAgeRange = createFullValidationRange(18, 200);
 
