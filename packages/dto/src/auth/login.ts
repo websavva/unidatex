@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
-import { password } from '../validators';
+import { userPassword, userEmail } from '../user/fields';
 
 export const AuthLoginDtoSchema = z.object({
-  email: z.string().email(),
-  password,
+  email: userEmail(),
+  password: userPassword(),
 });
 
 export type AuthLoginDto = z.infer<typeof AuthLoginDtoSchema>;

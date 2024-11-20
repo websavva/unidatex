@@ -1,9 +1,9 @@
 import { z, ZodIssueCode } from 'zod';
 
-import { password } from '../validators';
+import { userEmail, userPassword } from '../user/fields';
 
 export const AuthPasswordResetDtoSchema = z.object({
-  email: z.string().email(),
+  email: userEmail(),
 });
 
 export type AuthPasswordResetDto = z.infer<typeof AuthPasswordResetDtoSchema>;
@@ -11,8 +11,8 @@ export type AuthPasswordResetDto = z.infer<typeof AuthPasswordResetDtoSchema>;
 export const AuthPasswordResetConfirmDtoSchema = z
   .object({
     token: z.string(),
-    newPassword: password(),
-    confirmNewPassword: password(),
+    newPassword: userPassword(),
+    confirmNewPassword: userPassword(),
   })
   .superRefine(({ newPassword, confirmNewPassword }, ctx) => {
     if (newPassword !== confirmNewPassword) {

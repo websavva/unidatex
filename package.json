@@ -11,7 +11,8 @@
   "author": "WebSavva",
   "license": "ISC",
   "scripts": {
-    "turbo": "turbo"
+    "turbo": "turbo",
+    "dev:backend": "turbo --filter=./app/backend dev"
   },
   "devDependencies": {
     "turbo": "^2.2.3"
