@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn, Check } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  Check,
+  OneToMany,
+  Relation,
+} from 'typeorm';
 import {
   UserEmailLengthRange,
   UserNameLengthRange,
@@ -24,6 +31,8 @@ import {
   UserDescriptionMaxRange,
   UserIntroMaxRange,
 } from '@unidatex/constants';
+
+import { UserPhotoEntity } from './user-photo.entity';
 
 @Entity()
 @Check(
@@ -230,4 +239,10 @@ export class UserEntity {
     length: UserDescriptionMaxRange.max,
   })
   description: string | null;
+
+  @OneToMany(() => UserPhotoEntity, (userPhoto) => userPhoto.user, {
+    eager: true,
+    orphanedRowAction: 'disable',
+  })
+  photos: Relation<UserPhotoEntity[]>;
 }

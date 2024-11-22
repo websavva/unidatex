@@ -1,5 +1,8 @@
-version: '3.8'
+version: '3.9'
 name: unidatex-development
+
+include:
+  - docker-compose.s3.dev.yaml
 
 services:
   postgres:
