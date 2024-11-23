@@ -1,4 +1,14 @@
-import { Controller, Get, UseGuards, Patch, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  UseGuards,
+  Patch,
+  Body,
+  Post,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { UserUpdateDtoSchema, UserUpdateDto } from '@unidatex/dto';
 
 import { CurrentUser } from '#shared/decorators/current-user.decorator';
@@ -6,6 +16,7 @@ import { UserEntity } from '#shared/entities';
 import { ZodValidationPipe } from '#shared/pipes/zod-validation.pipe';
 
 import { AuthGuard } from '../../auth/guards/auth.guard';
+import { UserPhotoFileValidation } from '../pipes/user-photo-file-validation.pipe';
 
 import { UsersService } from '../services/users.service';
 
@@ -28,4 +39,11 @@ export class UsersController {
   ) {
     return this.usersService.updateUser(currentUser.id, userUpdateDto);
   }
+
+  @Post('/photo')
+  @UseGuards(AuthGuard)
+  @UseInterceptors(FileInterceptor('file'))
+  public addPhoto(
+    @UploadedFile(UserPhotoFileValidation) file: Express.Multer.File,
+  ) {}
 }

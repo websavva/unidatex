@@ -1,21 +1,25 @@
+import { Inject, Injectable } from '@nestjs/common';
+
 import {
-  PipeTransform,
-  Injectable,
-  ArgumentMetadata,
-  FileTypeValidator,
-  ParseFilePipe
-} from '@nestjs/common';
-import { Express } from 'express';
+  ConfigType,
+  fileUploadConfigLoader,
+} from '#shared/modules/config/config.module';
+
+import { FileValidationPipe } from '#shared/pipes/file-validation.pipe';
 
 @Injectable()
-export class FileSizeValidationPipe extends ParseFilePipe {
-  constructor() {
+export class UserPhotoFileValidation extends FileValidationPipe {
+  constructor(
+    @Inject(fileUploadConfigLoader.KEY)
+    fileUploadConfig: ConfigType<typeof fileUploadConfigLoader>,
+  ) {
+    const {
+      userPhoto: { maxSize, mimeTypes },
+    } = fileUploadConfig;
+
     super({
-      validators: [
-        new FileTypeValidator({
-          fileType: ''
-        })
-      ]
-    })
+      maxSize,
+      mimeTypes,
+    });
   }
 }

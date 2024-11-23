@@ -15,3 +15,5 @@ export const UserLanguagesRange = createFullValidationRange(1, 3);
 export const UserDescriptionMaxRange = createMaxValidationRange(3e3);
 
 export const UserIntroMaxRange = createMaxValidationRange(30);
+
+export const UserPhotoCountMaxRange = createMaxValidationRange(20);
