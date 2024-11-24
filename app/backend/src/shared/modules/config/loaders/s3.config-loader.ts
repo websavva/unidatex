@@ -12,7 +12,10 @@ export const s3ConfigLoader = registerAs('s3', () => {
   };
 
   const createUrl = (key: string) => {
-    return new URL(join(baseConfig.bucket, key), baseConfig.endpoint);
+    return new URL(
+      join(baseConfig.bucket, key),
+      baseConfig.endpoint,
+    ).toString();
   };
 
   return {

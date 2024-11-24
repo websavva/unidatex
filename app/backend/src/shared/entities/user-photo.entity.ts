@@ -4,6 +4,9 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   Relation,
+  AfterLoad,
+  AfterUpdate,
+  AfterInsert,
 } from 'typeorm';
 
 import { s3ConfigLoader } from '#shared/modules/config/loaders';
@@ -11,8 +14,6 @@ import { UserEntity } from './user.entity';
 
 @Entity()
 export class UserPhotoEntity {
-  private s3Config = s3ConfigLoader();
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -29,7 +30,19 @@ export class UserPhotoEntity {
   })
   user: Relation<UserEntity>;
 
-  get url() {
-    return this.s3Config.createUrl(this.key);
+  @Column({
+    type: 'boolean',
+    nullable: false,
+    default: false,
+  })
+  isPrimary: boolean;
+
+  url: string;
+
+  @AfterLoad()
+  @AfterInsert()
+  @AfterUpdate()
+  generateUrl() {
+    this.url = s3ConfigLoader().createUrl(this.key);
   }
 }

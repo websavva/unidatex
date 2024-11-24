@@ -44,6 +44,9 @@ export class UsersController {
   @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('file'))
   public addPhoto(
+    @CurrentUser() currentUser: UserEntity,
     @UploadedFile(UserPhotoFileValidation) file: Express.Multer.File,
-  ) {}
+  ) {
+    return this.usersService.addPhoto(currentUser, file);
+  }
 }
