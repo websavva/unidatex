@@ -5,7 +5,9 @@ import {
   Patch,
   Body,
   Post,
+  Delete,
   UploadedFile,
+  Param,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -40,7 +42,7 @@ export class UsersController {
     return this.usersService.updateUser(currentUser.id, userUpdateDto);
   }
 
-  @Post('/photo')
+  @Post('/photos')
   @UseGuards(AuthGuard)
   @UseInterceptors(FileInterceptor('file'))
   public addPhoto(
@@ -48,5 +50,23 @@ export class UsersController {
     @UploadedFile(UserPhotoFileValidation) file: Express.Multer.File,
   ) {
     return this.usersService.addPhoto(currentUser, file);
+  }
+
+  @Delete('/photos/:id')
+  @UseGuards(AuthGuard)
+  public removePhoto(
+    @CurrentUser() currentUser: UserEntity,
+    @Param('id') photoId: string,
+  ) {
+    return this.usersService.removePhoto(currentUser, photoId);
+  }
+
+  @Patch('/photos/:id/primary')
+  @UseGuards(AuthGuard)
+  public makePrimaryPhoto(
+    @CurrentUser() currentUser: UserEntity,
+    @Param('id') photoId: string,
+  ) {
+    return this.usersService.makePhotoPrimary(currentUser, photoId);
   }
 }
