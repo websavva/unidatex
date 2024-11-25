@@ -1,3 +1,5 @@
+import { LookingFor } from '../looking-for';
+
 import { createFullValidationRange, createMaxValidationRange } from './utils';
 
 export const UserEmailLengthRange = createFullValidationRange(1, 200);
@@ -17,3 +19,8 @@ export const UserDescriptionMaxRange = createMaxValidationRange(3e3);
 export const UserIntroMaxRange = createMaxValidationRange(30);
 
 export const UserPhotoCountMaxRange = createMaxValidationRange(20);
+
+export const UserLookingForRange = createFullValidationRange(
+  1,
+  Object.keys(LookingFor).length,
+);

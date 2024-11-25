@@ -2,9 +2,11 @@ import { z } from 'zod';
 import {
   Country,
   Gender,
+  LookingFor,
   UserAgeRange,
   UserEmailLengthRange,
   UserNameLengthRange,
+  UserLookingForRange,
 } from '@unidatex/constants';
 
 export const userBirthDate = () =>
@@ -63,3 +65,9 @@ export const userTargetedGender = () => z.nativeEnum(Gender).nullable();
 
 export const userCountry = () => z.nativeEnum(Country);
 
+export const userLookingFor = () =>
+  z
+    .set(z.nativeEnum(LookingFor))
+    .min(UserLookingForRange.min)
+    .max(UserLookingForRange.max)
+    .pipe(z.array(z.nativeEnum(LookingFor)));

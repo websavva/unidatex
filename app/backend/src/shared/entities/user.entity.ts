@@ -13,6 +13,7 @@ import {
   Gender,
   Country,
   EducationLevel,
+  LookingFor,
   MaritalStatus,
   UserHeightRange,
   UserWeightRange,
@@ -81,6 +82,14 @@ export class UserEntity {
     nullable: true,
   })
   passwordUpdatedAt: Date | null;
+
+  @Column({
+    type: 'enum',
+    enum: LookingFor,
+    array: true,
+    nullable: false,
+  })
+  lookingFor: LookingFor[];
 
   @Column({
     type: 'enum',
