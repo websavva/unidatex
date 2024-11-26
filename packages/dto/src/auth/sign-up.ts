@@ -8,7 +8,7 @@ import {
   userTargetedGender,
   userCountry,
   userBirthDate,
-  userLookingFor
+  userLookingFor,
 } from '../user/fields';
 
 export const AuthSignUpDtoSchema = z.object({

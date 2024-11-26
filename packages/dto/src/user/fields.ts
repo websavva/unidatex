@@ -67,7 +67,11 @@ export const userCountry = () => z.nativeEnum(Country);
 
 export const userLookingFor = () =>
   z
-    .set(z.nativeEnum(LookingFor))
-    .min(UserLookingForRange.min)
-    .max(UserLookingForRange.max)
-    .pipe(z.array(z.nativeEnum(LookingFor)));
+    .array(z.nativeEnum(LookingFor))
+    .transform((arr) => Array.from(new Set(arr)))
+    .pipe(
+      z
+        .array(z.nativeEnum(LookingFor))
+        .min(UserLookingForRange.min)
+        .max(UserLookingForRange.max),
+    );
