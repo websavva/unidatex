@@ -4,7 +4,7 @@ import { Module } from '@nestjs/common';
 import { UsersRepositoryProvider } from '#shared/repositories/users.repository';
 import { FileStorageModule } from '#shared/modules/file-storage/file-storage.module';
 import { ConfigModule } from '#shared/modules/config/config.module';
-import { UserPhotoEntity } from '#shared/entities';
+import { UserPhotoEntity, UserProfileView } from '#shared/entities';
 
 import { AuthModule } from '../auth/auth.module';
 
@@ -16,7 +16,7 @@ import { UsersService } from './services/users.service';
     AuthModule,
     FileStorageModule,
     ConfigModule,
-    TypeOrmModule.forFeature([UserPhotoEntity]),
+    TypeOrmModule.forFeature([UserPhotoEntity, UserProfileView]),
   ],
   controllers: [UsersController],
   providers: [UsersRepositoryProvider, UsersService],

@@ -19,7 +19,6 @@ import { ZodValidationPipe } from '#shared/pipes/zod-validation.pipe';
 
 import { AuthGuard } from '../../auth/guards/auth.guard';
 import { UserPhotoFileValidation } from '../pipes/user-photo-file-validation.pipe';
-
 import { UsersService } from '../services/users.service';
 
 @Controller()
@@ -40,6 +39,15 @@ export class UsersController {
     userUpdateDto: UserUpdateDto,
   ) {
     return this.usersService.updateUser(currentUser.id, userUpdateDto);
+  }
+
+  @Get('/:id')
+  @UseGuards(AuthGuard)
+  public getUser(
+    @CurrentUser() currentUser: UserEntity,
+    @Param('id') userId: string,
+  ) {
+    return this.usersService.getUser(currentUser, userId);
   }
 
   @Post('/photos')

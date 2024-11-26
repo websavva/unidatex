@@ -28,12 +28,37 @@ export class UsersService {
     @Inject(DataSource) private dataSource: DataSource,
   ) {}
 
+  protected throwPhotoNotFoundException(photoId): never {
+    throw new NotFoundException(`Photo with id "${photoId}" is not found`);
+  }
+
+  protected throwUserNotFoundException(userId): never {
+    throw new NotFoundException(`User with id "${userId}" is not found`);
+  }
+
   public async updateUser(userId: string, userUpdateDto: UserUpdateDto) {
     await this.usersRepository.update(userId, userUpdateDto);
 
     return this.usersRepository.findOneByOrFail({
       id: userId,
     });
+  }
+
+  public async getUser(currentUser: UserEntity, userId: string) {
+    const user = await this.usersRepository.findOne({
+      where: {
+        id: userId,
+      },
+
+      relations: {
+        incomingViews: true,
+        photos: true,
+      },
+    });
+
+    if (!user) this.throwPhotoNotFoundException(userId);
+
+    return user;
   }
 
   public async addPhoto(currentUser: UserEntity, file: Express.Multer.File) {
@@ -58,10 +83,6 @@ export class UsersService {
     });
 
     return this.userPhotosRepository.save(newPhoto);
-  }
-
-  protected throwPhotoNotFoundException(photoId): never {
-    throw new NotFoundException(`Photo with id "${photoId}" is not found`);
   }
 
   public async removePhoto(currentUser: UserEntity, photoId: string) {

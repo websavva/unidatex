@@ -34,6 +34,7 @@ import {
 } from '@unidatex/constants';
 
 import { UserPhotoEntity } from './user-photo.entity';
+import { UserProfileView } from './user-profile-view.entity';
 
 @Entity()
 @Check(
@@ -254,4 +255,22 @@ export class UserEntity {
     orphanedRowAction: 'disable',
   })
   photos: Relation<UserPhotoEntity[]>;
+
+  @OneToMany(
+    () => UserProfileView,
+    (userProfileView) => userProfileView.viewer,
+    {
+      lazy: true,
+    },
+  )
+  outcomingViews: Promise<Relation<UserProfileView>[]>;
+
+  @OneToMany(
+    () => UserProfileView,
+    (userProfileView) => userProfileView.viewedUser,
+    {
+      lazy: true,
+    },
+  )
+  incomingViews: Promise<Relation<UserProfileView>[]>;
 }
