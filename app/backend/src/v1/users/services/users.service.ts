@@ -15,7 +15,7 @@ import {
   UsersRepository,
   USERS_REPOSITORY_INJECTION_KEY,
 } from '#shared/repositories/users.repository';
-import { UserEntity, UserPhotoEntity } from '#shared/entities';
+import { UserEntity, UserPhotoEntity, UserProfileView } from '#shared/entities';
 
 @Injectable()
 export class UsersService {
@@ -25,6 +25,8 @@ export class UsersService {
     private fileStorageService: FileStorageService,
     @InjectRepository(UserPhotoEntity)
     private userPhotosRepository: Repository<UserPhotoEntity>,
+    @InjectRepository(UserProfileView)
+    private userProfileViewsRepository: Repository<UserProfileView>,
     @Inject(DataSource) private dataSource: DataSource,
   ) {}
 
@@ -44,6 +46,17 @@ export class UsersService {
     });
   }
 
+  public async getUserProfileIncomingViews(userId: string) {
+    return this.userProfileViewsRepository
+      .createQueryBuilder('profileView')
+      .leftJoinAndSelect('profileView.viewedUser', 'viewedUser')
+      .where('viewedUser.id = :viewedUserId', {
+        viewedUserId: userId,
+      })
+      .orderBy('profileView.viewedAt', 'DESC')
+      .getMany();
+  }
+
   public async getUser(currentUser: UserEntity, userId: string) {
     const user = await this.usersRepository.findOne({
       where: {
@@ -51,12 +64,22 @@ export class UsersService {
       },
 
       relations: {
-        incomingViews: true,
         photos: true,
       },
     });
 
     if (!user) this.throwPhotoNotFoundException(userId);
+
+    const isSelf = currentUser.id === user.id;
+
+    if (!isSelf) {
+      await this.userProfileViewsRepository.insert([
+        {
+          viewedUser: user,
+          viewer: currentUser,
+        },
+      ]);
+    }
 
     return user;
   }

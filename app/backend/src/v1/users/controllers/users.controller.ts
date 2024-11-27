@@ -41,6 +41,20 @@ export class UsersController {
     return this.usersService.updateUser(currentUser.id, userUpdateDto);
   }
 
+  @Get('/views')
+  @UseGuards(AuthGuard)
+  public async getMyProfileIncomingViews(
+    @CurrentUser() currentUser: UserEntity,
+  ) {
+    const views = await this.usersService.getUserProfileIncomingViews(
+      currentUser.id,
+    );
+
+    return {
+      views,
+    };
+  }
+
   @Get('/:id')
   @UseGuards(AuthGuard)
   public getUser(
