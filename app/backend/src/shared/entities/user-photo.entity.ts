@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 
 import { s3ConfigLoader } from '#shared/modules/config/loaders';
+
 import { UserEntity } from './user.entity';
 
 @Entity()
