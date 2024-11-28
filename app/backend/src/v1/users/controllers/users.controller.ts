@@ -9,9 +9,15 @@ import {
   UploadedFile,
   Param,
   UseInterceptors,
+  Query,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { UserUpdateDtoSchema, UserUpdateDto } from '@unidatex/dto';
+import {
+  UserUpdateDtoSchema,
+  UserUpdateDto,
+  PaginationParamsDtoSchema,
+  PaginationParamsDto,
+} from '@unidatex/dto';
 
 import { CurrentUser } from '#shared/decorators/current-user.decorator';
 import { UserEntity } from '#shared/entities';
@@ -45,14 +51,13 @@ export class UsersController {
   @UseGuards(AuthGuard)
   public async getMyProfileIncomingViews(
     @CurrentUser() currentUser: UserEntity,
+    @Query(new ZodValidationPipe(PaginationParamsDtoSchema))
+    paginationParams: PaginationParamsDto,
   ) {
-    const views = await this.usersService.getUserProfileIncomingViews(
+    return this.usersService.getUserProfileIncomingViews(
       currentUser.id,
+      paginationParams,
     );
-
-    return {
-      views,
-    };
   }
 
   @Get('/:id')

@@ -8,7 +8,7 @@ import { Repository, DataSource } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { UserPhotoCountMaxRange } from '@unidatex/constants';
-import { UserUpdateDto } from '@unidatex/dto';
+import { UserUpdateDto, PaginationParamsDto } from '@unidatex/dto';
 
 import { FileStorageService } from '#shared/modules/file-storage/file-storage.service';
 import {
@@ -16,6 +16,7 @@ import {
   USERS_REPOSITORY_INJECTION_KEY,
 } from '#shared/repositories/users.repository';
 import { UserEntity, UserPhotoEntity, UserProfileView } from '#shared/entities';
+import { PaginationService } from '#shared/services/pagination.service';
 
 @Injectable()
 export class UsersService {
@@ -28,6 +29,7 @@ export class UsersService {
     @InjectRepository(UserProfileView)
     private userProfileViewsRepository: Repository<UserProfileView>,
     @Inject(DataSource) private dataSource: DataSource,
+    private paginationService: PaginationService,
   ) {}
 
   protected throwPhotoNotFoundException(photoId): never {
@@ -46,15 +48,29 @@ export class UsersService {
     });
   }
 
-  public async getUserProfileIncomingViews(userId: string) {
-    return this.userProfileViewsRepository
+  public async getUserProfileIncomingViews(
+    userId: string,
+    paginationParams: PaginationParamsDto,
+  ) {
+    const incomingViewsQueryBuilder = this.userProfileViewsRepository
       .createQueryBuilder('profileView')
-      .leftJoinAndSelect('profileView.viewedUser', 'viewedUser')
+      .leftJoin('profileView.viewedUser', 'viewedUser')
+      .leftJoinAndSelect('profileView.viewer', 'viewer')
       .where('viewedUser.id = :viewedUserId', {
         viewedUserId: userId,
       })
       .orderBy('profileView.viewedAt', 'DESC')
-      .getMany();
+      .select(['profileView.id', 'viewer', 'profileView.viewedAt']);
+
+    const { items: views, pagination } = await this.paginationService.paginate(
+      incomingViewsQueryBuilder,
+      paginationParams,
+    );
+
+    return {
+      views,
+      pagination,
+    };
   }
 
   public async getUser(currentUser: UserEntity, userId: string) {
