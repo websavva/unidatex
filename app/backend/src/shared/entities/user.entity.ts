@@ -35,6 +35,7 @@ import {
 
 import { UserPhotoEntity } from './user-photo.entity';
 import { UserProfileView } from './user-profile-view.entity';
+import { UserFavorite } from './user-favorite.entity';
 
 @Entity()
 @Check(
@@ -273,4 +274,14 @@ export class UserEntity {
     },
   )
   incomingViews: Promise<Relation<UserProfileView>[]>;
+
+  @OneToMany(() => UserFavorite, (userFavorite) => userFavorite.user, {
+    lazy: true,
+  })
+  favoritedUsers: Promise<Relation<UserFavorite>[]>;
+
+  @OneToMany(() => UserFavorite, (userFavorite) => userFavorite.favoritedUser, {
+    lazy: true,
+  })
+  favoritedByUsers: Promise<Relation<UserFavorite>[]>;
 }
