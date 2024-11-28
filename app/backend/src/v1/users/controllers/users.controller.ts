@@ -22,6 +22,7 @@ import {
 import { CurrentUser } from '#shared/decorators/current-user.decorator';
 import { UserEntity } from '#shared/entities';
 import { ZodValidationPipe } from '#shared/pipes/zod-validation.pipe';
+import { UUIDZodValidationPipe } from '#shared/pipes/uuid-validation.pipe';
 
 import { AuthGuard } from '../../auth/guards/auth.guard';
 import { UserPhotoFileValidation } from '../pipes/user-photo-file-validation.pipe';
@@ -64,7 +65,7 @@ export class UsersController {
   @UseGuards(AuthGuard)
   public getUser(
     @CurrentUser() currentUser: UserEntity,
-    @Param('id') userId: string,
+    @Param('id', UUIDZodValidationPipe) userId: string,
   ) {
     return this.usersService.getUser(currentUser, userId);
   }
@@ -83,7 +84,7 @@ export class UsersController {
   @UseGuards(AuthGuard)
   public removePhoto(
     @CurrentUser() currentUser: UserEntity,
-    @Param('id') photoId: string,
+    @Param('id', UUIDZodValidationPipe) photoId: string,
   ) {
     return this.usersService.removePhoto(currentUser, photoId);
   }
@@ -92,7 +93,7 @@ export class UsersController {
   @UseGuards(AuthGuard)
   public makePrimaryPhoto(
     @CurrentUser() currentUser: UserEntity,
-    @Param('id') photoId: string,
+    @Param('id', UUIDZodValidationPipe) photoId: string,
   ) {
     return this.usersService.makePhotoPrimary(currentUser, photoId);
   }

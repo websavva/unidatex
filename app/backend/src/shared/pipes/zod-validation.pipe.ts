@@ -3,7 +3,7 @@ import { PipeTransform, BadRequestException } from '@nestjs/common';
 import { ZodSchema, ZodError } from 'zod';
 import { ErrorMessageOptions, generateErrorMessage } from 'zod-error';
 
-const zodErrorOptions: ErrorMessageOptions = {
+const defaultZodErrorOptions: ErrorMessageOptions = {
   maxErrors: 1,
   code: {
     enabled: false,
@@ -24,7 +24,10 @@ const zodErrorOptions: ErrorMessageOptions = {
 };
 
 export class ZodValidationPipe implements PipeTransform {
-  constructor(private schema: ZodSchema) {}
+  constructor(
+    private schema: ZodSchema,
+    private zodErrorOptions: ErrorMessageOptions = defaultZodErrorOptions,
+  ) {}
 
   transform(value: unknown) {
     try {
@@ -34,7 +37,7 @@ export class ZodValidationPipe implements PipeTransform {
       let errorMessage: string;
 
       if (error instanceof ZodError) {
-        errorMessage = generateErrorMessage(error.issues, zodErrorOptions);
+        errorMessage = generateErrorMessage(error.issues, this.zodErrorOptions);
       } else {
         errorMessage = 'Validation failed';
       }
