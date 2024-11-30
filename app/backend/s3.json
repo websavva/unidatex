@@ -2,9 +2,7 @@
   "identities": [
     {
       "name": "anonymous",
-      "actions": [
-        "Read"
-      ]
+      "actions": ["Read"]
     },
     {
       "name": "undx_admin",
@@ -14,13 +12,7 @@
           "secretKey": "secret"
         }
       ],
-      "actions": [
-        "Admin",
-        "Read",
-        "List",
-        "Tagging",
-        "Write"
-      ]
+      "actions": ["Admin", "Read", "List", "Tagging", "Write"]
     }
   ]
 }
