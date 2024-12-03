@@ -266,12 +266,6 @@ export class UserEntity {
   )
   outcomingViews: Promise<Relation<UserProfileView>[]>;
 
-  @Column({
-    type: 'varchar',
-    nullable: true,
-  })
-  city: string;
-
   @OneToMany(
     () => UserProfileView,
     (userProfileView) => userProfileView.viewedUser,
