@@ -1,14 +1,9 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "extends":[
-    "//"
-  ],
+  "extends": ["//"],
   "tasks": {
     "build": {
-      "env": [
-        "UNDX_*",
-        "NODE_ENV"
-      ],
+      "env": ["UNDX_*", "NODE_ENV"],
       "inputs": [
         ".env",
         "package.json",
@@ -24,9 +19,7 @@
     "dev": {
       "persistent": true,
       "cache": false,
-      "dependsOn": [
-        "^build"
-      ]
+      "dependsOn": ["^build"]
     }
   }
 }
