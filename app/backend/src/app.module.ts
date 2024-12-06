@@ -23,11 +23,11 @@ import { V1Module } from './v1/v1.module';
 
       useFactory: (postgresConfig: ConfigType<typeof postgresConfigLoader>) => {
         const {
-          HOST: host,
-          PORT: port,
-          PASSWORD: password,
-          USER: username,
-          DB: database,
+          host,
+          port,
+          password,
+          user: username,
+          db: database,
         } = postgresConfig;
 
         return {

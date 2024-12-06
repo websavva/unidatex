@@ -1,9 +1,9 @@
 import { registerAs } from '@nestjs/config';
 
 export const postgresConfigLoader = registerAs('postgres', () => ({
-  HOST: process.env.UNDX_POSTGRES_HOST!,
-  PORT: +process.env.UNDX_POSTGRES_PORT!,
-  USER: process.env.UNDX_POSTGRES_USER!,
-  PASSWORD: process.env.UNDX_POSTGRES_PASSWORD!,
-  DB: process.env.UNDX_POSTGRES_DB!,
+  host: process.env.UNDX_POSTGRES_HOST!,
+  port: +process.env.UNDX_POSTGRES_PORT!,
+  user: process.env.UNDX_POSTGRES_USER!,
+  password: process.env.UNDX_POSTGRES_PASSWORD!,
+  db: process.env.UNDX_POSTGRES_DB!,
 }));

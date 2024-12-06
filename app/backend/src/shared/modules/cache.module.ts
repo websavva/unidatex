@@ -17,15 +17,15 @@ import {
       imports: [ConfigModule],
 
       useFactory: async (redisConfig: ConfigType<typeof redisConfigLoader>) => {
-        const { PASSWORD, PORT, HOST } = redisConfig;
+        const { password, port, host } = redisConfig;
 
         const store = (await redisStore({
           socket: {
-            host: HOST,
-            port: PORT,
+            host,
+            port,
           },
 
-          password: PASSWORD,
+          password,
         })) as unknown as CacheStore;
 
         return {
