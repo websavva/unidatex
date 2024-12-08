@@ -8,7 +8,7 @@ import {
 import { FileValidationPipe } from '#shared/pipes/file-validation.pipe';
 
 @Injectable()
-export class UserPhotoFileValidation extends FileValidationPipe {
+export class ProfilePhotoFileValidation extends FileValidationPipe {
   constructor(
     @Inject(fileUploadConfigLoader.KEY)
     fileUploadConfig: ConfigType<typeof fileUploadConfigLoader>,

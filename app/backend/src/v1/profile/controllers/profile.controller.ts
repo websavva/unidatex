@@ -25,12 +25,12 @@ import { ZodValidationPipe } from '#shared/pipes/zod-validation.pipe';
 import { UUIDZodValidationPipe } from '#shared/pipes/uuid-validation.pipe';
 
 import { AuthGuard } from '../../auth/guards/auth.guard';
-import { UserPhotoFileValidation } from '../pipes/user-photo-file-validation.pipe';
+import { ProfilePhotoFileValidation } from '../pipes/photo-file-validation.pipe';
 import { ProfileService } from '../services/profile.service';
 
 @Controller()
 @UseGuards(AuthGuard)
-export class UsersController {
+export class ProfileController {
   constructor(private profileService: ProfileService) {}
 
   @Get('/')
@@ -63,7 +63,7 @@ export class UsersController {
   @UseInterceptors(FileInterceptor('file'))
   public addProfilePhoto(
     @CurrentUser() currentUser: UserEntity,
-    @UploadedFile(UserPhotoFileValidation) file: Express.Multer.File,
+    @UploadedFile(ProfilePhotoFileValidation) file: Express.Multer.File,
   ) {
     return this.profileService.addPhoto(currentUser, file);
   }

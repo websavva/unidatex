@@ -36,15 +36,18 @@ export class ProfileService {
     throw new NotFoundException(`Photo with id "${photoId}" is not found`);
   }
 
-  protected throwUserNotFoundException(userId): never {
-    throw new NotFoundException(`User with id "${userId}" is not found`);
-  }
-
   public async updateProfile(userId: string, userUpdateDto: UserUpdateDto) {
     await this.usersRepository.update(userId, userUpdateDto);
 
     return this.usersRepository.findOneByOrFail({
       id: userId,
+    });
+  }
+
+  public async createProfileView(viewer: UserEntity, viewedUser: UserEntity) {
+    return this.userProfileViewsRepository.insert({
+      viewer,
+      viewedUser,
     });
   }
 

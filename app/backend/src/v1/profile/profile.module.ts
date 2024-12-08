@@ -4,12 +4,12 @@ import { Module } from '@nestjs/common';
 import { UsersRepositoryProvider } from '#shared/repositories/users.repository';
 import { FileStorageModule } from '#shared/modules/file-storage/file-storage.module';
 import { ConfigModule } from '#shared/modules/config/config.module';
-import { UserPhotoEntity } from '#shared/entities';
+import { UserPhotoEntity, UserProfileView } from '#shared/entities';
 import { PaginationService } from '#shared/services/pagination.service';
 
 import { AuthModule } from '../auth/auth.module';
 
-import { UsersController } from './controllers/users.controller';
+import { ProfileController } from './controllers/profile.controller';
 import { ProfileService } from './services/profile.service';
 
 @Module({
@@ -17,10 +17,10 @@ import { ProfileService } from './services/profile.service';
     AuthModule,
     FileStorageModule,
     ConfigModule,
-    TypeOrmModule.forFeature([UserPhotoEntity]),
+    TypeOrmModule.forFeature([UserPhotoEntity, UserProfileView]),
   ],
-  controllers: [UsersController],
+  controllers: [ProfileController],
   providers: [UsersRepositoryProvider, PaginationService, ProfileService],
   exports: [ProfileService],
 })
-export class UsersModule {}
+export class ProfileModule {}
