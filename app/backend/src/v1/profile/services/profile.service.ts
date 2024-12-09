@@ -15,7 +15,11 @@ import {
   UsersRepository,
   USERS_REPOSITORY_INJECTION_KEY,
 } from '#shared/repositories/users.repository';
-import { UserEntity, UserPhotoEntity, UserProfileView } from '#shared/entities';
+import {
+  UserEntity,
+  UserPhotoEntity,
+  UserProfileViewEntity,
+} from '#shared/entities';
 import { PaginationService } from '#shared/services/pagination.service';
 
 @Injectable()
@@ -26,8 +30,8 @@ export class ProfileService {
     private fileStorageService: FileStorageService,
     @InjectRepository(UserPhotoEntity)
     private userPhotosRepository: Repository<UserPhotoEntity>,
-    @InjectRepository(UserProfileView)
-    private userProfileViewsRepository: Repository<UserProfileView>,
+    @InjectRepository(UserProfileViewEntity)
+    private userProfileViewsRepository: Repository<UserProfileViewEntity>,
     @Inject(DataSource) private dataSource: DataSource,
     private paginationService: PaginationService,
   ) {}

@@ -80,6 +80,7 @@ export enum Country {
   FrenchSouthernTerritories = 'TF',
   Gabon = 'GA',
   Gambia = 'GM',
+  Gaza = 'XG',
   Georgia = 'GE',
   Germany = 'DE',
   Ghana = 'GH',
