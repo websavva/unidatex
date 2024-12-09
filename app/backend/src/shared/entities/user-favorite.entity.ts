@@ -9,7 +9,7 @@ import {
 import { UserEntity } from './user.entity';
 
 @Entity('user_favorites')
-export class UserFavorite {
+export class UserFavoriteEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "scripts": {
     "build": "nest build",
+    "migration:up": "typeorm-ts-node-commonjs migration:run -d ./data-source.ts",
+    "migration:down": "typeorm-ts-node-commonjs migration:revert -- -d ./data-source.ts",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "dev": "nest start --watch",
     "dev:debug": "nest start --debug --watch",
@@ -36,6 +38,7 @@
     "bcryptjs": "^2.4.3",
     "cache-manager": "5.7.6",
     "cache-manager-redis-yet": "^5.1.5",
+    "dotenv": "^16.4.7",
     "jsonwebtoken": "^9.0.2",
     "mime-types": "^2.1.35",
     "nodemailer": "^6.9.16",

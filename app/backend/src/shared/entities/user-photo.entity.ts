@@ -9,11 +9,11 @@ import {
   AfterInsert,
 } from 'typeorm';
 
-import { s3ConfigLoader } from '#shared/modules/config/loaders';
+import { s3ConfigLoader } from '../modules/config/loaders';
 
 import { UserEntity } from './user.entity';
 
-@Entity()
+@Entity('user_photos')
 export class UserPhotoEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;

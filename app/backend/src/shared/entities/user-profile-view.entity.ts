@@ -8,8 +8,8 @@ import {
 
 import { UserEntity } from './user.entity';
 
-@Entity()
-export class UserProfileView {
+@Entity('user_profile_views')
+export class UserProfileViewEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

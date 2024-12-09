@@ -5,6 +5,7 @@ import {
   Check,
   OneToMany,
   Relation,
+  ManyToOne,
 } from 'typeorm';
 import {
   UserEmailLengthRange,
@@ -34,10 +35,11 @@ import {
 } from '@unidatex/constants';
 
 import { UserPhotoEntity } from './user-photo.entity';
-import { UserProfileView } from './user-profile-view.entity';
-import { UserFavorite } from './user-favorite.entity';
+import { UserProfileViewEntity } from './user-profile-view.entity';
+import { UserFavoriteEntity } from './user-favorite.entity';
+import { CityEntity } from './city.entity';
 
-@Entity()
+@Entity('users')
 @Check(
   'birthDate_range',
   `DATE_PART('year', AGE("birthDate")) >= ${UserAgeRange.min} AND DATE_PART('year', AGE("birthDate")) <= ${UserAgeRange.max}`,
@@ -257,31 +259,46 @@ export class UserEntity {
   })
   photos: Relation<UserPhotoEntity[]>;
 
+  @ManyToOne(() => CityEntity, (city) => city.users, {
+    eager: true,
+    nullable: true,
+    onDelete: 'SET NULL',
+  })
+  city: Relation<CityEntity> | null;
+
   @OneToMany(
-    () => UserProfileView,
-    (userProfileView) => userProfileView.viewer,
+    () => UserProfileViewEntity,
+    (UserProfileViewEntity) => UserProfileViewEntity.viewer,
     {
       lazy: true,
     },
   )
-  outcomingViews: Promise<Relation<UserProfileView>[]>;
+  outcomingViews: Promise<Relation<UserProfileViewEntity>[]>;
 
   @OneToMany(
-    () => UserProfileView,
-    (userProfileView) => userProfileView.viewedUser,
+    () => UserProfileViewEntity,
+    (UserProfileViewEntity) => UserProfileViewEntity.viewedUser,
     {
       lazy: true,
     },
   )
-  incomingViews: Promise<Relation<UserProfileView>[]>;
+  incomingViews: Promise<Relation<UserProfileViewEntity>[]>;
 
-  @OneToMany(() => UserFavorite, (userFavorite) => userFavorite.user, {
-    lazy: true,
-  })
-  favoritedUsers: Promise<Relation<UserFavorite>[]>;
+  @OneToMany(
+    () => UserFavoriteEntity,
+    (UserFavoriteEntity) => UserFavoriteEntity.user,
+    {
+      lazy: true,
+    },
+  )
+  favoritedUsers: Promise<Relation<UserFavoriteEntity>[]>;
 
-  @OneToMany(() => UserFavorite, (userFavorite) => userFavorite.favoritedUser, {
-    lazy: true,
-  })
-  favoritedByUsers: Promise<Relation<UserFavorite>[]>;
+  @OneToMany(
+    () => UserFavoriteEntity,
+    (UserFavoriteEntity) => UserFavoriteEntity.favoritedUser,
+    {
+      lazy: true,
+    },
+  )
+  favoritedByUsers: Promise<Relation<UserFavoriteEntity>[]>;
 }
