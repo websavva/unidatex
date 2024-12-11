@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const DEFAULT_PER_PAGE = 20;
 
-const paginationNumericParam = (defaultValue: number) =>
+export const paginationNumericParam = (defaultValue: number) =>
   z
     .string()
     .regex(/^\d+$/, {

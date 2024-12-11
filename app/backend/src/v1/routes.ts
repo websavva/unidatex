@@ -3,6 +3,7 @@ import { Routes } from '@nestjs/core';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ProfileModule } from './profile/profile.module';
+import { GeoModule } from './geo/geo.module';
 
 export const v1Routes: Routes = [
   {
@@ -21,6 +22,11 @@ export const v1Routes: Routes = [
       {
         path: '/profile',
         module: ProfileModule,
+      },
+
+      {
+        path: '/geo',
+        module: GeoModule,
       },
     ],
   },
