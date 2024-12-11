@@ -55,6 +55,8 @@ export const UserUpdateDtoSchema = AuthSignUpDtoSchema.omit({
     smokingHabits: z.nativeEnum(SmokingHabits).nullable(),
     wouldTravel: z.nativeEnum(UncertainBinaryAnswer).nullable(),
     wouldRelocate: z.nativeEnum(UncertainBinaryAnswer).nullable(),
+
+    city: z.string().uuid().nullable(),
   })
   .partial()
   .refine((userUpdateDto) => Object.keys(userUpdateDto).length > 0, {

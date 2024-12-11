@@ -9,7 +9,7 @@ import { GeoSearchCitiesDto } from '@unidatex/dto';
 export class GeoService {
   constructor(
     @InjectRepository(CityEntity)
-    private citiesRepository: Repository<CityEntity>,
+    public citiesRepository: Repository<CityEntity>,
   ) {}
 
   searchCities({ q, limit, country }: GeoSearchCitiesDto) {

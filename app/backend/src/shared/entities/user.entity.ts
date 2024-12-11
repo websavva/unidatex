@@ -6,6 +6,8 @@ import {
   OneToMany,
   Relation,
   ManyToOne,
+  BeforeInsert,
+  BeforeUpdate,
 } from 'typeorm';
 import {
   UserEmailLengthRange,
@@ -134,6 +136,13 @@ export class UserEntity {
   })
   country: Country;
 
+  @ManyToOne(() => CityEntity, (city) => city.users, {
+    eager: true,
+    nullable: true,
+    onDelete: 'SET NULL',
+  })
+  city: Relation<CityEntity> | null;
+
   @Column({
     type: 'enum',
     enum: Occupation,
@@ -258,13 +267,6 @@ export class UserEntity {
     orphanedRowAction: 'disable',
   })
   photos: Relation<UserPhotoEntity[]>;
-
-  @ManyToOne(() => CityEntity, (city) => city.users, {
-    eager: true,
-    nullable: true,
-    onDelete: 'SET NULL',
-  })
-  city: Relation<CityEntity> | null;
 
   @OneToMany(
     () => UserProfileViewEntity,

@@ -12,7 +12,7 @@ export class UsersService {
     private usersRepository: UsersRepository,
   ) {}
 
-  protected throwUserNotFoundException(userId): never {
+  public throwUserNotFoundException(userId): never {
     throw new NotFoundException(`User with id "${userId}" is not found`);
   }
 

@@ -22,6 +22,10 @@ import {
 } from '#shared/entities';
 import { PaginationService } from '#shared/services/pagination.service';
 
+import { GeoService } from '../../geo/services/geo.service';
+import { UsersService } from '../../users/services/users.service';
+import { CityEntity } from '@/shared/entities/city.entity';
+
 @Injectable()
 export class ProfileService {
   constructor(
@@ -34,6 +38,8 @@ export class ProfileService {
     private userProfileViewsRepository: Repository<UserProfileViewEntity>,
     @Inject(DataSource) private dataSource: DataSource,
     private paginationService: PaginationService,
+    private usersService: UsersService,
+    private geoService: GeoService,
   ) {}
 
   protected throwPhotoNotFoundException(photoId): never {
@@ -41,11 +47,30 @@ export class ProfileService {
   }
 
   public async updateProfile(userId: string, userUpdateDto: UserUpdateDto) {
-    await this.usersRepository.update(userId, userUpdateDto);
-
-    return this.usersRepository.findOneByOrFail({
+    const userToUpdate = await this.usersRepository.findOneBy({
       id: userId,
     });
+
+    if (!userToUpdate) this.usersService.throwUserNotFoundException(userId);
+
+    const { city: cityId, ...userBaseFields } = userUpdateDto;
+
+    let newCity: null | undefined | CityEntity;
+
+    if (cityId === null) {
+      newCity = cityId;
+    } else if (cityId) {
+      newCity = await this.geoService.citiesRepository.findOneByOrFail({
+        id: cityId,
+      });
+    }
+
+    Object.assign(userToUpdate, { ...userBaseFields, city: newCity });
+
+    if (userToUpdate.city && userToUpdate.city.country !== userToUpdate.country)
+      throw new BadRequestException("City's country must match user's country");
+
+    return this.usersRepository.save(userToUpdate);
   }
 
   public async createProfileView(viewer: UserEntity, viewedUser: UserEntity) {
