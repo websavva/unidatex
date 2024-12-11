@@ -743,15 +743,15 @@
   {
     "city": "Jining",
     "city_ascii": "Jining",
-    "lat": 35.4151,
-    "lng": 116.5871,
+    "lat": 41.03,
+    "lng": 113.08,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Shandong",
+    "admin_name": "Inner Mongolia",
     "capital": "",
-    "population": 8357897,
-    "id": 1156504601
+    "population": 281716,
+    "id": 1156261326
   },
   {
     "city": "Hanoi",
@@ -782,15 +782,15 @@
   {
     "city": "Fuyang",
     "city_ascii": "Fuyang",
-    "lat": 32.89,
-    "lng": 115.814,
+    "lat": 30.0553,
+    "lng": 119.95,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Anhui",
-    "capital": "",
-    "population": 8200264,
-    "id": 1156248008
+    "admin_name": "Zhejiang",
+    "capital": "minor",
+    "population": 771000,
+    "id": 1156340393
   },
   {
     "city": "Ahmedabad",
@@ -1042,15 +1042,15 @@
   {
     "city": "Shaoyang",
     "city_ascii": "Shaoyang",
-    "lat": 27.2395,
-    "lng": 111.4679,
+    "lat": 32.912,
+    "lng": 119.8526,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Hunan",
-    "capital": "",
-    "population": 6563520,
-    "id": 1156310366
+    "admin_name": "Jiangsu",
+    "capital": "minor",
+    "population": 1253548,
+    "id": 1156668366
   },
   {
     "city": "Sūrat",
@@ -1521,19 +1521,6 @@
     "id": 1076967355
   },
   {
-    "city": "Suzhou",
-    "city_ascii": "Suzhou",
-    "lat": 33.6333,
-    "lng": 116.9683,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Anhui",
-    "capital": "",
-    "population": 5324476,
-    "id": 1156871297
-  },
-  {
     "city": "Yongzhou",
     "city_ascii": "Yongzhou",
     "lat": 26.42,
@@ -1562,15 +1549,15 @@
   {
     "city": "Xiangyang",
     "city_ascii": "Xiangyang",
-    "lat": 32.01,
-    "lng": 112.122,
+    "lat": 34.2995,
+    "lng": 108.4905,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Hubei",
-    "capital": "minor",
-    "population": 5260951,
-    "id": 1156107325
+    "admin_name": "Shaanxi",
+    "capital": "",
+    "population": 541554,
+    "id": 1156215566
   },
   {
     "city": "Rangoon",
@@ -1653,15 +1640,15 @@
   {
     "city": "Yichun",
     "city_ascii": "Yichun",
-    "lat": 27.816,
-    "lng": 114.417,
+    "lat": 47.728,
+    "lng": 128.841,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Jiangxi",
+    "admin_name": "Heilongjiang",
     "capital": "minor",
-    "population": 5007702,
-    "id": 1156229590
+    "population": 1148126,
+    "id": 1156757274
   },
   {
     "city": "Bozhou",
@@ -1848,15 +1835,15 @@
   {
     "city": "Changsha",
     "city_ascii": "Changsha",
-    "lat": 28.228,
-    "lng": 112.939,
+    "lat": 22.3773,
+    "lng": 112.6982,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Hunan",
-    "capital": "admin",
-    "population": 4766296,
-    "id": 1156961497
+    "admin_name": "Guangdong",
+    "capital": "minor",
+    "population": 717700,
+    "id": 1156011120
   },
   {
     "city": "Jeddah",
@@ -1976,19 +1963,6 @@
     "id": 1156818601
   },
   {
-    "city": "Taizhou",
-    "city_ascii": "Taizhou",
-    "lat": 32.4567,
-    "lng": 119.9229,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Jiangsu",
-    "capital": "minor",
-    "population": 4512762,
-    "id": 1156119229
-  },
-  {
     "city": "Kunming",
     "city_ascii": "Kunming",
     "lat": 25.0464,
@@ -2004,15 +1978,15 @@
   {
     "city": "Yiyang",
     "city_ascii": "Yiyang",
-    "lat": 28.5549,
-    "lng": 112.356,
+    "lat": 26.4221,
+    "lng": 112.3999,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
     "admin_name": "Hunan",
-    "capital": "",
-    "population": 4413800,
-    "id": 1156218615
+    "capital": "minor",
+    "population": 810447,
+    "id": 1156142520
   },
   {
     "city": "Changchun",
@@ -2089,7 +2063,7 @@
     "iso3": "CHN",
     "admin_name": "Jiangsu",
     "capital": "minor",
-    "population": 4330000,
+    "population": 12850000,
     "id": 1156029196
   },
   {
@@ -2338,19 +2312,6 @@
     "capital": "admin",
     "population": 4064275,
     "id": 1840020568
-  },
-  {
-    "city": "Fuzhou",
-    "city_ascii": "Fuzhou",
-    "lat": 27.949,
-    "lng": 116.358,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Jiangxi",
-    "capital": "",
-    "population": 4047200,
-    "id": 1156915325
   },
   {
     "city": "Chifeng",
@@ -2639,19 +2600,6 @@
     "id": 1156188037
   },
   {
-    "city": "Baicheng",
-    "city_ascii": "Baicheng",
-    "lat": 23.903,
-    "lng": 106.619,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Guangxi",
-    "capital": "minor",
-    "population": 3669400,
-    "id": 1156981113
-  },
-  {
     "city": "Wuhu",
     "city_ascii": "Wuhu",
     "lat": 31.3526,
@@ -2888,15 +2836,15 @@
   {
     "city": "Shiyan",
     "city_ascii": "Shiyan",
-    "lat": 32.629,
-    "lng": 110.7987,
+    "lat": 23.1251,
+    "lng": 113.8633,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Hubei",
-    "capital": "minor",
-    "population": 3398000,
-    "id": 1156383921
+    "admin_name": "Jiangxi",
+    "capital": "",
+    "population": 122802,
+    "id": 1156157858
   },
   {
     "city": "Lucknow",
@@ -3031,15 +2979,15 @@
   {
     "city": "Bazhou",
     "city_ascii": "Bazhou",
-    "lat": 31.868,
-    "lng": 106.748,
+    "lat": 39.1333,
+    "lng": 116.3833,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Sichuan",
+    "admin_name": "Hebei",
     "capital": "minor",
-    "population": 3283148,
-    "id": 1156271365
+    "population": 622975,
+    "id": 1156127276
   },
   {
     "city": "Suining",
@@ -3057,15 +3005,15 @@
   {
     "city": "Wuxi",
     "city_ascii": "Wuxi",
-    "lat": 31.491,
-    "lng": 120.312,
+    "lat": 26.58,
+    "lng": 111.841,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Jiangsu",
+    "admin_name": "Hunan",
     "capital": "minor",
-    "population": 3245179,
-    "id": 1156019650
+    "population": 853197,
+    "id": 1156698595
   },
   {
     "city": "Kotla Qasim Khan",
@@ -3447,15 +3395,15 @@
   {
     "city": "Meishan",
     "city_ascii": "Meishan",
-    "lat": 30.0771,
-    "lng": 103.8484,
+    "lat": 34.1736,
+    "lng": 112.839,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Sichuan",
-    "capital": "",
-    "population": 2950545,
-    "id": 1156185501
+    "admin_name": "Henan",
+    "capital": "minor",
+    "population": 936000,
+    "id": 1156023073
   },
   {
     "city": "Incheon",
@@ -4539,15 +4487,15 @@
   {
     "city": "Yunfu",
     "city_ascii": "Yunfu",
-    "lat": 22.9152,
-    "lng": 112.0445,
+    "lat": 28.6331,
+    "lng": 104.4181,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Guangdong",
-    "capital": "minor",
-    "population": 2383350,
-    "id": 1156057251
+    "admin_name": "Yunnan",
+    "capital": "",
+    "population": 103532,
+    "id": 1156353293
   },
   {
     "city": "Bekasi Kota",
@@ -4747,15 +4695,15 @@
   {
     "city": "Jincheng",
     "city_ascii": "Jincheng",
-    "lat": 35.491,
-    "lng": 112.852,
+    "lat": 39.5529,
+    "lng": 113.1933,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
     "admin_name": "Shanxi",
     "capital": "minor",
-    "population": 2279146,
-    "id": 1156163376
+    "population": 105038,
+    "id": 1156528474
   },
   {
     "city": "Nantong",
@@ -4955,15 +4903,15 @@
   {
     "city": "Gaoping",
     "city_ascii": "Gaoping",
-    "lat": 30.7824,
-    "lng": 106.1281,
+    "lat": 35.798,
+    "lng": 112.924,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Sichuan",
-    "capital": "minor",
-    "population": 2174000,
-    "id": 1156522457
+    "admin_name": "Shanxi",
+    "capital": "",
+    "population": 484862,
+    "id": 1156238773
   },
   {
     "city": "Awka",
@@ -5189,15 +5137,15 @@
   {
     "city": "Portland",
     "city_ascii": "Portland",
-    "lat": 45.5371,
-    "lng": -122.65,
+    "lat": 43.6773,
+    "lng": -70.2715,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Oregon",
+    "admin_name": "Maine",
     "capital": "",
-    "population": 2095808,
-    "id": 1840019941
+    "population": 209491,
+    "id": 1840000327
   },
   {
     "city": "Kano",
@@ -5670,15 +5618,15 @@
   {
     "city": "Xiping",
     "city_ascii": "Xiping",
-    "lat": 40.082,
-    "lng": 113.2981,
+    "lat": 25.6005,
+    "lng": 103.8166,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Shanxi",
+    "admin_name": "Yunnan",
     "capital": "minor",
-    "population": 1873000,
-    "id": 1156898522
+    "population": 652604,
+    "id": 1156207794
   },
   {
     "city": "Multan",
@@ -6099,15 +6047,15 @@
   {
     "city": "Kansas City",
     "city_ascii": "Kansas City",
-    "lat": 39.1238,
-    "lng": -94.5541,
+    "lat": 39.1235,
+    "lng": -94.7443,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Missouri",
+    "admin_name": "Kansas",
     "capital": "",
-    "population": 1689556,
-    "id": 1840008535
+    "population": 155438,
+    "id": 1840001626
   },
   {
     "city": "Patna",
@@ -6450,15 +6398,15 @@
   {
     "city": "Columbus",
     "city_ascii": "Columbus",
-    "lat": 39.9862,
-    "lng": -82.9855,
+    "lat": 32.51,
+    "lng": -84.8771,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Ohio",
-    "capital": "admin",
-    "population": 1572546,
-    "id": 1840003760
+    "admin_name": "Georgia",
+    "capital": "",
+    "population": 264282,
+    "id": 1840014887
   },
   {
     "city": "Yopougon",
@@ -6736,15 +6684,15 @@
   {
     "city": "Yucheng",
     "city_ascii": "Yucheng",
-    "lat": 30.01,
-    "lng": 103.0415,
+    "lat": 36.934,
+    "lng": 116.638,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Sichuan",
+    "admin_name": "Shandong",
     "capital": "minor",
-    "population": 1507258,
-    "id": 1156817119
+    "population": 522878,
+    "id": 1156530681
   },
   {
     "city": "Xushan",
@@ -6801,15 +6749,15 @@
   {
     "city": "Gwangju",
     "city_ascii": "Gwangju",
-    "lat": 35.1653,
-    "lng": 126.8486,
+    "lat": 37.3667,
+    "lng": 127.2833,
     "country": "Korea, South",
     "iso2": "KR",
     "iso3": "KOR",
-    "admin_name": "Gwangju",
-    "capital": "admin",
-    "population": 1490092,
-    "id": 1410000087
+    "admin_name": "Gyeonggi",
+    "capital": "",
+    "population": 310278,
+    "id": 1410978753
   },
   {
     "city": "Katako-Kombe",
@@ -6944,15 +6892,15 @@
   {
     "city": "Huazhou",
     "city_ascii": "Huazhou",
-    "lat": 32.688,
-    "lng": 112.087,
+    "lat": 21.664,
+    "lng": 110.6396,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Henan",
-    "capital": "minor",
-    "population": 1468061,
-    "id": 1156796734
+    "admin_name": "Guangdong",
+    "capital": "",
+    "population": 1302100,
+    "id": 1156282637
   },
   {
     "city": "Jinhua",
@@ -7644,19 +7592,6 @@
     "id": 1156106507
   },
   {
-    "city": "Huazhou",
-    "city_ascii": "Huazhou",
-    "lat": 21.664,
-    "lng": 110.6396,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Guangdong",
-    "capital": "",
-    "population": 1302100,
-    "id": 1156282637
-  },
-  {
     "city": "Baishan",
     "city_ascii": "Baishan",
     "lat": 41.944,
@@ -7724,28 +7659,28 @@
   {
     "city": "Jacksonville",
     "city_ascii": "Jacksonville",
-    "lat": 30.3322,
-    "lng": -81.6749,
+    "lat": 34.7289,
+    "lng": -77.3941,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Florida",
+    "admin_name": "North Carolina",
     "capital": "",
-    "population": 1288298,
-    "id": 1840015031
+    "population": 111830,
+    "id": 1840014653
   },
   {
     "city": "Yicheng",
     "city_ascii": "Yicheng",
-    "lat": 31.36,
-    "lng": 119.815,
+    "lat": 31.721,
+    "lng": 112.257,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Jiangsu",
+    "admin_name": "Hubei",
     "capital": "minor",
-    "population": 1285785,
-    "id": 1156292419
+    "population": 512530,
+    "id": 1156742818
   },
   {
     "city": "Cacuaco",
@@ -7902,19 +7837,6 @@
     "capital": "",
     "population": 1253878,
     "id": 1156828380
-  },
-  {
-    "city": "Shaoyang",
-    "city_ascii": "Shaoyang",
-    "lat": 32.912,
-    "lng": 119.8526,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Jiangsu",
-    "capital": "minor",
-    "population": 1253548,
-    "id": 1156668366
   },
   {
     "city": "Balıkesir",
@@ -8361,15 +8283,15 @@
   {
     "city": "Rongcheng",
     "city_ascii": "Rongcheng",
-    "lat": 26.218,
-    "lng": 104.103,
+    "lat": 29.8402,
+    "lng": 112.9048,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Yunnan",
-    "capital": "",
-    "population": 1189813,
-    "id": 1156122888
+    "admin_name": "Hubei",
+    "capital": "minor",
+    "population": 1162770,
+    "id": 1156102432
   },
   {
     "city": "Mbandaka",
@@ -8478,15 +8400,15 @@
   {
     "city": "Aurangābād",
     "city_ascii": "Aurangabad",
-    "lat": 19.88,
-    "lng": 75.32,
+    "lat": 24.7,
+    "lng": 84.35,
     "country": "India",
     "iso2": "IN",
     "iso3": "IND",
-    "admin_name": "Mahārāshtra",
+    "admin_name": "Bihār",
     "capital": "",
-    "population": 1175116,
-    "id": 1356840670
+    "population": 102244,
+    "id": 1356920493
   },
   {
     "city": "Cilacap",
@@ -8556,15 +8478,15 @@
   {
     "city": "Guankou",
     "city_ascii": "Guankou",
-    "lat": 28.1637,
-    "lng": 113.6433,
+    "lat": 30.988,
+    "lng": 103.647,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Hunan",
-    "capital": "minor",
-    "population": 1168056,
-    "id": 1156249346
+    "admin_name": "Sichuan",
+    "capital": "",
+    "population": 671200,
+    "id": 1156503907
   },
   {
     "city": "Bandar Lampung",
@@ -8604,19 +8526,6 @@
     "capital": "minor",
     "population": 1162928,
     "id": 1156490109
-  },
-  {
-    "city": "Rongcheng",
-    "city_ascii": "Rongcheng",
-    "lat": 29.8402,
-    "lng": 112.9048,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Hubei",
-    "capital": "minor",
-    "population": 1162770,
-    "id": 1156102432
   },
   {
     "city": "Dhanbād",
@@ -8660,15 +8569,15 @@
   {
     "city": "Kaiyuan",
     "city_ascii": "Kaiyuan",
-    "lat": 36.0193,
-    "lng": 113.86,
+    "lat": 23.7111,
+    "lng": 103.2461,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Henan",
-    "capital": "minor",
-    "population": 1160000,
-    "id": 1156441554
+    "admin_name": "Yunnan",
+    "capital": "",
+    "population": 323031,
+    "id": 1156888008
   },
   {
     "city": "Zhuji",
@@ -8734,19 +8643,6 @@
     "capital": "admin",
     "population": 1150116,
     "id": 1410134602
-  },
-  {
-    "city": "Yichun",
-    "city_ascii": "Yichun",
-    "lat": 47.728,
-    "lng": 128.841,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Heilongjiang",
-    "capital": "minor",
-    "population": 1148126,
-    "id": 1156757274
   },
   {
     "city": "Benin City",
@@ -9323,15 +9219,15 @@
   {
     "city": "Richmond",
     "city_ascii": "Richmond",
-    "lat": 37.5295,
-    "lng": -77.4756,
+    "lat": 37.9477,
+    "lng": -122.3389,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Virginia",
-    "capital": "admin",
-    "population": 1073223,
-    "id": 1840001698
+    "admin_name": "California",
+    "capital": "",
+    "population": 115619,
+    "id": 1840020277
   },
   {
     "city": "Ciudad Nezahualcóyotl",
@@ -10090,15 +9986,15 @@
   {
     "city": "Xingcheng",
     "city_ascii": "Xingcheng",
-    "lat": 24.1347,
-    "lng": 115.73,
+    "lat": 40.6167,
+    "lng": 120.7333,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Guangdong",
-    "capital": "minor",
-    "population": 993000,
-    "id": 1156913008
+    "admin_name": "Liaoning",
+    "capital": "",
+    "population": 546176,
+    "id": 1156705922
   },
   {
     "city": "Taixing",
@@ -10181,15 +10077,15 @@
   {
     "city": "Luocheng",
     "city_ascii": "Luocheng",
-    "lat": 22.7689,
-    "lng": 111.5697,
+    "lat": 30.99,
+    "lng": 104.25,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Guangdong",
+    "admin_name": "Sichuan",
     "capital": "minor",
-    "population": 984100,
-    "id": 1156138895
+    "population": 591115,
+    "id": 1156180482
   },
   {
     "city": "Pekanbaru",
@@ -10207,15 +10103,15 @@
   {
     "city": "Natal",
     "city_ascii": "Natal",
-    "lat": -6.9838,
-    "lng": -60.2699,
+    "lat": -5.7833,
+    "lng": -35.2,
     "country": "Brazil",
     "iso2": "BR",
     "iso3": "BRA",
-    "admin_name": "Amazonas",
-    "capital": "",
-    "population": 980588,
-    "id": 1076336975
+    "admin_name": "Rio Grande do Norte",
+    "capital": "admin",
+    "population": 751300,
+    "id": 1076697777
   },
   {
     "city": "Chiba",
@@ -10710,19 +10606,6 @@
     "capital": "",
     "population": 936349,
     "id": 1729318628
-  },
-  {
-    "city": "Meishan",
-    "city_ascii": "Meishan",
-    "lat": 34.1736,
-    "lng": 112.839,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Henan",
-    "capital": "minor",
-    "population": 936000,
-    "id": 1156023073
   },
   {
     "city": "Mushin",
@@ -11700,19 +11583,6 @@
     "id": 1484015319
   },
   {
-    "city": "Wuxi",
-    "city_ascii": "Wuxi",
-    "lat": 26.58,
-    "lng": 111.841,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Hunan",
-    "capital": "minor",
-    "population": 853197,
-    "id": 1156698595
-  },
-  {
     "city": "Leping",
     "city_ascii": "Leping",
     "lat": 28.978,
@@ -12153,19 +12023,6 @@
     "capital": "",
     "population": 810729,
     "id": 1076793227
-  },
-  {
-    "city": "Yiyang",
-    "city_ascii": "Yiyang",
-    "lat": 26.4221,
-    "lng": 112.3999,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Hunan",
-    "capital": "minor",
-    "population": 810447,
-    "id": 1156142520
   },
   {
     "city": "Hejian",
@@ -12612,28 +12469,15 @@
   {
     "city": "Dali",
     "city_ascii": "Dali",
-    "lat": 25.6065,
-    "lng": 100.2676,
+    "lat": 34.7953,
+    "lng": 109.9378,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Yunnan",
-    "capital": "",
-    "population": 771128,
-    "id": 1156840276
-  },
-  {
-    "city": "Fuyang",
-    "city_ascii": "Fuyang",
-    "lat": 30.0553,
-    "lng": 119.95,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Zhejiang",
+    "admin_name": "Shaanxi",
     "capital": "minor",
-    "population": 771000,
-    "id": 1156340393
+    "population": 109696,
+    "id": 1156708054
   },
   {
     "city": "Khŭjand",
@@ -12922,19 +12766,6 @@
     "id": 1862889027
   },
   {
-    "city": "Natal",
-    "city_ascii": "Natal",
-    "lat": -5.7833,
-    "lng": -35.2,
-    "country": "Brazil",
-    "iso2": "BR",
-    "iso3": "BRA",
-    "admin_name": "Rio Grande do Norte",
-    "capital": "admin",
-    "population": 751300,
-    "id": 1076697777
-  },
-  {
     "city": "Lichuan",
     "city_ascii": "Lichuan",
     "lat": 30.291,
@@ -12950,15 +12781,15 @@
   {
     "city": "Licheng",
     "city_ascii": "Licheng",
-    "lat": 31.4306,
-    "lng": 119.4788,
+    "lat": 24.5,
+    "lng": 110.4,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Jiangsu",
+    "admin_name": "Guangxi",
     "capital": "minor",
-    "population": 749522,
-    "id": 1156933354
+    "population": 334527,
+    "id": 1156208986
   },
   {
     "city": "Santo André",
@@ -13494,19 +13325,6 @@
     "id": 1124112672
   },
   {
-    "city": "Changsha",
-    "city_ascii": "Changsha",
-    "lat": 22.3773,
-    "lng": 112.6982,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Guangdong",
-    "capital": "minor",
-    "population": 717700,
-    "id": 1156011120
-  },
-  {
     "city": "Songyang",
     "city_ascii": "Songyang",
     "lat": 34.4553,
@@ -13691,15 +13509,15 @@
   {
     "city": "Charleston",
     "city_ascii": "Charleston",
-    "lat": 32.8168,
-    "lng": -79.9687,
+    "lat": 38.3484,
+    "lng": -81.6322,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "South Carolina",
-    "capital": "",
-    "population": 706884,
-    "id": 1840015163
+    "admin_name": "West Virginia",
+    "capital": "admin",
+    "population": 129754,
+    "id": 1840006196
   },
   {
     "city": "Sahāranpur",
@@ -13860,15 +13678,15 @@
   {
     "city": "Rochester",
     "city_ascii": "Rochester",
-    "lat": 43.168,
-    "lng": -77.6162,
+    "lat": 44.0154,
+    "lng": -92.478,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "New York",
+    "admin_name": "Minnesota",
     "capital": "",
-    "population": 699921,
-    "id": 1840000373
+    "population": 121870,
+    "id": 1840008987
   },
   {
     "city": "Ribeirão Prêto",
@@ -14055,15 +13873,15 @@
   {
     "city": "Guadalupe",
     "city_ascii": "Guadalupe",
-    "lat": 25.6775,
-    "lng": -100.2597,
+    "lat": 22.7528,
+    "lng": -102.5078,
     "country": "Mexico",
     "iso2": "MX",
     "iso3": "MEX",
-    "admin_name": "Nuevo León",
+    "admin_name": "Zacatecas",
     "capital": "minor",
-    "population": 691931,
-    "id": 1484002410
+    "population": 211740,
+    "id": 1484781342
   },
   {
     "city": "Gaizhou",
@@ -14454,19 +14272,6 @@
     "capital": "",
     "population": 671834,
     "id": 1156720536
-  },
-  {
-    "city": "Guankou",
-    "city_ascii": "Guankou",
-    "lat": 30.988,
-    "lng": 103.647,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Sichuan",
-    "capital": "",
-    "population": 671200,
-    "id": 1156503907
   },
   {
     "city": "Łódź",
@@ -14924,19 +14729,6 @@
     "id": 1410585171
   },
   {
-    "city": "Xiping",
-    "city_ascii": "Xiping",
-    "lat": 25.6005,
-    "lng": 103.8166,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Yunnan",
-    "capital": "minor",
-    "population": 652604,
-    "id": 1156207794
-  },
-  {
     "city": "Huế",
     "city_ascii": "Hue",
     "lat": 16.4667,
@@ -15082,15 +14874,15 @@
   {
     "city": "Honchō",
     "city_ascii": "Honcho",
-    "lat": 35.6946,
-    "lng": 139.9826,
+    "lat": 35.758,
+    "lng": 139.5299,
     "country": "Japan",
     "iso2": "JP",
     "iso3": "JPN",
-    "admin_name": "Chiba",
+    "admin_name": "Saitama",
     "capital": "",
-    "population": 644668,
-    "id": 1392505502
+    "population": 116477,
+    "id": 1392994259
   },
   {
     "city": "Wuxue",
@@ -15587,19 +15379,6 @@
     "id": 1156736601
   },
   {
-    "city": "Bazhou",
-    "city_ascii": "Bazhou",
-    "lat": 39.1333,
-    "lng": 116.3833,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Hebei",
-    "capital": "minor",
-    "population": 622975,
-    "id": 1156127276
-  },
-  {
     "city": "Ogden",
     "city_ascii": "Ogden",
     "lat": 41.2279,
@@ -15706,15 +15485,15 @@
   {
     "city": "Tân An",
     "city_ascii": "Tan An",
-    "lat": 10.905,
-    "lng": 106.6994,
+    "lat": 10.5333,
+    "lng": 106.4167,
     "country": "Vietnam",
     "iso2": "VN",
     "iso3": "VNM",
-    "admin_name": "Hồ Chí Minh",
-    "capital": "",
-    "population": 618984,
-    "id": 1704599287
+    "admin_name": "Long An",
+    "capital": "admin",
+    "population": 215250,
+    "id": 1704199290
   },
   {
     "city": "Port-Bouët",
@@ -16135,15 +15914,15 @@
   {
     "city": "Columbia",
     "city_ascii": "Columbia",
-    "lat": 34.0378,
-    "lng": -80.9036,
+    "lat": 39.2004,
+    "lng": -76.859,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "South Carolina",
-    "capital": "admin",
-    "population": 604065,
-    "id": 1840014730
+    "admin_name": "Maryland",
+    "capital": "",
+    "population": 106600,
+    "id": 1840005803
   },
   {
     "city": "Kryvyi Rih",
@@ -16443,19 +16222,6 @@
     "capital": "minor",
     "population": 591668,
     "id": 1586141444
-  },
-  {
-    "city": "Luocheng",
-    "city_ascii": "Luocheng",
-    "lat": 30.99,
-    "lng": 104.25,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Sichuan",
-    "capital": "minor",
-    "population": 591115,
-    "id": 1156180482
   },
   {
     "city": "Albany",
@@ -17615,19 +17381,6 @@
     "id": 1860388706
   },
   {
-    "city": "Xingcheng",
-    "city_ascii": "Xingcheng",
-    "lat": 40.6167,
-    "lng": 120.7333,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Liaoning",
-    "capital": "",
-    "population": 546176,
-    "id": 1156705922
-  },
-  {
     "city": "Wancheng",
     "city_ascii": "Wancheng",
     "lat": 18.8,
@@ -17639,19 +17392,6 @@
     "capital": "minor",
     "population": 545992,
     "id": 1156017483
-  },
-  {
-    "city": "Kaiyuan",
-    "city_ascii": "Kaiyuan",
-    "lat": 42.546,
-    "lng": 124.038,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Liaoning",
-    "capital": "",
-    "population": 545624,
-    "id": 1156081841
   },
   {
     "city": "Hannover",
@@ -17695,15 +17435,15 @@
   {
     "city": "Fengcheng",
     "city_ascii": "Fengcheng",
-    "lat": 40.45,
-    "lng": 124.0667,
+    "lat": 37.4313,
+    "lng": 112.027,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Liaoning",
-    "capital": "",
-    "population": 543933,
-    "id": 1156519626
+    "admin_name": "Shanxi",
+    "capital": "minor",
+    "population": 128571,
+    "id": 1156054333
   },
   {
     "city": "Muntinlupa City",
@@ -17808,19 +17548,6 @@
     "capital": "admin",
     "population": 541600,
     "id": 1368273311
-  },
-  {
-    "city": "Xiangyang",
-    "city_ascii": "Xiangyang",
-    "lat": 34.2995,
-    "lng": 108.4905,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Shaanxi",
-    "capital": "",
-    "population": 541554,
-    "id": 1156215566
   },
   {
     "city": "Ibagué",
@@ -18085,15 +17812,15 @@
   {
     "city": "Concord",
     "city_ascii": "Concord",
-    "lat": 37.9722,
-    "lng": -122.0016,
+    "lat": 35.3933,
+    "lng": -80.6369,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "California",
+    "admin_name": "North Carolina",
     "capital": "",
-    "population": 531175,
-    "id": 1840018905
+    "population": 288783,
+    "id": 1840014559
   },
   {
     "city": "Beira",
@@ -18341,19 +18068,6 @@
     "capital": "",
     "population": 522888,
     "id": 1124158530
-  },
-  {
-    "city": "Yucheng",
-    "city_ascii": "Yucheng",
-    "lat": 36.934,
-    "lng": 116.638,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Shandong",
-    "capital": "minor",
-    "population": 522878,
-    "id": 1156530681
   },
   {
     "city": "Nāgercoil",
@@ -18744,19 +18458,6 @@
     "capital": "admin",
     "population": 512886,
     "id": 1024141961
-  },
-  {
-    "city": "Yicheng",
-    "city_ascii": "Yicheng",
-    "lat": 31.721,
-    "lng": 112.257,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Hubei",
-    "capital": "minor",
-    "population": 512530,
-    "id": 1156742818
   },
   {
     "city": "Al Fashn",
@@ -19398,15 +19099,15 @@
   {
     "city": "Zhijiang",
     "city_ascii": "Zhijiang",
-    "lat": 30.426,
-    "lng": 111.761,
+    "lat": 27.4367,
+    "lng": 109.678,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Hubei",
-    "capital": "",
-    "population": 495995,
-    "id": 1156769646
+    "admin_name": "Hunan",
+    "capital": "minor",
+    "population": 113907,
+    "id": 1156128936
   },
   {
     "city": "Suoluntun",
@@ -19836,19 +19537,6 @@
     "capital": "admin",
     "population": 485000,
     "id": 1706512367
-  },
-  {
-    "city": "Gaoping",
-    "city_ascii": "Gaoping",
-    "lat": 35.798,
-    "lng": 112.924,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Shanxi",
-    "capital": "",
-    "population": 484862,
-    "id": 1156238773
   },
   {
     "city": "Villa Nueva",
@@ -20542,15 +20230,15 @@
   {
     "city": "Longjiang",
     "city_ascii": "Longjiang",
-    "lat": 27.5819,
-    "lng": 120.5489,
+    "lat": 47.3404,
+    "lng": 123.18,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Zhejiang",
-    "capital": "",
-    "population": 464695,
-    "id": 1156034166
+    "admin_name": "Heilongjiang",
+    "capital": "minor",
+    "population": 106384,
+    "id": 1156263974
   },
   {
     "city": "Caxias do Sul",
@@ -21517,15 +21205,15 @@
   {
     "city": "Springfield",
     "city_ascii": "Springfield",
-    "lat": 42.1155,
-    "lng": -72.5395,
+    "lat": 39.7709,
+    "lng": -89.654,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Massachusetts",
-    "capital": "",
-    "population": 437752,
-    "id": 1840000466
+    "admin_name": "Illinois",
+    "capital": "admin",
+    "population": 159671,
+    "id": 1840009517
   },
   {
     "city": "Guangming",
@@ -23207,15 +22895,15 @@
   {
     "city": "Lancaster",
     "city_ascii": "Lancaster",
-    "lat": 40.042,
-    "lng": -76.3012,
+    "lat": 34.6935,
+    "lng": -118.1753,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Pennsylvania",
+    "admin_name": "California",
     "capital": "",
-    "population": 402476,
-    "id": 1840003718
+    "population": 171465,
+    "id": 1840020516
   },
   {
     "city": "Sonīpat",
@@ -23259,15 +22947,15 @@
   {
     "city": "Greenville",
     "city_ascii": "Greenville",
-    "lat": 34.8354,
-    "lng": -82.3646,
+    "lat": 35.5943,
+    "lng": -77.376,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "South Carolina",
+    "admin_name": "North Carolina",
     "capital": "",
-    "population": 401443,
-    "id": 1840013501
+    "population": 127574,
+    "id": 1840013407
   },
   {
     "city": "Toyonaka",
@@ -23545,15 +23233,15 @@
   {
     "city": "Fayetteville",
     "city_ascii": "Fayetteville",
-    "lat": 36.0714,
-    "lng": -94.1661,
+    "lat": 35.085,
+    "lng": -78.9772,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Arkansas",
+    "admin_name": "North Carolina",
     "capital": "",
-    "population": 394650,
-    "id": 1840013368
+    "population": 328804,
+    "id": 1840013490
   },
   {
     "city": "Betsiboka",
@@ -23584,15 +23272,15 @@
   {
     "city": "Arlington",
     "city_ascii": "Arlington",
-    "lat": 32.6998,
-    "lng": -97.125,
+    "lat": 38.8786,
+    "lng": -77.1011,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Texas",
+    "admin_name": "Virginia",
     "capital": "",
-    "population": 393469,
-    "id": 1840019422
+    "population": 235845,
+    "id": 1840006112
   },
   {
     "city": "Al Jahrā’",
@@ -23935,15 +23623,15 @@
   {
     "city": "Aurora",
     "city_ascii": "Aurora",
-    "lat": 39.7083,
-    "lng": -104.7237,
+    "lat": 41.7638,
+    "lng": -88.2902,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Colorado",
+    "admin_name": "Illinois",
     "capital": "",
-    "population": 387349,
-    "id": 1840018794
+    "population": 181405,
+    "id": 1840007034
   },
   {
     "city": "Carapicuíba",
@@ -25703,15 +25391,15 @@
   {
     "city": "San Fernando",
     "city_ascii": "San Fernando",
-    "lat": 15.03,
-    "lng": 120.68,
+    "lat": 16.62,
+    "lng": 120.32,
     "country": "Philippines",
     "iso2": "PH",
     "iso3": "PHL",
-    "admin_name": "Pampanga",
+    "admin_name": "La Union",
     "capital": "admin",
-    "population": 354666,
-    "id": 1608862124
+    "population": 125640,
+    "id": 1608635527
   },
   {
     "city": "Kawagoe",
@@ -25963,15 +25651,15 @@
   {
     "city": "Oruro",
     "city_ascii": "Oruro",
-    "lat": -17.9667,
-    "lng": -67.1167,
+    "lat": -17.9833,
+    "lng": -67.15,
     "country": "Bolivia",
     "iso2": "BO",
     "iso3": "BOL",
     "admin_name": "Oruro",
-    "capital": "",
-    "population": 351802,
-    "id": 1068626742
+    "capital": "admin",
+    "population": 246501,
+    "id": 1068271533
   },
   {
     "city": "Cabimas",
@@ -26015,15 +25703,15 @@
   {
     "city": "Ibb",
     "city_ascii": "Ibb",
-    "lat": 13.9667,
-    "lng": 44.1667,
+    "lat": 13.9759,
+    "lng": 44.1709,
     "country": "Yemen",
     "iso2": "YE",
     "iso3": "YEM",
     "admin_name": "Ibb",
-    "capital": "admin",
-    "population": 350864,
-    "id": 1887321491
+    "capital": "",
+    "population": 234837,
+    "id": 1887036494
   },
   {
     "city": "Ahmadnagar",
@@ -27183,19 +26871,6 @@
     "id": 1616953501
   },
   {
-    "city": "Licheng",
-    "city_ascii": "Licheng",
-    "lat": 24.5,
-    "lng": 110.4,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Guangxi",
-    "capital": "minor",
-    "population": 334527,
-    "id": 1156208986
-  },
-  {
     "city": "Tampere",
     "city_ascii": "Tampere",
     "lat": 61.4981,
@@ -27289,15 +26964,15 @@
   {
     "city": "Asan",
     "city_ascii": "Asan",
-    "lat": 36.7833,
-    "lng": 126.9833,
+    "lat": 36.35,
+    "lng": 126.9167,
     "country": "Korea, South",
     "iso2": "KR",
     "iso3": "KOR",
     "admin_name": "Chungnam",
     "capital": "",
-    "population": 332790,
-    "id": 1410521090
+    "population": 319929,
+    "id": 1410904940
   },
   {
     "city": "Chak Jhumra",
@@ -27675,19 +27350,6 @@
     "capital": "",
     "population": 328961,
     "id": 1764492695
-  },
-  {
-    "city": "Fayetteville",
-    "city_ascii": "Fayetteville",
-    "lat": 35.085,
-    "lng": -78.9772,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "North Carolina",
-    "capital": "",
-    "population": 328804,
-    "id": 1840013490
   },
   {
     "city": "Debrecen",
@@ -28106,19 +27768,6 @@
     "id": 1124000141
   },
   {
-    "city": "Kaiyuan",
-    "city_ascii": "Kaiyuan",
-    "lat": 23.7111,
-    "lng": 103.2461,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Yunnan",
-    "capital": "",
-    "population": 323031,
-    "id": 1156888008
-  },
-  {
     "city": "Vitória",
     "city_ascii": "Vitoria",
     "lat": -20.2889,
@@ -28390,19 +28039,6 @@
     "capital": "",
     "population": 320000,
     "id": 1484662260
-  },
-  {
-    "city": "Asan",
-    "city_ascii": "Asan",
-    "lat": 36.35,
-    "lng": 126.9167,
-    "country": "Korea, South",
-    "iso2": "KR",
-    "iso3": "KOR",
-    "admin_name": "Chungnam",
-    "capital": "",
-    "population": 319929,
-    "id": 1410904940
   },
   {
     "city": "Nukus",
@@ -29096,15 +28732,15 @@
   {
     "city": "Longquan",
     "city_ascii": "Longquan",
-    "lat": 25.9106,
-    "lng": 114.786,
+    "lat": 28.0667,
+    "lng": 119.1333,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
-    "admin_name": "Jiangxi",
+    "admin_name": "Zhejiang",
     "capital": "",
-    "population": 310700,
-    "id": 1156262367
+    "population": 234626,
+    "id": 1156962780
   },
   {
     "city": "Mitchells Plain",
@@ -29118,19 +28754,6 @@
     "capital": "",
     "population": 310485,
     "id": 1710549821
-  },
-  {
-    "city": "Gwangju",
-    "city_ascii": "Gwangju",
-    "lat": 37.3667,
-    "lng": 127.2833,
-    "country": "Korea, South",
-    "iso2": "KR",
-    "iso3": "KOR",
-    "admin_name": "Gyeonggi",
-    "capital": "",
-    "population": 310278,
-    "id": 1410978753
   },
   {
     "city": "Yokkaichi",
@@ -29447,15 +29070,15 @@
   {
     "city": "Fatehpur",
     "city_ascii": "Fatehpur",
-    "lat": 27.98,
-    "lng": 74.95,
+    "lat": 25.93,
+    "lng": 80.8,
     "country": "India",
     "iso2": "IN",
     "iso3": "IND",
-    "admin_name": "Rājasthān",
+    "admin_name": "Uttar Pradesh",
     "capital": "",
-    "population": 305638,
-    "id": 1356931375
+    "population": 193193,
+    "id": 1356059135
   },
   {
     "city": "Ciudad Victoria",
@@ -30953,19 +30576,6 @@
     "id": 1860479627
   },
   {
-    "city": "Concord",
-    "city_ascii": "Concord",
-    "lat": 35.3933,
-    "lng": -80.6369,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "North Carolina",
-    "capital": "",
-    "population": 288783,
-    "id": 1840014559
-  },
-  {
     "city": "Hugli",
     "city_ascii": "Hugli",
     "lat": 22.9,
@@ -31172,19 +30782,6 @@
     "capital": "admin",
     "population": 286598,
     "id": 1642503974
-  },
-  {
-    "city": "Springfield",
-    "city_ascii": "Springfield",
-    "lat": 37.1943,
-    "lng": -93.2916,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Missouri",
-    "capital": "",
-    "population": 286280,
-    "id": 1840009904
   },
   {
     "city": "Sekondi",
@@ -31614,19 +31211,6 @@
     "capital": "",
     "population": 282258,
     "id": 1156606433
-  },
-  {
-    "city": "Jining",
-    "city_ascii": "Jining",
-    "lat": 41.03,
-    "lng": 113.08,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Inner Mongolia",
-    "capital": "",
-    "population": 281716,
-    "id": 1156261326
   },
   {
     "city": "Chuncheon",
@@ -32164,15 +31748,15 @@
   {
     "city": "Yeosu",
     "city_ascii": "Yeosu",
-    "lat": 34.7333,
-    "lng": 127.7333,
+    "lat": 34.7607,
+    "lng": 127.6622,
     "country": "Korea, South",
     "iso2": "KR",
     "iso3": "KOR",
     "admin_name": "Jeonnam",
     "capital": "minor",
-    "population": 274917,
-    "id": 1410002025
+    "population": 273761,
+    "id": 1410698161
   },
   {
     "city": "Qarshi",
@@ -32242,28 +31826,15 @@
   {
     "city": "Crato",
     "city_ascii": "Crato",
-    "lat": -7.4639,
-    "lng": -63.04,
+    "lat": -7.2339,
+    "lng": -39.4089,
     "country": "Brazil",
     "iso2": "BR",
     "iso3": "BRA",
-    "admin_name": "Amazonas",
-    "capital": "",
-    "population": 273883,
-    "id": 1076425706
-  },
-  {
-    "city": "Yeosu",
-    "city_ascii": "Yeosu",
-    "lat": 34.7607,
-    "lng": 127.6622,
-    "country": "Korea, South",
-    "iso2": "KR",
-    "iso3": "KOR",
-    "admin_name": "Jeonnam",
+    "admin_name": "Ceará",
     "capital": "minor",
-    "population": 273761,
-    "id": 1410698161
+    "population": 133031,
+    "id": 1076894967
   },
   {
     "city": "Shaowu",
@@ -33358,19 +32929,6 @@
     "id": 1792340207
   },
   {
-    "city": "Columbus",
-    "city_ascii": "Columbus",
-    "lat": 32.51,
-    "lng": -84.8771,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Georgia",
-    "capital": "",
-    "population": 264282,
-    "id": 1840014887
-  },
-  {
     "city": "Itajaí",
     "city_ascii": "Itajai",
     "lat": -26.9,
@@ -33477,15 +33035,15 @@
   {
     "city": "Talisay",
     "city_ascii": "Talisay",
-    "lat": 10.25,
-    "lng": 123.83,
+    "lat": 10.73,
+    "lng": 122.97,
     "country": "Philippines",
     "iso2": "PH",
     "iso3": "PHL",
-    "admin_name": "Cebu",
+    "admin_name": "Negros Occidental",
     "capital": "",
-    "population": 263048,
-    "id": 1608040297
+    "population": 108909,
+    "id": 1608509888
   },
   {
     "city": "Gelsenkirchen",
@@ -34413,15 +33971,15 @@
   {
     "city": "Peoria",
     "city_ascii": "Peoria",
-    "lat": 40.752,
-    "lng": -89.6154,
+    "lat": 33.7843,
+    "lng": -112.2989,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Illinois",
+    "admin_name": "Arizona",
     "capital": "",
-    "population": 253467,
-    "id": 1840009373
+    "population": 191292,
+    "id": 1840020567
   },
   {
     "city": "Godomè",
@@ -35297,15 +34855,15 @@
   {
     "city": "Glendale",
     "city_ascii": "Glendale",
-    "lat": 33.5791,
-    "lng": -112.2311,
+    "lat": 34.1819,
+    "lng": -118.2468,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Arizona",
+    "admin_name": "California",
     "capital": "",
-    "population": 248083,
-    "id": 1840020563
+    "population": 194512,
+    "id": 1840020483
   },
   {
     "city": "Sibu",
@@ -35501,19 +35059,6 @@
     "capital": "",
     "population": 246647,
     "id": 1392112466
-  },
-  {
-    "city": "Oruro",
-    "city_ascii": "Oruro",
-    "lat": -17.9833,
-    "lng": -67.15,
-    "country": "Bolivia",
-    "iso2": "BO",
-    "iso3": "BOL",
-    "admin_name": "Oruro",
-    "capital": "admin",
-    "population": 246501,
-    "id": 1068271533
   },
   {
     "city": "Macaé",
@@ -36662,15 +36207,15 @@
   {
     "city": "Lafayette",
     "city_ascii": "Lafayette",
-    "lat": 30.2082,
-    "lng": -92.0325,
+    "lat": 40.3991,
+    "lng": -86.8593,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Louisiana",
+    "admin_name": "Indiana",
     "capital": "",
-    "population": 237565,
-    "id": 1840015044
+    "population": 160543,
+    "id": 1840008354
   },
   {
     "city": "Āmol",
@@ -36998,19 +36543,6 @@
     "id": 1072756768
   },
   {
-    "city": "Arlington",
-    "city_ascii": "Arlington",
-    "lat": 38.8786,
-    "lng": -77.1011,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Virginia",
-    "capital": "",
-    "population": 235845,
-    "id": 1840006112
-  },
-  {
     "city": "Juazeiro",
     "city_ascii": "Juazeiro",
     "lat": -9.4306,
@@ -37180,19 +36712,6 @@
     "id": 1364855573
   },
   {
-    "city": "Ibb",
-    "city_ascii": "Ibb",
-    "lat": 13.9759,
-    "lng": 44.1709,
-    "country": "Yemen",
-    "iso2": "YE",
-    "iso3": "YEM",
-    "admin_name": "Ibb",
-    "capital": "",
-    "population": 234837,
-    "id": 1887036494
-  },
-  {
     "city": "García",
     "city_ascii": "Garcia",
     "lat": 25.8167,
@@ -37217,19 +36736,6 @@
     "capital": "minor",
     "population": 234696,
     "id": 1076615737
-  },
-  {
-    "city": "Longquan",
-    "city_ascii": "Longquan",
-    "lat": 28.0667,
-    "lng": 119.1333,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Zhejiang",
-    "capital": "",
-    "population": 234626,
-    "id": 1156962780
   },
   {
     "city": "Miri",
@@ -37468,15 +36974,15 @@
   {
     "city": "Saidpur",
     "city_ascii": "Saidpur",
-    "lat": 25.8004,
-    "lng": 89,
+    "lat": 25.7781,
+    "lng": 88.8975,
     "country": "Bangladesh",
     "iso2": "BD",
     "iso3": "BGD",
     "admin_name": "Rangpur",
     "capital": "",
-    "population": 232209,
-    "id": 1050512022
+    "population": 127104,
+    "id": 1050464696
   },
   {
     "city": "Lin’an",
@@ -37780,15 +37286,15 @@
   {
     "city": "Pāli",
     "city_ascii": "Pali",
-    "lat": 25.77,
-    "lng": 73.33,
+    "lat": 23.35,
+    "lng": 81.05,
     "country": "India",
     "iso2": "IN",
     "iso3": "IND",
-    "admin_name": "Rājasthān",
+    "admin_name": "Madhya Pradesh",
     "capital": "",
-    "population": 229956,
-    "id": 1356212172
+    "population": 124175,
+    "id": 1356107944
   },
   {
     "city": "Songadh",
@@ -37806,15 +37312,15 @@
   {
     "city": "Noginsk",
     "city_ascii": "Noginsk",
-    "lat": 64.4833,
-    "lng": 91.2333,
+    "lat": 55.85,
+    "lng": 38.4333,
     "country": "Russia",
     "iso2": "RU",
     "iso3": "RUS",
-    "admin_name": "Krasnoyarskiy Kray",
-    "capital": "",
-    "population": 229731,
-    "id": 1643129651
+    "admin_name": "Moskovskaya Oblast’",
+    "capital": "minor",
+    "population": 102592,
+    "id": 1643001706
   },
   {
     "city": "Gadda Madiral",
@@ -39091,19 +38597,6 @@
     "id": 1356016973
   },
   {
-    "city": "Longjiang",
-    "city_ascii": "Longjiang",
-    "lat": 22.8711,
-    "lng": 113.0684,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Guangdong",
-    "capital": "",
-    "population": 221881,
-    "id": 1156562500
-  },
-  {
     "city": "Katri",
     "city_ascii": "Katri",
     "lat": 23.48,
@@ -39288,15 +38781,15 @@
   {
     "city": "Gainesville",
     "city_ascii": "Gainesville",
-    "lat": 29.6804,
-    "lng": -82.3459,
+    "lat": 34.2902,
+    "lng": -83.8294,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Florida",
+    "admin_name": "Georgia",
     "capital": "",
-    "population": 220929,
-    "id": 1840014022
+    "population": 175569,
+    "id": 1840013612
   },
   {
     "city": "Sambhal",
@@ -39639,15 +39132,15 @@
   {
     "city": "Santo Tomas",
     "city_ascii": "Santo Tomas",
-    "lat": 14.08,
-    "lng": 121.18,
+    "lat": 7.53,
+    "lng": 125.62,
     "country": "Philippines",
     "iso2": "PH",
     "iso3": "PHL",
-    "admin_name": "Batangas",
+    "admin_name": "Davao del Norte",
     "capital": "",
-    "population": 218500,
-    "id": 1608845898
+    "population": 128667,
+    "id": 1608792041
   },
   {
     "city": "San Miguel",
@@ -40142,19 +39635,6 @@
     "capital": "",
     "population": 215269,
     "id": 1840019743
-  },
-  {
-    "city": "Tân An",
-    "city_ascii": "Tan An",
-    "lat": 10.5333,
-    "lng": 106.4167,
-    "country": "Vietnam",
-    "iso2": "VN",
-    "iso3": "VNM",
-    "admin_name": "Long An",
-    "capital": "admin",
-    "population": 215250,
-    "id": 1704199290
   },
   {
     "city": "Golmud",
@@ -40742,19 +40222,6 @@
     "id": 1704276832
   },
   {
-    "city": "Guadalupe",
-    "city_ascii": "Guadalupe",
-    "lat": 22.7528,
-    "lng": -102.5078,
-    "country": "Mexico",
-    "iso2": "MX",
-    "iso3": "MEX",
-    "admin_name": "Zacatecas",
-    "capital": "minor",
-    "population": 211740,
-    "id": 1484781342
-  },
-  {
     "city": "Mytishchi",
     "city_ascii": "Mytishchi",
     "lat": 55.9167,
@@ -41156,19 +40623,6 @@
     "capital": "admin",
     "population": 209533,
     "id": 1608693683
-  },
-  {
-    "city": "Portland",
-    "city_ascii": "Portland",
-    "lat": 43.6773,
-    "lng": -70.2715,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Maine",
-    "capital": "",
-    "population": 209491,
-    "id": 1840000327
   },
   {
     "city": "Fontana",
@@ -42148,15 +41602,15 @@
   {
     "city": "Huntington",
     "city_ascii": "Huntington",
-    "lat": 40.8521,
-    "lng": -73.3823,
+    "lat": 38.4109,
+    "lng": -82.4345,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "New York",
+    "admin_name": "West Virginia",
     "capital": "",
-    "population": 203808,
-    "id": 1840058192
+    "population": 202754,
+    "id": 1840006211
   },
   {
     "city": "Ellore",
@@ -42339,19 +41793,6 @@
     "capital": "",
     "population": 202874,
     "id": 1704080874
-  },
-  {
-    "city": "Huntington",
-    "city_ascii": "Huntington",
-    "lat": 38.4109,
-    "lng": -82.4345,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "West Virginia",
-    "capital": "",
-    "population": 202754,
-    "id": 1840006211
   },
   {
     "city": "Chhindwāra",
@@ -44096,19 +43537,6 @@
     "id": 1410960903
   },
   {
-    "city": "Glendale",
-    "city_ascii": "Glendale",
-    "lat": 34.1819,
-    "lng": -118.2468,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "California",
-    "capital": "",
-    "population": 194512,
-    "id": 1840020483
-  },
-  {
     "city": "Guanajuato",
     "city_ascii": "Guanajuato",
     "lat": 21.0178,
@@ -44302,19 +43730,6 @@
     "capital": "admin",
     "population": 193394,
     "id": 1792530937
-  },
-  {
-    "city": "Fatehpur",
-    "city_ascii": "Fatehpur",
-    "lat": 25.93,
-    "lng": 80.8,
-    "country": "India",
-    "iso2": "IN",
-    "iso3": "IND",
-    "admin_name": "Uttar Pradesh",
-    "capital": "",
-    "population": 193193,
-    "id": 1356059135
   },
   {
     "city": "Kumagaya",
@@ -44614,19 +44029,6 @@
     "capital": "minor",
     "population": 191299,
     "id": 1032263200
-  },
-  {
-    "city": "Peoria",
-    "city_ascii": "Peoria",
-    "lat": 33.7843,
-    "lng": -112.2989,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Arizona",
-    "capital": "",
-    "population": 191292,
-    "id": 1840020567
   },
   {
     "city": "Ciudad del Carmen",
@@ -46449,19 +45851,6 @@
     "id": 1566461573
   },
   {
-    "city": "Aurora",
-    "city_ascii": "Aurora",
-    "lat": 41.7638,
-    "lng": -88.2902,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Illinois",
-    "capital": "",
-    "population": 181405,
-    "id": 1840007034
-  },
-  {
     "city": "Kelowna",
     "city_ascii": "Kelowna",
     "lat": 49.8881,
@@ -46997,15 +46386,15 @@
   {
     "city": "Caluquembe",
     "city_ascii": "Caluquembe",
-    "lat": -13.7833,
-    "lng": 14.6833,
+    "lat": -13.9208,
+    "lng": 14.5347,
     "country": "Angola",
     "iso2": "AO",
     "iso3": "AGO",
     "admin_name": "Huíla",
     "capital": "",
-    "population": 179931,
-    "id": 1024346445
+    "population": 169420,
+    "id": 1024240126
   },
   {
     "city": "Hosa’ina",
@@ -47825,19 +47214,6 @@
     "capital": "",
     "population": 175594,
     "id": 1152734764
-  },
-  {
-    "city": "Gainesville",
-    "city_ascii": "Gainesville",
-    "lat": 34.2902,
-    "lng": -83.8294,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Georgia",
-    "capital": "",
-    "population": 175569,
-    "id": 1840013612
   },
   {
     "city": "Santa María Texmelucan",
@@ -48971,19 +48347,6 @@
     "id": 1643784914
   },
   {
-    "city": "Lancaster",
-    "city_ascii": "Lancaster",
-    "lat": 34.6935,
-    "lng": -118.1753,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "California",
-    "capital": "",
-    "population": 171465,
-    "id": 1840020516
-  },
-  {
     "city": "Al Kūfah",
     "city_ascii": "Al Kufah",
     "lat": 32.03,
@@ -49489,19 +48852,6 @@
     "capital": "minor",
     "population": 169434,
     "id": 1400064688
-  },
-  {
-    "city": "Caluquembe",
-    "city_ascii": "Caluquembe",
-    "lat": -13.9208,
-    "lng": 14.5347,
-    "country": "Angola",
-    "iso2": "AO",
-    "iso3": "AGO",
-    "admin_name": "Huíla",
-    "capital": "",
-    "population": 169420,
-    "id": 1024240126
   },
   {
     "city": "Medinīpur",
@@ -50351,15 +49701,15 @@
   {
     "city": "Uppsala",
     "city_ascii": "Uppsala",
-    "lat": 59.8581,
-    "lng": 17.6447,
+    "lat": 59.8601,
+    "lng": 17.64,
     "country": "Sweden",
     "iso2": "SE",
     "iso3": "SWE",
-    "admin_name": "Uppsala",
-    "capital": "admin",
-    "population": 166698,
-    "id": 1752953686
+    "admin_name": "Stockholm",
+    "capital": "",
+    "population": 133117,
+    "id": 1752330831
   },
   {
     "city": "Villanueva",
@@ -52026,19 +51376,6 @@
     "id": 1191440208
   },
   {
-    "city": "Lafayette",
-    "city_ascii": "Lafayette",
-    "lat": 40.3991,
-    "lng": -86.8593,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Indiana",
-    "capital": "",
-    "population": 160543,
-    "id": 1840008354
-  },
-  {
     "city": "Ziarat",
     "city_ascii": "Ziarat",
     "lat": 30.381,
@@ -52388,19 +51725,6 @@
     "capital": "minor",
     "population": 159703,
     "id": 1528181808
-  },
-  {
-    "city": "Springfield",
-    "city_ascii": "Springfield",
-    "lat": 39.7709,
-    "lng": -89.654,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Illinois",
-    "capital": "admin",
-    "population": 159671,
-    "id": 1840009517
   },
   {
     "city": "Newport",
@@ -53315,15 +52639,15 @@
   {
     "city": "Lakewood",
     "city_ascii": "Lakewood",
-    "lat": 39.6977,
-    "lng": -105.1172,
+    "lat": 40.0763,
+    "lng": -74.2031,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Colorado",
+    "admin_name": "New Jersey",
     "capital": "",
-    "population": 156149,
-    "id": 1840020198
+    "population": 133875,
+    "id": 1840081607
   },
   {
     "city": "Bạc Liêu",
@@ -53506,19 +52830,6 @@
     "capital": "admin",
     "population": 155487,
     "id": 1218601363
-  },
-  {
-    "city": "Kansas City",
-    "city_ascii": "Kansas City",
-    "lat": 39.1235,
-    "lng": -94.7443,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Kansas",
-    "capital": "",
-    "population": 155438,
-    "id": 1840001626
   },
   {
     "city": "Horad Barysaw",
@@ -53796,15 +53107,15 @@
   {
     "city": "Edremit",
     "city_ascii": "Edremit",
-    "lat": 39.5922,
-    "lng": 27.02,
+    "lat": 38.4242,
+    "lng": 43.2561,
     "country": "Turkey",
     "iso2": "TR",
     "iso3": "TUR",
-    "admin_name": "Balıkesir",
+    "admin_name": "Van",
     "capital": "minor",
-    "population": 154487,
-    "id": 1792678708
+    "population": 127819,
+    "id": 1792894880
   },
   {
     "city": "Rudarpur",
@@ -54186,15 +53497,15 @@
   {
     "city": "San Jose",
     "city_ascii": "San Jose",
-    "lat": 12.3528,
-    "lng": 121.0676,
+    "lat": 15.8037,
+    "lng": 120.9991,
     "country": "Philippines",
     "iso2": "PH",
     "iso3": "PHL",
-    "admin_name": "Occidental Mindoro",
+    "admin_name": "Nueva Ecija",
     "capital": "",
-    "population": 153267,
-    "id": 1608355709
+    "population": 150917,
+    "id": 1608000478
   },
   {
     "city": "Jorhāt",
@@ -54212,15 +53523,15 @@
   {
     "city": "Poblacion",
     "city_ascii": "Poblacion",
-    "lat": 10.42,
-    "lng": 123.97,
+    "lat": 14.3854,
+    "lng": 121.029,
     "country": "Philippines",
     "iso2": "PH",
     "iso3": "PHL",
-    "admin_name": "Cebu",
+    "admin_name": "Muntinlupa",
     "capital": "",
-    "population": 153197,
-    "id": 1608456191
+    "population": 120115,
+    "id": 1608197194
   },
   {
     "city": "Ixtlahuaca",
@@ -54886,19 +54197,6 @@
     "id": 1704354008
   },
   {
-    "city": "San Jose",
-    "city_ascii": "San Jose",
-    "lat": 15.8037,
-    "lng": 120.9991,
-    "country": "Philippines",
-    "iso2": "PH",
-    "iso3": "PHL",
-    "admin_name": "Nueva Ecija",
-    "capital": "",
-    "population": 150917,
-    "id": 1608000478
-  },
-  {
     "city": "Copiapó",
     "city_ascii": "Copiapo",
     "lat": -27.3664,
@@ -54992,15 +54290,15 @@
   {
     "city": "Pasadena",
     "city_ascii": "Pasadena",
-    "lat": 29.6575,
-    "lng": -95.1498,
+    "lat": 34.1597,
+    "lng": -118.139,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Texas",
+    "admin_name": "California",
     "capital": "",
-    "population": 150620,
-    "id": 1840020930
+    "population": 137554,
+    "id": 1840020505
   },
   {
     "city": "Bellevue",
@@ -56383,15 +55681,15 @@
   {
     "city": "Burlington",
     "city_ascii": "Burlington",
-    "lat": 36.076,
-    "lng": -79.4685,
+    "lat": 44.4876,
+    "lng": -73.2316,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "North Carolina",
+    "admin_name": "Vermont",
     "capital": "",
-    "population": 147415,
-    "id": 1840013362
+    "population": 123307,
+    "id": 1840002310
   },
   {
     "city": "Kafr ash Shaykh",
@@ -56461,15 +55759,15 @@
   {
     "city": "Dongsheng",
     "city_ascii": "Dongsheng",
-    "lat": 22.8847,
-    "lng": 113.455,
+    "lat": 22.6199,
+    "lng": 113.2895,
     "country": "China",
     "iso2": "CN",
     "iso3": "CHN",
     "admin_name": "Guangdong",
     "capital": "",
-    "population": 147228,
-    "id": 1156418808
+    "population": 117976,
+    "id": 1156574266
   },
   {
     "city": "Hābra",
@@ -56630,15 +55928,15 @@
   {
     "city": "Cam Ranh",
     "city_ascii": "Cam Ranh",
-    "lat": 11.902,
-    "lng": 109.2207,
+    "lat": 11.9136,
+    "lng": 109.1369,
     "country": "Vietnam",
     "iso2": "VN",
     "iso3": "VNM",
     "admin_name": "Khánh Hòa",
-    "capital": "",
-    "population": 146771,
-    "id": 1704104189
+    "capital": "minor",
+    "population": 125311,
+    "id": 1704516746
   },
   {
     "city": "Bīr",
@@ -56869,19 +56167,6 @@
     "country": "Philippines",
     "iso2": "PH",
     "iso3": "PHL",
-    "admin_name": "Oriental Mindoro",
-    "capital": "admin",
-    "population": 145786,
-    "id": 1608578259
-  },
-  {
-    "city": "Calapan",
-    "city_ascii": "Calapan",
-    "lat": 13.414,
-    "lng": 121.18,
-    "country": "Philippines",
-    "iso2": "PH",
-    "iso3": "PHL",
     "admin_name": "Bulacan",
     "capital": "",
     "population": 145786,
@@ -57020,15 +56305,15 @@
   {
     "city": "Ereğli",
     "city_ascii": "Eregli",
-    "lat": 37.5128,
-    "lng": 34.0483,
+    "lat": 41.2792,
+    "lng": 31.4208,
     "country": "Turkey",
     "iso2": "TR",
     "iso3": "TUR",
-    "admin_name": "Konya",
+    "admin_name": "Zonguldak",
     "capital": "minor",
-    "population": 145389,
-    "id": 1792110470
+    "population": 122282,
+    "id": 1792160689
   },
   {
     "city": "Foggia",
@@ -57952,19 +57237,6 @@
     "capital": "",
     "population": 142673,
     "id": 1643144321
-  },
-  {
-    "city": "Columbia",
-    "city_ascii": "Columbia",
-    "lat": 38.9472,
-    "lng": -92.3268,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Missouri",
-    "capital": "",
-    "population": 142637,
-    "id": 1840007391
   },
   {
     "city": "Huelva",
@@ -59722,19 +58994,6 @@
     "id": 1024978551
   },
   {
-    "city": "Pasadena",
-    "city_ascii": "Pasadena",
-    "lat": 34.1597,
-    "lng": -118.139,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "California",
-    "capital": "",
-    "population": 137554,
-    "id": 1840020505
-  },
-  {
     "city": "Teófilo Otoni",
     "city_ascii": "Teofilo Otoni",
     "lat": -17.8578,
@@ -60179,15 +59438,15 @@
   {
     "city": "Bloomington",
     "city_ascii": "Bloomington",
-    "lat": 40.4757,
-    "lng": -88.9703,
+    "lat": 39.1637,
+    "lng": -86.5257,
     "country": "United States",
     "iso2": "US",
     "iso3": "USA",
-    "admin_name": "Illinois",
+    "admin_name": "Indiana",
     "capital": "",
-    "population": 136524,
-    "id": 1840007207
+    "population": 108387,
+    "id": 1840007376
   },
   {
     "city": "Quimbele",
@@ -61152,19 +60411,6 @@
     "id": 1348279762
   },
   {
-    "city": "Lakewood",
-    "city_ascii": "Lakewood",
-    "lat": 40.0763,
-    "lng": -74.2031,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "New Jersey",
-    "capital": "",
-    "population": 133875,
-    "id": 1840081607
-  },
-  {
     "city": "Famalicão",
     "city_ascii": "Famalicao",
     "lat": 41.4,
@@ -61581,19 +60827,6 @@
     "id": 1204172060
   },
   {
-    "city": "Uppsala",
-    "city_ascii": "Uppsala",
-    "lat": 59.8601,
-    "lng": 17.64,
-    "country": "Sweden",
-    "iso2": "SE",
-    "iso3": "SWE",
-    "admin_name": "Stockholm",
-    "capital": "",
-    "population": 133117,
-    "id": 1752330831
-  },
-  {
     "city": "Yuba City",
     "city_ascii": "Yuba City",
     "lat": 39.1357,
@@ -61631,19 +60864,6 @@
     "capital": "",
     "population": 133043,
     "id": 1834684619
-  },
-  {
-    "city": "Crato",
-    "city_ascii": "Crato",
-    "lat": -7.2339,
-    "lng": -39.4089,
-    "country": "Brazil",
-    "iso2": "BR",
-    "iso3": "BRA",
-    "admin_name": "Ceará",
-    "capital": "minor",
-    "population": 133031,
-    "id": 1076894967
   },
   {
     "city": "Male",
@@ -63037,19 +62257,6 @@
     "id": 1250736774
   },
   {
-    "city": "Charleston",
-    "city_ascii": "Charleston",
-    "lat": 38.3484,
-    "lng": -81.6322,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "West Virginia",
-    "capital": "admin",
-    "population": 129754,
-    "id": 1840006196
-  },
-  {
     "city": "Ponnagyun",
     "city_ascii": "Ponnagyun",
     "lat": 20.3342,
@@ -63531,19 +62738,6 @@
     "id": 1392003337
   },
   {
-    "city": "Santo Tomas",
-    "city_ascii": "Santo Tomas",
-    "lat": 7.53,
-    "lng": 125.62,
-    "country": "Philippines",
-    "iso2": "PH",
-    "iso3": "PHL",
-    "admin_name": "Davao del Norte",
-    "capital": "",
-    "population": 128667,
-    "id": 1608792041
-  },
-  {
     "city": "Västerås",
     "city_ascii": "Vasteras",
     "lat": 59.6161,
@@ -63596,19 +62790,6 @@
     "id": 1862780259
   },
   {
-    "city": "Fengcheng",
-    "city_ascii": "Fengcheng",
-    "lat": 37.4313,
-    "lng": 112.027,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Shanxi",
-    "capital": "minor",
-    "population": 128571,
-    "id": 1156054333
-  },
-  {
     "city": "Saïda",
     "city_ascii": "Saida",
     "lat": 34.8333,
@@ -63624,15 +62805,15 @@
   {
     "city": "Rosario",
     "city_ascii": "Rosario",
-    "lat": 13.846,
-    "lng": 121.206,
+    "lat": 14.42,
+    "lng": 120.85,
     "country": "Philippines",
     "iso2": "PH",
     "iso3": "PHL",
-    "admin_name": "Batangas",
+    "admin_name": "Cavite",
     "capital": "",
-    "population": 128352,
-    "id": 1608786784
+    "population": 110807,
+    "id": 1608718800
   },
   {
     "city": "Heilbronn",
@@ -63817,19 +62998,6 @@
     "id": 1170751552
   },
   {
-    "city": "Dongsheng",
-    "city_ascii": "Dongsheng",
-    "lat": 22.6228,
-    "lng": 113.2917,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Guangdong",
-    "capital": "",
-    "population": 128000,
-    "id": 1156117107
-  },
-  {
     "city": "Garut",
     "city_ascii": "Garut",
     "lat": -7.2167,
@@ -63921,19 +63089,6 @@
     "id": 1276732622
   },
   {
-    "city": "Edremit",
-    "city_ascii": "Edremit",
-    "lat": 38.4242,
-    "lng": 43.2561,
-    "country": "Turkey",
-    "iso2": "TR",
-    "iso3": "TUR",
-    "admin_name": "Van",
-    "capital": "minor",
-    "population": 127819,
-    "id": 1792894880
-  },
-  {
     "city": "Würzburg",
     "city_ascii": "Wurzburg",
     "lat": 49.7833,
@@ -63997,19 +63152,6 @@
     "capital": "",
     "population": 127653,
     "id": 1608954884
-  },
-  {
-    "city": "Greenville",
-    "city_ascii": "Greenville",
-    "lat": 35.5943,
-    "lng": -77.376,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "North Carolina",
-    "capital": "",
-    "population": 127574,
-    "id": 1840013407
   },
   {
     "city": "Simi Valley",
@@ -64259,19 +63401,6 @@
     "id": 1724711203
   },
   {
-    "city": "Saidpur",
-    "city_ascii": "Saidpur",
-    "lat": 25.7781,
-    "lng": 88.8975,
-    "country": "Bangladesh",
-    "iso2": "BD",
-    "iso3": "BGD",
-    "admin_name": "Rangpur",
-    "capital": "",
-    "population": 127104,
-    "id": 1050464696
-  },
-  {
     "city": "Nāḩiyat Khān Banī Sa‘d",
     "city_ascii": "Nahiyat Khan Bani Sa`d",
     "lat": 33.57,
@@ -64404,15 +63533,15 @@
   {
     "city": "Santa Cruz",
     "city_ascii": "Santa Cruz",
-    "lat": 14.5998,
-    "lng": 120.9802,
+    "lat": 6.83,
+    "lng": 125.42,
     "country": "Philippines",
     "iso2": "PH",
     "iso3": "PHL",
-    "admin_name": "Manila",
+    "admin_name": "Davao del Sur",
     "capital": "",
-    "population": 126735,
-    "id": 1608318207
+    "population": 101125,
+    "id": 1608664930
   },
   {
     "city": "Ünye",
@@ -64612,15 +63741,15 @@
   {
     "city": "San Juan",
     "city_ascii": "San Juan",
-    "lat": 14.604,
-    "lng": 121.03,
+    "lat": 13.826,
+    "lng": 121.396,
     "country": "Philippines",
     "iso2": "PH",
     "iso3": "PHL",
-    "admin_name": "San Juan",
-    "capital": "admin",
-    "population": 126347,
-    "id": 1608817515
+    "admin_name": "Batangas",
+    "capital": "minor",
+    "population": 114068,
+    "id": 1608474998
   },
   {
     "city": "Valinhos",
@@ -64792,19 +63921,6 @@
     "id": 1231476399
   },
   {
-    "city": "San Fernando",
-    "city_ascii": "San Fernando",
-    "lat": 16.62,
-    "lng": 120.32,
-    "country": "Philippines",
-    "iso2": "PH",
-    "iso3": "PHL",
-    "admin_name": "La Union",
-    "capital": "admin",
-    "population": 125640,
-    "id": 1608635527
-  },
-  {
     "city": "Shchelkovo",
     "city_ascii": "Shchelkovo",
     "lat": 55.9167,
@@ -64868,19 +63984,6 @@
     "capital": "",
     "population": 125317,
     "id": 1076877003
-  },
-  {
-    "city": "Cam Ranh",
-    "city_ascii": "Cam Ranh",
-    "lat": 11.9136,
-    "lng": 109.1369,
-    "country": "Vietnam",
-    "iso2": "VN",
-    "iso3": "VNM",
-    "admin_name": "Khánh Hòa",
-    "capital": "minor",
-    "population": 125311,
-    "id": 1704516746
   },
   {
     "city": "Zoetermeer",
@@ -65481,19 +64584,6 @@
     "id": 1140257478
   },
   {
-    "city": "Pāli",
-    "city_ascii": "Pali",
-    "lat": 23.35,
-    "lng": 81.05,
-    "country": "India",
-    "iso2": "IN",
-    "iso3": "IND",
-    "admin_name": "Madhya Pradesh",
-    "capital": "",
-    "population": 124175,
-    "id": 1356107944
-  },
-  {
     "city": "Leiden",
     "city_ascii": "Leiden",
     "lat": 52.16,
@@ -65715,19 +64805,6 @@
     "id": 1360144781
   },
   {
-    "city": "Santa Cruz",
-    "city_ascii": "Santa Cruz",
-    "lat": 14.28,
-    "lng": 121.42,
-    "country": "Philippines",
-    "iso2": "PH",
-    "iso3": "PHL",
-    "admin_name": "Laguna",
-    "capital": "",
-    "population": 123574,
-    "id": 1608971699
-  },
-  {
     "city": "Akçaabat",
     "city_ascii": "Akcaabat",
     "lat": 41.0167,
@@ -65817,19 +64894,6 @@
     "capital": "minor",
     "population": 123312,
     "id": 1076849673
-  },
-  {
-    "city": "Burlington",
-    "city_ascii": "Burlington",
-    "lat": 44.4876,
-    "lng": -73.2316,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Vermont",
-    "capital": "",
-    "population": 123307,
-    "id": 1840002310
   },
   {
     "city": "Três Lagoas",
@@ -66064,19 +65128,6 @@
     "capital": "minor",
     "population": 122833,
     "id": 1792386113
-  },
-  {
-    "city": "Shiyan",
-    "city_ascii": "Shiyan",
-    "lat": 23.1251,
-    "lng": 113.8633,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Jiangxi",
-    "capital": "",
-    "population": 122802,
-    "id": 1156157858
   },
   {
     "city": "Pati",
@@ -66378,19 +65429,6 @@
     "id": 1840006175
   },
   {
-    "city": "Ereğli",
-    "city_ascii": "Eregli",
-    "lat": 41.2792,
-    "lng": 31.4208,
-    "country": "Turkey",
-    "iso2": "TR",
-    "iso3": "TUR",
-    "admin_name": "Zonguldak",
-    "capital": "minor",
-    "population": 122282,
-    "id": 1792160689
-  },
-  {
     "city": "Independence",
     "city_ascii": "Independence",
     "lat": 39.0871,
@@ -66467,19 +65505,6 @@
     "capital": "",
     "population": 121874,
     "id": 1356879569
-  },
-  {
-    "city": "Rochester",
-    "city_ascii": "Rochester",
-    "lat": 44.0154,
-    "lng": -92.478,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Minnesota",
-    "capital": "",
-    "population": 121870,
-    "id": 1840008987
   },
   {
     "city": "Colchester",
@@ -67377,19 +66402,6 @@
     "capital": "",
     "population": 120200,
     "id": 1222858341
-  },
-  {
-    "city": "Poblacion",
-    "city_ascii": "Poblacion",
-    "lat": 14.3854,
-    "lng": 121.029,
-    "country": "Philippines",
-    "iso2": "PH",
-    "iso3": "PHL",
-    "admin_name": "Muntinlupa",
-    "capital": "",
-    "population": 120115,
-    "id": 1608197194
   },
   {
     "city": "Kandy",
@@ -68614,19 +67626,6 @@
     "id": 1478176283
   },
   {
-    "city": "Dongsheng",
-    "city_ascii": "Dongsheng",
-    "lat": 22.6199,
-    "lng": 113.2895,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Guangdong",
-    "capital": "",
-    "population": 117976,
-    "id": 1156574266
-  },
-  {
     "city": "Blackburn",
     "city_ascii": "Blackburn",
     "lat": 53.748,
@@ -69485,19 +68484,6 @@
     "id": 1800877735
   },
   {
-    "city": "Honchō",
-    "city_ascii": "Honcho",
-    "lat": 35.758,
-    "lng": 139.5299,
-    "country": "Japan",
-    "iso2": "JP",
-    "iso3": "JPN",
-    "admin_name": "Saitama",
-    "capital": "",
-    "population": 116477,
-    "id": 1392994259
-  },
-  {
     "city": "Barnāla",
     "city_ascii": "Barnala",
     "lat": 30.37,
@@ -70068,19 +69054,6 @@
     "capital": "minor",
     "population": 115660,
     "id": 1360293005
-  },
-  {
-    "city": "Richmond",
-    "city_ascii": "Richmond",
-    "lat": 37.9477,
-    "lng": -122.3389,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "California",
-    "capital": "",
-    "population": 115619,
-    "id": 1840020277
   },
   {
     "city": "Nasushiobara",
@@ -71006,19 +69979,6 @@
     "id": 1250372069
   },
   {
-    "city": "San Juan",
-    "city_ascii": "San Juan",
-    "lat": 13.826,
-    "lng": 121.396,
-    "country": "Philippines",
-    "iso2": "PH",
-    "iso3": "PHL",
-    "admin_name": "Batangas",
-    "capital": "minor",
-    "population": 114068,
-    "id": 1608474998
-  },
-  {
     "city": "Bintulu",
     "city_ascii": "Bintulu",
     "lat": 3.1733,
@@ -71095,19 +70055,6 @@
     "capital": "",
     "population": 113929,
     "id": 1643301615
-  },
-  {
-    "city": "Zhijiang",
-    "city_ascii": "Zhijiang",
-    "lat": 27.4367,
-    "lng": 109.678,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Hunan",
-    "capital": "minor",
-    "population": 113907,
-    "id": 1156128936
   },
   {
     "city": "Kuningan",
@@ -72228,19 +71175,6 @@
     "id": 1608960920
   },
   {
-    "city": "Jacksonville",
-    "city_ascii": "Jacksonville",
-    "lat": 34.7289,
-    "lng": -77.3941,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "North Carolina",
-    "capital": "",
-    "population": 111830,
-    "id": 1840014653
-  },
-  {
     "city": "Ichinoseki",
     "city_ascii": "Ichinoseki",
     "lat": 38.9347,
@@ -72291,19 +71225,6 @@
     "capital": "",
     "population": 111788,
     "id": 1076751743
-  },
-  {
-    "city": "Bou Saada",
-    "city_ascii": "Bou Saada",
-    "lat": 36.7667,
-    "lng": 4.5833,
-    "country": "Algeria",
-    "iso2": "DZ",
-    "iso3": "DZA",
-    "admin_name": "Tizi Ouzou",
-    "capital": "",
-    "population": 111787,
-    "id": 1012263841
   },
   {
     "city": "Bou Saâda",
@@ -72839,19 +71760,6 @@
     "id": 1364549592
   },
   {
-    "city": "Rosario",
-    "city_ascii": "Rosario",
-    "lat": 14.42,
-    "lng": 120.85,
-    "country": "Philippines",
-    "iso2": "PH",
-    "iso3": "PHL",
-    "admin_name": "Cavite",
-    "capital": "",
-    "population": 110807,
-    "id": 1608718800
-  },
-  {
     "city": "Gilroy",
     "city_ascii": "Gilroy",
     "lat": 37.0046,
@@ -73385,19 +72293,6 @@
     "id": 1756362130
   },
   {
-    "city": "Dali",
-    "city_ascii": "Dali",
-    "lat": 34.7953,
-    "lng": 109.9378,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Shaanxi",
-    "capital": "minor",
-    "population": 109696,
-    "id": 1156708054
-  },
-  {
     "city": "Rotherham",
     "city_ascii": "Rotherham",
     "lat": 53.43,
@@ -73840,19 +72735,6 @@
     "id": 1024251027
   },
   {
-    "city": "Talisay",
-    "city_ascii": "Talisay",
-    "lat": 10.73,
-    "lng": 122.97,
-    "country": "Philippines",
-    "iso2": "PH",
-    "iso3": "PHL",
-    "admin_name": "Negros Occidental",
-    "capital": "",
-    "population": 108909,
-    "id": 1608509888
-  },
-  {
     "city": "Taitung",
     "city_ascii": "Taitung",
     "lat": 22.7583,
@@ -74293,19 +73175,6 @@
     "capital": "",
     "population": 108387,
     "id": 1356114358
-  },
-  {
-    "city": "Bloomington",
-    "city_ascii": "Bloomington",
-    "lat": 39.1637,
-    "lng": -86.5257,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Indiana",
-    "capital": "",
-    "population": 108387,
-    "id": 1840007376
   },
   {
     "city": "Alto Hospicio",
@@ -75296,19 +74165,6 @@
     "id": 1840019932
   },
   {
-    "city": "Columbia",
-    "city_ascii": "Columbia",
-    "lat": 39.2004,
-    "lng": -76.859,
-    "country": "United States",
-    "iso2": "US",
-    "iso3": "USA",
-    "admin_name": "Maryland",
-    "capital": "",
-    "population": 106600,
-    "id": 1840005803
-  },
-  {
     "city": "Crawley",
     "city_ascii": "Crawley",
     "lat": 51.1092,
@@ -75437,19 +74293,6 @@
     "capital": "",
     "population": 106389,
     "id": 1840019233
-  },
-  {
-    "city": "Longjiang",
-    "city_ascii": "Longjiang",
-    "lat": 47.3404,
-    "lng": 123.18,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Heilongjiang",
-    "capital": "minor",
-    "population": 106384,
-    "id": 1156263974
   },
   {
     "city": "Terni",
@@ -76492,19 +75335,6 @@
     "id": 1368130668
   },
   {
-    "city": "Jincheng",
-    "city_ascii": "Jincheng",
-    "lat": 39.5529,
-    "lng": 113.1933,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Shanxi",
-    "capital": "minor",
-    "population": 105038,
-    "id": 1156528474
-  },
-  {
     "city": "Planaltina",
     "city_ascii": "Planaltina",
     "lat": -15.4528,
@@ -77428,19 +76258,6 @@
     "id": 1643581064
   },
   {
-    "city": "Yunfu",
-    "city_ascii": "Yunfu",
-    "lat": 28.6331,
-    "lng": 104.4181,
-    "country": "China",
-    "iso2": "CN",
-    "iso3": "CHN",
-    "admin_name": "Yunnan",
-    "capital": "",
-    "population": 103532,
-    "id": 1156353293
-  },
-  {
     "city": "Musoma",
     "city_ascii": "Musoma",
     "lat": -1.5,
@@ -78000,19 +76817,6 @@
     "id": 1818327836
   },
   {
-    "city": "Noginsk",
-    "city_ascii": "Noginsk",
-    "lat": 55.85,
-    "lng": 38.4333,
-    "country": "Russia",
-    "iso2": "RU",
-    "iso3": "RUS",
-    "admin_name": "Moskovskaya Oblast’",
-    "capital": "minor",
-    "population": 102592,
-    "id": 1643001706
-  },
-  {
     "city": "Kheda",
     "city_ascii": "Kheda",
     "lat": 22.75,
@@ -78232,19 +77036,6 @@
     "capital": "",
     "population": 102253,
     "id": 1586382775
-  },
-  {
-    "city": "Aurangābād",
-    "city_ascii": "Aurangabad",
-    "lat": 24.7,
-    "lng": 84.35,
-    "country": "India",
-    "iso2": "IN",
-    "iso3": "IND",
-    "admin_name": "Bihār",
-    "capital": "",
-    "population": 102244,
-    "id": 1356920493
   },
   {
     "city": "Joünié",
@@ -79155,19 +77946,6 @@
     "capital": "minor",
     "population": 101136,
     "id": 1384963890
-  },
-  {
-    "city": "Santa Cruz",
-    "city_ascii": "Santa Cruz",
-    "lat": 6.83,
-    "lng": 125.42,
-    "country": "Philippines",
-    "iso2": "PH",
-    "iso3": "PHL",
-    "admin_name": "Davao del Sur",
-    "capital": "",
-    "population": 101125,
-    "id": 1608664930
   },
   {
     "city": "Itaperuna",

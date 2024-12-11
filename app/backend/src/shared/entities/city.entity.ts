@@ -4,6 +4,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
   Relation,
+  Unique,
 } from 'typeorm';
 
 import { Country } from '@unidatex/constants';
@@ -11,6 +12,7 @@ import { Country } from '@unidatex/constants';
 import { UserEntity } from './user.entity';
 
 @Entity('cities')
+@Unique(['name', 'country'])
 export class CityEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
