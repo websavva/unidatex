@@ -76,6 +76,22 @@ export class ProfileController {
     );
   }
 
+  @Post('/favorites/:userId')
+  public async addUserToFavorites(
+    @CurrentUser() currentUser: UserEntity,
+    @Param('userId', new UUIDZodValidationPipe('userId')) userId: string,
+  ) {
+    return this.addUserToFavorites(currentUser, userId);
+  }
+
+  @Delete('/favorites/:userId')
+  public async removeUserFromFavorites(
+    @CurrentUser() currentUser: UserEntity,
+    @Param('userId', new UUIDZodValidationPipe('userId')) userId: string,
+  ) {
+    return this.removeUserFromFavorites(currentUser, userId);
+  }
+
   @Post('/photos')
   @UseInterceptors(FileInterceptor('file'))
   public addProfilePhoto(

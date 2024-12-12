@@ -190,6 +190,40 @@ export class ProfileService {
     return this.userPhotosRepository.save(newPhoto);
   }
 
+  public async addUserToFavotires(
+    currentUser: UserEntity,
+    favoritedUserId: string,
+  ) {
+    const userFavorite = this.userFavoritesRepository.create({
+      user: {
+        id: currentUser.id,
+      },
+
+      favoritedUser: {
+        id: favoritedUserId,
+      },
+    });
+
+    return this.userFavoritesRepository.save(userFavorite);
+  }
+
+  public async removeUserFromFavorites(
+    currentUser: UserEntity,
+    favoritedUserId: string,
+  ) {
+    return this.userFavoritesRepository
+      .delete({
+        user: {
+          id: currentUser.id,
+        },
+
+        favoritedUser: {
+          id: favoritedUserId,
+        },
+      })
+      .then(() => true);
+  }
+
   public async removePhoto(currentUser: UserEntity, photoId: string) {
     const userPhotoToDelete = await this.userPhotosRepository.findOneBy({
       id: photoId,
