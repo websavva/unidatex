@@ -15,4 +15,4 @@ export * from './living';
 export * from './drinking-habits';
 export * from './smoking-habits';
 export * from './looking-for';
-export * from './favorite-type';
+export * from './user-favorite-type';

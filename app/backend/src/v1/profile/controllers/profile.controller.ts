@@ -18,11 +18,13 @@ import {
   PaginationParamsDtoSchema,
   PaginationParamsDto,
 } from '@unidatex/dto';
+import { UserFavoriteType } from '@unidatex/constants';
 
 import { CurrentUser } from '#shared/decorators/current-user.decorator';
 import { UserEntity } from '#shared/entities';
 import { ZodValidationPipe } from '#shared/pipes/zod-validation.pipe';
 import { UUIDZodValidationPipe } from '#shared/pipes/uuid-validation.pipe';
+import { EnumZodValidationPipe } from '@/shared/pipes/enum-validation.pipe';
 
 import { AuthGuard } from '../../auth/guards/auth.guard';
 import { ProfilePhotoFileValidation } from '../pipes/photo-file-validation.pipe';
@@ -55,6 +57,21 @@ export class ProfileController {
   ) {
     return this.profileService.getProfileIncomingViews(
       currentUser.id,
+      paginationParams,
+    );
+  }
+
+  @Get('/favorites/:type')
+  public async getProfileFavorites(
+    @CurrentUser() currentUser: UserEntity,
+    @Param('type', new EnumZodValidationPipe(UserFavoriteType))
+    type: UserFavoriteType,
+    @Query(new ZodValidationPipe(PaginationParamsDtoSchema))
+    paginationParams: PaginationParamsDto,
+  ) {
+    return this.profileService.getProfileFavorites(
+      currentUser,
+      type,
       paginationParams,
     );
   }

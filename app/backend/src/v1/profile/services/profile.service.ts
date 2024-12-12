@@ -7,7 +7,7 @@ import {
 import { Repository, DataSource } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { UserPhotoCountMaxRange } from '@unidatex/constants';
+import { UserPhotoCountMaxRange, UserFavoriteType } from '@unidatex/constants';
 import { UserUpdateDto, PaginationParamsDto } from '@unidatex/dto';
 
 import { FileStorageService } from '#shared/modules/file-storage/file-storage.service';
@@ -19,12 +19,13 @@ import {
   UserEntity,
   UserPhotoEntity,
   UserProfileViewEntity,
+  UserFavoriteEntity,
 } from '#shared/entities';
 import { PaginationService } from '#shared/services/pagination.service';
+import { CityEntity } from '#shared/entities/city.entity';
 
 import { GeoService } from '../../geo/services/geo.service';
 import { UsersService } from '../../users/services/users.service';
-import { CityEntity } from '@/shared/entities/city.entity';
 
 @Injectable()
 export class ProfileService {
@@ -36,6 +37,8 @@ export class ProfileService {
     private userPhotosRepository: Repository<UserPhotoEntity>,
     @InjectRepository(UserProfileViewEntity)
     private userProfileViewsRepository: Repository<UserProfileViewEntity>,
+    @InjectRepository(UserFavoriteEntity)
+    private userFavoritesRepository: Repository<UserFavoriteEntity>,
     @Inject(DataSource) private dataSource: DataSource,
     private paginationService: PaginationService,
     private usersService: UsersService,
@@ -101,6 +104,64 @@ export class ProfileService {
 
     return {
       views,
+      pagination,
+    };
+  }
+
+  public async getProfileFavorites(
+    currentUser: UserEntity,
+    type: UserFavoriteType,
+    paginationParams: PaginationParamsDto,
+  ) {
+    let profileFavoritesQueryBuilder = this.userFavoritesRepository
+      .createQueryBuilder('userFavorite')
+      .leftJoinAndSelect('userFavorite.user', 'user')
+      .leftJoinAndSelect('userFavorite.favoritedUser', 'favoritedUser');
+
+    if (type === UserFavoriteType.INCOMING) {
+      profileFavoritesQueryBuilder = profileFavoritesQueryBuilder.where(
+        'favoritedUser.id = :favoritedUserId',
+        {
+          favoritedUserId: currentUser.id,
+        },
+      );
+    } else if (type === UserFavoriteType.OUTCOMING) {
+      profileFavoritesQueryBuilder = profileFavoritesQueryBuilder.where(
+        'user.id = :userId',
+        {
+          userId: currentUser.id,
+        },
+      );
+    } else {
+      profileFavoritesQueryBuilder = profileFavoritesQueryBuilder
+        .where('user.id = :userId', {
+          userId: currentUser.id,
+        })
+        .andWhere(
+          'favoritedUser.id IN ' +
+            profileFavoritesQueryBuilder
+              .subQuery()
+              .where('favoritedUser.id = :favoritedUserId', {
+                favoritedUserId: currentUser.id,
+              })
+              .select('user.id')
+              .getQuery(),
+        );
+    }
+
+    profileFavoritesQueryBuilder = profileFavoritesQueryBuilder.orderBy(
+      'userFavorite.createdAt',
+      'DESC',
+    );
+
+    const { items: favorites, pagination } =
+      await this.paginationService.paginate(
+        profileFavoritesQueryBuilder,
+        paginationParams,
+      );
+
+    return {
+      favorites,
       pagination,
     };
   }

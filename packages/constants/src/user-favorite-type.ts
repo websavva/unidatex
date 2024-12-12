@@ -1,4 +1,4 @@
-export enum FavoriteType {
+export enum UserFavoriteType {
   OUTCOMING = 'outcoming',
   INCOMING = 'incoming',
   MATCH = 'match',
