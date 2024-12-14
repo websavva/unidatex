@@ -194,6 +194,23 @@ export class ProfileService {
     currentUser: UserEntity,
     favoritedUserId: string,
   ) {
+    const existingUserFavorite = await this.userFavoritesRepository.findOne({
+      where: {
+        user: {
+          id: currentUser.id,
+        },
+
+        favoritedUser: {
+          id: favoritedUserId,
+        },
+      },
+    });
+
+    if (!existingUserFavorite)
+      throw new BadRequestException(
+        `User with id "${favoritedUserId}" has been favorited already`,
+      );
+
     const userFavorite = this.userFavoritesRepository.create({
       user: {
         id: currentUser.id,
