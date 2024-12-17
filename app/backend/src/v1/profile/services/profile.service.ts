@@ -138,9 +138,13 @@ export class ProfileService {
           userId: currentUser.id,
         })
         .andWhere(
-          'favoritedUser.id IN ' +
-            profileFavoritesQueryBuilder
+          (qb) =>
+            'favoritedUser.id IN ' +
+            qb
               .subQuery()
+              .from(UserFavoriteEntity, 'userFavorite')
+              .leftJoinAndSelect('userFavorite.user', 'user')
+              .leftJoinAndSelect('userFavorite.favoritedUser', 'favoritedUser')
               .where('favoritedUser.id = :favoritedUserId', {
                 favoritedUserId: currentUser.id,
               })
@@ -190,7 +194,7 @@ export class ProfileService {
     return this.userPhotosRepository.save(newPhoto);
   }
 
-  public async addUserToFavotires(
+  public async addUserToFavorites(
     currentUser: UserEntity,
     favoritedUserId: string,
   ) {
