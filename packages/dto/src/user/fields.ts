@@ -57,7 +57,7 @@ export const userEmail = () =>
     .max(UserEmailLengthRange.max);
 
 export const userName = () =>
-  z.string().min(UserNameLengthRange.min).max(UserEmailLengthRange.max);
+  z.string().min(UserNameLengthRange.min).max(UserNameLengthRange.max);
 
 export const userGender = () => z.nativeEnum(Gender);
 

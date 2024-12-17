@@ -15,11 +15,13 @@ export class UserFavoriteEntity {
 
   @ManyToOne(() => UserEntity, (user) => user.favoritedUsers, {
     onDelete: 'CASCADE',
+    eager: true,
   })
   user: Relation<UserEntity>;
 
   @ManyToOne(() => UserEntity, (user) => user.favoritedByUsers, {
     onDelete: 'CASCADE',
+    eager: true,
   })
   favoritedUser: Relation<UserEntity>;
 
