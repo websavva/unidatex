@@ -173,7 +173,7 @@ export class ProfileService {
   public async addPhoto(currentUser: UserEntity, file: Express.Multer.File) {
     if (currentUser.photos.length >= UserPhotoCountMaxRange.max)
       throw new BadRequestException(
-        `Only ${UserPhotoCountMaxRange.max} photos can be uploaded`,
+        `Only ${UserPhotoCountMaxRange.max} photos can be uploaded at max`,
       );
 
     const generatedPhotoFileName =
