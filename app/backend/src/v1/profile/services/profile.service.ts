@@ -194,10 +194,16 @@ export class ProfileService {
     return this.userPhotosRepository.save(newPhoto);
   }
 
+  private throwSelfFavoriteException() {
+    throw new BadRequestException('You cannot favorite yourself');
+  }
+
   public async addUserToFavorites(
     currentUser: UserEntity,
     favoritedUserId: string,
   ) {
+    if (currentUser.id === favoritedUserId) this.throwSelfFavoriteException();
+
     const doesUserFavoriteExist = await this.userFavoritesRepository.exists({
       where: {
         user: {
@@ -238,6 +244,8 @@ export class ProfileService {
     currentUser: UserEntity,
     favoritedUserId: string,
   ) {
+    if (currentUser.id === favoritedUserId) this.throwSelfFavoriteException();
+
     return this.userFavoritesRepository
       .delete({
         user: {
