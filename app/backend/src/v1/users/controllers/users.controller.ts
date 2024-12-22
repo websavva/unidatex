@@ -15,6 +15,7 @@ export class UsersController {
     private usersService: UsersService,
     private profileService: ProfileService,
   ) {}
+
   @Get('/:id')
   public async getUser(
     @CurrentUser() currentUser: UserEntity,
