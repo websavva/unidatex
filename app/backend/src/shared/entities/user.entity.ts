@@ -6,8 +6,7 @@ import {
   OneToMany,
   Relation,
   ManyToOne,
-  BeforeInsert,
-  BeforeUpdate,
+  CreateDateColumn,
 } from 'typeorm';
 import {
   UserEmailLengthRange,
@@ -88,6 +87,12 @@ export class UserEntity {
     nullable: true,
   })
   passwordUpdatedAt: Date | null;
+
+  @CreateDateColumn({
+    type: 'timestamp with time zone',
+    nullable: false,
+  })
+  signedUpAt: Date;
 
   @Column({
     type: 'enum',

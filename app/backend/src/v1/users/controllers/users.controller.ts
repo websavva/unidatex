@@ -1,4 +1,5 @@
-import { Controller, Get, UseGuards, Param } from '@nestjs/common';
+import { Controller, Get, UseGuards, Param, Query } from '@nestjs/common';
+import { PaginationParamsDto, PaginationParamsDtoSchema } from '@unidatex/dto';
 
 import { CurrentUser } from '#shared/decorators/current-user.decorator';
 import { UserEntity } from '#shared/entities';
@@ -7,6 +8,7 @@ import { UUIDZodValidationPipe } from '#shared/pipes/uuid-validation.pipe';
 import { ProfileService } from '../../profile/services/profile.service';
 import { AuthGuard } from '../../auth/guards/auth.guard';
 import { UsersService } from '../services/users.service';
+import { ZodValidationPipe } from '@/shared/pipes/zod-validation.pipe';
 
 @Controller()
 @UseGuards(AuthGuard)
@@ -15,6 +17,14 @@ export class UsersController {
     private usersService: UsersService,
     private profileService: ProfileService,
   ) {}
+
+  @Get('/new')
+  public getNewUsers(
+    @Query(new ZodValidationPipe(PaginationParamsDtoSchema))
+    paginationParams: PaginationParamsDto,
+  ) {
+    return this.usersService.getNewMembers(paginationParams);
+  }
 
   @Get('/:id')
   public async getUser(
