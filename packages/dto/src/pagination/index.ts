@@ -1,14 +1,11 @@
 import { z } from 'zod';
 
+import { numericStringOrNumber } from '../utils';
+
 export const DEFAULT_PER_PAGE = 20;
 
 export const paginationNumericParam = (defaultValue: number) =>
-  z
-    .string()
-    .regex(/^\d+$/, {
-      message: 'Should be numeric',
-    })
-    .or(z.number())
+  numericStringOrNumber()
     .default(defaultValue)
     .pipe(z.coerce.number().int().positive().finite());
 

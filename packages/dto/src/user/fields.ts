@@ -9,6 +9,8 @@ import {
   UserLookingForRange,
 } from '@unidatex/constants';
 
+import { removeDuplicates } from '../utils';
+
 export const userBirthDate = () =>
   z
     .string()
@@ -68,7 +70,7 @@ export const userCountry = () => z.nativeEnum(Country);
 export const userLookingFor = () =>
   z
     .array(z.nativeEnum(LookingFor))
-    .transform((arr) => Array.from(new Set(arr)))
+    .transform(removeDuplicates)
     .pipe(
       z
         .array(z.nativeEnum(LookingFor))
