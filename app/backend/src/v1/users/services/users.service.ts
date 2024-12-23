@@ -49,7 +49,8 @@ export class UsersService {
       .createQueryBuilder('user')
       .where('user.signedUpAt >= :date', {
         date: currentWeekStartDate.toISOString(),
-      });
+      })
+      .orderBy('user.signedUpAt', 'DESC');
 
     return this.paginationService.paginate(
       newUsersQueryBuilder,
