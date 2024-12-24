@@ -59,17 +59,20 @@ export class UsersService {
   }
 
   public getBirthdayUsers(paginationParams: PaginationParamsDto) {
-    const todayDateStart = new Date();
-    const todayDateEnd = new Date();
+    const todayDate = new Date();
 
-    todayDateStart.setHours(0, 0, 0, 0);
-    todayDateEnd.setHours(23, 59, 59, 999);
+    todayDate.setHours(0, 0, 0, 0);
+
+    const currentMonth = todayDate.getMonth() + 1;
+    const currentMonthDay = todayDate.getDate();
 
     const newUsersQueryBuilder = this.usersRepository
       .createQueryBuilder('user')
-      .where('user.birthDate BETWEEN :startDate AND :endDate', {
-        startDate: todayDateStart.toISOString(),
-        endDate: todayDateEnd.toISOString(),
+      .where('EXTRACT(MONTH FROM user.birthDate) = :currentMonth', {
+        currentMonth,
+      })
+      .andWhere('EXTRACT(DAY FROM user.birthDate) = :currentMonthDay', {
+        currentMonthDay,
       })
       .orderBy('user.name', 'ASC');
 
