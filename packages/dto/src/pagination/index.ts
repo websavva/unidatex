@@ -1,13 +1,9 @@
 import { z } from 'zod';
 
-import { numericStringOrNumber } from '../utils';
-
 export const DEFAULT_PER_PAGE = 20;
 
 export const paginationNumericParam = (defaultValue: number) =>
-  numericStringOrNumber()
-    .default(defaultValue)
-    .pipe(z.coerce.number().int().positive().finite());
+  z.number().int().positive().finite().default(defaultValue);
 
 export const PaginationParamsDtoSchema = z.object({
   page: paginationNumericParam(1),

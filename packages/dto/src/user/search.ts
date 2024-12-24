@@ -48,21 +48,18 @@ const usersSearchRange = <PropName extends string>(
     `max${capitalizedPropName}` as `max${Capitalize<PropName>}`;
 
   const fieldsConfig = Object.fromEntries(
-    [
-      [minPropName, range.min],
-      [maxPropName, range.max],
-    ].map(([fieldName, limit]) => [
+    (
+      [
+        [minPropName, range.min],
+        [maxPropName, range.max],
+      ] as const
+    ).map(([fieldName, limit]) => [
       fieldName,
-      numericStringOrNumber()
-        .default(limit)
-        .pipe(z.coerce.number().int().finite().min(range.min).max(range.max)),
+      z.number().int().finite().min(range.min).max(range.max).default(limit),
     ]),
   ) as Record<
     typeof minPropName | typeof maxPropName,
-    z.ZodPipeline<
-      z.ZodDefault<z.ZodUnion<[z.ZodString, z.ZodNumber]>>,
-      z.ZodNumber
-    >
+    z.ZodDefault<z.ZodNumber>
   >;
 
   return z.object(fieldsConfig);
@@ -102,3 +99,5 @@ export const UsersSearchParamsDtoSchema = z
   .merge(usersSearchRange('height', UserHeightRange))
   .merge(usersSearchRange('weight', UserWeightRange))
   .partial();
+
+export type UsersSearchParamsDto = z.infer<typeof UsersSearchParamsDtoSchema>;
