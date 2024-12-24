@@ -47,10 +47,6 @@ const usersSearchRange = <PropName extends string>(
   const maxPropName =
     `max${capitalizedPropName}` as `max${Capitalize<PropName>}`;
 
-  const r = numericStringOrNumber()
-    .default(1)
-    .pipe(z.coerce.number().int().finite().min(range.min).max(range.max));
-
   const fieldsConfig = Object.fromEntries(
     [
       [minPropName, range.min],
