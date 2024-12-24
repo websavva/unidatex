@@ -36,14 +36,14 @@ export class UsersService {
     return user;
   }
 
-  public getNewMembers(paginationParams: PaginationParamsDto) {
-    const currentDate = new Date();
+  public getNewUsers(paginationParams: PaginationParamsDto) {
+    const todayDate = new Date();
 
-    currentDate.setHours(0, 0, 0, 0);
+    todayDate.setHours(0, 0, 0, 0);
 
     const sevenDaysInMs = 7 * 24 * 60 * 60 * 1e3;
 
-    const currentWeekStartDate = new Date(+currentDate - sevenDaysInMs);
+    const currentWeekStartDate = new Date(+todayDate - sevenDaysInMs);
 
     const newUsersQueryBuilder = this.usersRepository
       .createQueryBuilder('user')
@@ -51,6 +51,27 @@ export class UsersService {
         date: currentWeekStartDate.toISOString(),
       })
       .orderBy('user.signedUpAt', 'DESC');
+
+    return this.paginationService.paginate(
+      newUsersQueryBuilder,
+      paginationParams,
+    );
+  }
+
+  public getBirthdayUsers(paginationParams: PaginationParamsDto) {
+    const todayDateStart = new Date();
+    const todayDateEnd = new Date();
+
+    todayDateStart.setHours(0, 0, 0, 0);
+    todayDateEnd.setHours(23, 59, 59, 999);
+
+    const newUsersQueryBuilder = this.usersRepository
+      .createQueryBuilder('user')
+      .where('user.birthDate BETWEEN :startDate AND :endDate', {
+        startDate: todayDateStart.toISOString(),
+        endDate: todayDateEnd.toISOString(),
+      })
+      .orderBy('user.name', 'ASC');
 
     return this.paginationService.paginate(
       newUsersQueryBuilder,

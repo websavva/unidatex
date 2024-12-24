@@ -23,7 +23,15 @@ export class UsersController {
     @Query(new ZodValidationPipe(PaginationParamsDtoSchema))
     paginationParams: PaginationParamsDto,
   ) {
-    return this.usersService.getNewMembers(paginationParams);
+    return this.usersService.getNewUsers(paginationParams);
+  }
+
+  @Get('/birthday')
+  public getBirthdayUsers(
+    @Query(new ZodValidationPipe(PaginationParamsDtoSchema))
+    paginationParams: PaginationParamsDto,
+  ) {
+    return this.usersService.getBirthdayUsers(paginationParams);
   }
 
   @Get('/:id')
