@@ -23,7 +23,8 @@ import {
   type FullValidationRange,
 } from '@unidatex/constants';
 
-import { removeDuplicates, numericStringOrNumber } from '../utils';
+import { removeDuplicates } from '../utils';
+import { PaginationParamsDtoSchema } from '../pagination';
 
 const nativeEnumList = <T extends EnumLike>(enumLike: T) =>
   z
@@ -98,6 +99,7 @@ export const UsersSearchParamsDtoSchema = z
   .merge(usersSearchRange('age', UserAgeRange))
   .merge(usersSearchRange('height', UserHeightRange))
   .merge(usersSearchRange('weight', UserWeightRange))
-  .partial();
+  .partial()
+  .merge(PaginationParamsDtoSchema);
 
 export type UsersSearchParamsDto = z.infer<typeof UsersSearchParamsDtoSchema>;

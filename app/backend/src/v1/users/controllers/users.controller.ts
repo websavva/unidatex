@@ -1,5 +1,10 @@
 import { Controller, Get, UseGuards, Param, Query } from '@nestjs/common';
-import { PaginationParamsDto, PaginationParamsDtoSchema } from '@unidatex/dto';
+import {
+  PaginationParamsDto,
+  PaginationParamsDtoSchema,
+  UsersSearchParamsDto,
+  UsersSearchParamsDtoSchema,
+} from '@unidatex/dto';
 
 import { CurrentUser } from '#shared/decorators/current-user.decorator';
 import { UserEntity } from '#shared/entities';
@@ -17,6 +22,14 @@ export class UsersController {
     private usersService: UsersService,
     private profileService: ProfileService,
   ) {}
+
+  @Get('/')
+  public getUsers(
+    @Query(new ZodValidationPipe(UsersSearchParamsDtoSchema))
+    usersSearchParamsDto: UsersSearchParamsDto,
+  ) {
+    return this.usersService.getUsers(usersSearchParamsDto);
+  }
 
   @Get('/new')
   public getNewUsers(

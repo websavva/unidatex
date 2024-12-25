@@ -5,9 +5,13 @@ import { Pagination, PaginationParamsDto } from '@unidatex/dto';
 
 @Injectable()
 export class PaginationService {
-  public async paginate<T extends ObjectLiteral>(
+  public async paginate<
+    T extends ObjectLiteral,
+    FieldName extends string = 'items',
+  >(
     queryBuilder: SelectQueryBuilder<T>,
     { page, perPage }: PaginationParamsDto,
+    fieldName: FieldName = 'items' as FieldName,
   ) {
     const offset = (page - 1) * perPage;
 
@@ -25,8 +29,8 @@ export class PaginationService {
     };
 
     return {
-      items,
+      [fieldName]: items,
       pagination,
-    };
+    } as Record<FieldName, T[]> & { pagination: Pagination };
   }
 }

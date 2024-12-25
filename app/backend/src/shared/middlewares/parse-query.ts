@@ -1,10 +1,10 @@
 import { Handler, Request } from 'express';
 
-const PRIMITIVE_VALUES_MAP = {
-  false: false,
-  true: true,
-  null: null,
-};
+const PRIMITIVE_VALUES_MAP = new Map([
+  ['false', false],
+  ['true', true],
+  ['null', null],
+]);
 
 export const parseQueryField = (fieldValue: Request['query'][string]) => {
   if (Array.isArray(fieldValue))
@@ -13,8 +13,8 @@ export const parseQueryField = (fieldValue: Request['query'][string]) => {
     return fieldValue;
   } else if (/^[+-]?\d+(\.\d+)?$/.test(fieldValue)) {
     return +fieldValue;
-  } else if (PRIMITIVE_VALUES_MAP[fieldValue]) {
-    return PRIMITIVE_VALUES_MAP[fieldValue];
+  } else if (PRIMITIVE_VALUES_MAP.has(fieldValue)) {
+    return PRIMITIVE_VALUES_MAP.get(fieldValue);
   } else {
     return fieldValue;
   }
