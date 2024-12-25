@@ -140,8 +140,8 @@ export class UsersService {
     },
     {
       fieldNames: [
-        // 'minAge',
-        // 'maxAge',
+        'minAge',
+        'maxAge',
         'minHeight',
         'maxHeight',
         'minHeight',
@@ -153,19 +153,27 @@ export class UsersService {
           /(?<limitType>min|max)(?<fieldName>\w+)/,
         )!;
 
-        const searchFieldName = `${name}Vale`;
-
-        const isMax = limitType === 'max';
+        const searchFieldName = `${name}Value`;
+        const comparisonSign = limitType === 'max' ? '<=' : '>=';
 
         const normalizedFieldName =
           fieldName[0].toLowerCase() + fieldName.slice(1);
 
-        return qb.andWhere(
-          `user.${normalizedFieldName} ${isMax ? '<=' : '>='} :${searchFieldName}`,
-          {
-            [searchFieldName]: value,
-          },
-        );
+        if (normalizedFieldName === 'age') {
+          return qb.where(
+            `DATE_PART('year', AGE(user.birthDate)) ${comparisonSign} :${searchFieldName}`,
+            {
+              [searchFieldName]: value,
+            },
+          );
+        } else {
+          return qb.andWhere(
+            `user.${normalizedFieldName} ${comparisonSign} :${searchFieldName}`,
+            {
+              [searchFieldName]: value,
+            },
+          );
+        }
       },
     },
     {
@@ -213,10 +221,11 @@ export class UsersService {
       );
     }
 
-    return this.paginationService.paginate(
-      searchUsersQueryBuilder,
-      paginationParams,
-      'users',
-    );
+    return this.paginationService
+      .paginate(searchUsersQueryBuilder, paginationParams, 'users')
+      .then(({ users }) => {
+        debugger;
+        return users;
+      });
   }
 }
