@@ -39,6 +39,8 @@ import { UserPhotoEntity } from './user-photo.entity';
 import { UserProfileViewEntity } from './user-profile-view.entity';
 import { UserFavoriteEntity } from './user-favorite.entity';
 import { CityEntity } from './city.entity';
+import { ChatEntity } from './chat/chat.entity';
+import { MessageEntity } from './chat/message.entity';
 
 @Entity('users')
 @Check(
@@ -275,7 +277,7 @@ export class UserEntity {
 
   @OneToMany(
     () => UserProfileViewEntity,
-    (UserProfileViewEntity) => UserProfileViewEntity.viewer,
+    (userProfileView) => userProfileView.viewer,
     {
       lazy: true,
     },
@@ -284,28 +286,39 @@ export class UserEntity {
 
   @OneToMany(
     () => UserProfileViewEntity,
-    (UserProfileViewEntity) => UserProfileViewEntity.viewedUser,
+    (userProfileView) => userProfileView.viewedUser,
     {
       lazy: true,
     },
   )
   incomingViews: Promise<Relation<UserProfileViewEntity>[]>;
 
-  @OneToMany(
-    () => UserFavoriteEntity,
-    (UserFavoriteEntity) => UserFavoriteEntity.user,
-    {
-      lazy: true,
-    },
-  )
+  @OneToMany(() => UserFavoriteEntity, (userFavorite) => userFavorite.user, {
+    lazy: true,
+  })
   favoritedUsers: Promise<Relation<UserFavoriteEntity>[]>;
 
   @OneToMany(
     () => UserFavoriteEntity,
-    (UserFavoriteEntity) => UserFavoriteEntity.favoritedUser,
+    (userFavorite) => userFavorite.favoritedUser,
     {
       lazy: true,
     },
   )
   favoritedByUsers: Promise<Relation<UserFavoriteEntity>[]>;
+
+  @OneToMany(() => ChatEntity, (chat) => chat.masterParticipant, {
+    lazy: true,
+  })
+  masterChats: Promise<Relation<ChatEntity>[]>;
+
+  @OneToMany(() => ChatEntity, (chat) => chat.subParticipant, {
+    lazy: true,
+  })
+  subChats: Promise<Relation<ChatEntity>[]>;
+
+  @OneToMany(() => MessageEntity, (message) => message.sender, {
+    lazy: true,
+  })
+  sentMessages: Promise<Relation<MessageEntity>[]>;
 }
