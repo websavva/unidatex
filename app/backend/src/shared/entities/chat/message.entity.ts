@@ -33,6 +33,7 @@ export class MessageEntity {
 
   @Column({
     type: 'varchar',
+    length: 20e3,
   })
   text: string;
 
