@@ -2,7 +2,6 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn,
   ManyToOne,
   Unique,
   Relation,
@@ -50,7 +49,4 @@ export class MessageEntity {
 
   @CreateDateColumn()
   sentAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
 }
