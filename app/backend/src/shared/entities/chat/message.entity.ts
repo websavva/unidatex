@@ -12,7 +12,7 @@ import { UserEntity } from '../user.entity';
 import { ChatEntity } from './chat.entity';
 
 @Entity()
-@Unique(['participant1', 'participant2']) // Ensure uniqueness for the user pair
+@Unique(['participant1', 'participant2'])
 export class MessageEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
